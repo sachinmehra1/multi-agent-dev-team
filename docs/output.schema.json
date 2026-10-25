@@ -1,0 +1,122 @@
+{
+  "$defs": {
+    "ExecutionResult": {
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "default": "not_run",
+          "enum": [
+            "not_run",
+            "passed",
+            "failed",
+            "timeout",
+            "unavailable",
+            "output_limit"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "stdout": {
+          "default": "",
+          "title": "Stdout",
+          "type": "string"
+        },
+        "stderr": {
+          "default": "",
+          "title": "Stderr",
+          "type": "string"
+        },
+        "exit_code": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Exit Code"
+        }
+      },
+      "title": "ExecutionResult",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "task_complete": {
+      "title": "Task Complete",
+      "type": "boolean"
+    },
+    "code": {
+      "title": "Code",
+      "type": "string"
+    },
+    "explanation": {
+      "minLength": 1,
+      "title": "Explanation",
+      "type": "string"
+    },
+    "plan": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "Plan",
+      "type": "array"
+    },
+    "result": {
+      "$ref": "#/$defs/ExecutionResult"
+    },
+    "files_written": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Files Written",
+      "type": "array"
+    },
+    "iterations_used": {
+      "maximum": 10,
+      "minimum": 0,
+      "title": "Iterations Used",
+      "type": "integer"
+    },
+    "total_tokens": {
+      "minimum": 0,
+      "title": "Total Tokens",
+      "type": "integer"
+    },
+    "error": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Error"
+    },
+    "warnings": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Warnings",
+      "type": "array"
+    }
+  },
+  "required": [
+    "task_complete",
+    "code",
+    "explanation",
+    "plan",
+    "result",
+    "files_written",
+    "iterations_used",
+    "total_tokens"
+  ],
+  "title": "AgentOutput",
+  "type": "object"
+}

@@ -1,1 +1,21 @@
-# Module 1 scaffold; implementation follows.
+services:
+  coder:
+    build: .
+    env_file: .env
+    environment:
+      WORKSPACE_DIR: /data/workspace
+      CHROMA_DIR: /data/chroma
+    volumes:
+      - coder_data:/data
+      # Trusted orchestrator only. Generated-code containers never receive this socket.
+      - /var/run/docker.sock:/var/run/docker.sock
+    init: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    read_only: true
+    tmpfs:
+      - /tmp
+      - /root/.cache
+    command: ["Write a Python addition function with assertions and execute it."]
+volumes:
+  coder_data:
