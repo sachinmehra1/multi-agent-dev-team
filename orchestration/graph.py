@@ -65,7 +65,7 @@ class CoderGraph:
 
     def act(self, state):
         decision = state.decision
-        name = "run_code" if decision.action == "exec_python" else decision.action
+        name = "run_code" if decision.action in ("exec_python", "execute_python") else decision.action
         signature = json.dumps([name, decision.arguments], sort_keys=True)
         actions = state.actions + [signature]
         repeated = len(actions) >= 3 and len(set(actions[-3:])) == 1

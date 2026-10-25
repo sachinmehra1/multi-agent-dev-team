@@ -82,7 +82,7 @@ multi-agent-dev-team/
 - **Guards:** at most 10 total model calls; a malformed response gets one repair
   within that budget. The third consecutive identical action is blocked, as is a
   repeating three-action cycle. Excess context stops with a structured error.
-- **Tools:** `read_file`, `write_file`, `run_code` and the course alias `exec_python`.
+- **Tools:** `read_file`, `write_file`, `execute_python` and the aliases `run_code` and `exec_python`.
   File tools reject absolute paths, traversal, hidden paths and symlinks. UTF-8
   files are capped at 100 KB each, 64 files and a 1 MB execution snapshot.
 - **Sandbox:** Docker is mandatory for model-generated code. Each execution gets a

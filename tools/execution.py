@@ -113,3 +113,5 @@ class CodeRunner:
                            stderr=subprocess.DEVNULL, timeout=5, check=False)
 
     exec_python = run_code
+
+    execute_python = run_code

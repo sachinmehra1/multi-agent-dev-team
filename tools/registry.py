@@ -18,6 +18,6 @@ class ToolRegistry:
         args = PathInput.model_validate(arguments)
         if name == "read_file":
             return {"content": self.files.read_file(args.path)}
-        if name in ("run_code", "exec_python"):
+        if name in ("run_code", "exec_python", "execute_python"):
             return self.runner.run_code(args.path).model_dump()
         raise ValueError("Unknown tool")

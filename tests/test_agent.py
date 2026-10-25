@@ -6,10 +6,11 @@ from tests.conftest import decision, finish
 
 CODE = "def add(a, b):\n    return a + b\nassert add(2, 3) == 5\nassert add(-1, 1) == 0\nprint(add(2, 3))\n"
 
-def test_smoke_real_graph_chroma_and_subprocess(factory):
+@pytest.mark.parametrize("execution_tool", ["execute_python", "exec_python", "run_code"])
+def test_smoke_real_graph_chroma_and_subprocess(factory, execution_tool):
     agent, model, memory = factory([decision("write_file", path="add.py", content=CODE),
                                    decision("read_file", path="add.py"),
-                                   decision("run_code", path="add.py"), finish()])
+                                   decision(execution_tool, path="add.py"), finish()])
     output = agent.run("Write and test a Python addition function")
     assert output.task_complete
     assert output.result.stdout.strip() == "5"
@@ -106,3 +107,13 @@ def test_session_switch_clears_conversation(factory):
     agent.run("second session task", session_id="second")
     assert "first session task" not in json.dumps(model.messages[-1])
     assert "first.py" not in json.dumps(model.messages[-1])
+
+
+def test_execution_aliases_share_loop_guard(factory):
+    steps = [decision("write_file", path="x.py", content="print(1)")]
+    steps += [decision(name, path="x.py") for name in ("execute_python", "exec_python", "run_code")]
+    agent, _, memory = factory(steps)
+    out = agent.run("Run the script")
+    assert "Repeated" in out.error
+    assert out.iterations_used == 4
+    assert memory.collection.count() == 3

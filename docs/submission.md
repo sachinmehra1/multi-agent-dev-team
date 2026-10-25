@@ -2,9 +2,7 @@
 
 Status: **local Git repository only — not pushed, not submitted**.
 
-The GitHub connector available during preparation could read account information but
-did not expose a repository-creation action. The GitHub CLI was not installed. No
-remote was invented or added, and no existing repository was modified.
+No GitHub push or LMS submission was performed, as requested.
 
 The local history contains an initial required-structure scaffold commit followed by
 the implementation. The supplied `.bundle` preserves that history. The `.zip` is a

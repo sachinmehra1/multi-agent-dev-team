@@ -14,7 +14,7 @@ guide was inspected visually. Source PDFs are intentionally not redistributed.
 | Chroma semantic memory | PersistentClient, production MiniLM embeddings, session-filtered top-3 query |
 | Recall before every LLM call | think node before complete(), including JSON repair; test_agent.py |
 | Custom file tools | tools/files.py; traversal/symlink/size tests |
-| run_code / exec_python | tools/execution.py; alias and typed registry |
+| execute_python / run_code / exec_python | tools/execution.py; alias and typed registry |
 | Subprocess sandbox, default 10-second timeout, no eval | Per-execution Docker container started via subprocess; timeout/output limits |
 | ReACT with maximum 10 iterations | Typed thought/action/observation loop; max-ten and tenth-call finish tests |
 | Additional loop detection | Third identical action and repeating three-action cycle tests |

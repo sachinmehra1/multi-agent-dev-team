@@ -5,7 +5,7 @@
   "plan": [
     "Perform write_file",
     "Perform read_file",
-    "Perform run_code"
+    "Perform execute_python"
   ],
   "result": {
     "status": "passed",

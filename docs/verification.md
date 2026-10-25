@@ -1,4 +1,4 @@
-# Verification record — 25 October 2026
+# Verification record — 26 October 2026
 
 Environment: macOS ARM64, Python 3.12.4, isolated virtual environment.
 Installed direct dependencies: LangGraph 1.2.17, Chroma 1.5.9, Pydantic 2.14.1,
@@ -8,8 +8,8 @@ HTTPX 0.28.1, python-dotenv 1.2.4, pytest 9.1.1.
 
 ```text
 python -m pytest -q
-.............sss................                                         [100%]
-29 passed, 3 skipped in 0.89s
+................sss.................                                         [100%]
+33 passed, 3 skipped in 2.10s
 
 python -m pip check
 No broken requirements found.
@@ -19,6 +19,8 @@ No broken requirements found.
   scripted model decisions, real local subprocess running trusted fixture code.
   The generated addition function passes positive/negative input assertions and
   prints `5`. Four iterations, 28 **synthetic** tokens from the scripted model.
+- Execution tool names: `execute_python`, `exec_python` and `run_code` each pass the
+  full smoke test; aliases share a canonical signature for loop detection.
 - Guards: ten-call cap, finish on call ten, one bounded JSON repair, identical-action
   detection, three-action cycle detection and session-switch isolation.
 - Integrity: failed execution cannot be reported complete; edits invalidate prior

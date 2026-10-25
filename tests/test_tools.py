@@ -55,10 +55,11 @@ def test_no_unsafe_fallback(tmp_path, monkeypatch):
     files.write_file("x.py", "print(1)")
     assert CodeRunner(files).run_code("x.py").status == "unavailable"
 
-def test_exec_python_alias(tmp_path):
+@pytest.mark.parametrize("name", ["exec_python", "execute_python"])
+def test_exec_python_alias(tmp_path, name):
     files = FileTools(tmp_path/"work")
     files.write_file("x.py", "print(1)")
-    assert CodeRunner(files, backend="trusted-local").exec_python("x.py").status == "passed"
+    assert getattr(CodeRunner(files, backend="trusted-local"), name)("x.py").status == "passed"
 
 
 def test_docker_restrictions_and_cleanup(tmp_path, monkeypatch):

@@ -19,7 +19,7 @@ class FinalAnswer(StrictModel):
 class Decision(StrictModel):
     # A short operational summary, not private chain-of-thought.
     thought: str = Field(min_length=1, max_length=500)
-    action: Literal["read_file", "write_file", "run_code", "exec_python", "finish"]
+    action: Literal["read_file", "write_file", "run_code", "exec_python", "execute_python", "finish"]
     arguments: dict = Field(default_factory=dict)
     final: FinalAnswer | None = None
 
