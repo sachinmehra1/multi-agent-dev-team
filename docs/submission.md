@@ -1,19 +1,13 @@
 # Course submission
 
-Public repository: https://github.com/sachinmehra1/multi-agent-dev-team
+Submit this single repository URL in the Module 1 assignment text box:
 
-The tested Module 1 implementation has been pushed to `main`. The original browser
-upload and local scaffold/implementation history are preserved in a merge commit.
-API keys, runtime memory and generated workspaces are excluded.
+https://github.com/sachinmehra1/multi-agent-dev-team
 
-## Submit through the Saras LMS
+The README links to all four completed official lab forks and their evidence.
+See [course-labs.md](course-labs.md) for test results and reproduction details.
+Lab 1.4 includes real LangGraph, AutoGen, and CrewAI runs, recorded token usage,
+generated modules, and six completed tradeoff sections.
 
-- Repository URL: https://github.com/sachinmehra1/multi-agent-dev-team
-- Commit SHA: copy the full SHA of the newest passing commit from GitHub.
-- Milestone: Module 1 — Coder Agent v1.0.
-
-Verify the published SHA with `git rev-parse HEAD` and `git ls-remote origin refs/heads/main`.
-Check the repository's Actions tab for the automated tests. See `verification.md`
-for local results and `live-addition-output.json` for the successful live task.
-
-Publication is complete; LMS submission has not been performed.
+Publication is complete. LMS submission has not been performed.
+The original standalone Coder Agent implementation remains available in this hub.

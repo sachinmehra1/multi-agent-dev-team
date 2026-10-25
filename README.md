@@ -2,13 +2,34 @@
 
 Saras AI Institute · Build Autonomous Multi-Agent Systems · Module 1.
 
+## Module 1 submission hub
+
+The four official lab forks are completed and tested:
+
+| Lab | Repository | Results |
+|---|---|---|
+| 1.1 | [Memory](https://github.com/sachinmehra1/Multi-agents-lab-1-1-memory) | 5 offline tests + live recall passed |
+| 1.2 | [Tools](https://github.com/sachinmehra1/Multi-agents-lab-1-2-tools) | 24 tests + live demo passed |
+| 1.3 | [ReACT Coder](https://github.com/sachinmehra1/Multi-agents-lab-1-3-react-coder) | 24 supplied tests including live + 3 regression tests passed |
+| 1.4 | [LangGraph / AutoGen / CrewAI](https://github.com/sachinmehra1/Multi-agents-lab-1-4-langgraph-autogen-crewai) | 29 live tests + 9 artifact tests passed |
+
+**Submit this repository URL:** https://github.com/sachinmehra1/multi-agent-dev-team
+
+[Lab evidence and reproduction notes](docs/course-labs.md) ·
+[Actual framework comparison](https://github.com/sachinmehra1/Multi-agents-lab-1-4-langgraph-autogen-crewai/blob/main/comparison/results.json)
+
+Live labs used the owner's OpenAI account directly. No user keys are included.
+LMS submission remains pending.
+
+## Standalone Coder Agent
+
 A single LangGraph Coder agent accepts a natural-language Python task, writes files,
 executes them in a restricted container, and returns Pydantic-validated JSON.
 The PM and QA modules are explicitly reserved for Modules 2 and 3.
 
 **Delivery status:** implemented, tested locally, and published at
 https://github.com/sachinmehra1/multi-agent-dev-team. LMS submission remains pending.
-The course requires the **public GitHub repository URL and published commit SHA**.
+The standalone implementation and the official lab forks have separate test evidence.
 See [submission instructions](docs/submission.md) and [test evidence](docs/verification.md).
 The live GPT-4o + Chroma + Docker addition task passed; its actual result is in
 [the live run record](docs/live-addition-output.json).
