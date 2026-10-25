@@ -6,8 +6,9 @@ A single LangGraph Coder agent accepts a natural-language Python task, writes fi
 executes them in a restricted container, and returns Pydantic-validated JSON.
 The PM and QA modules are explicitly reserved for Modules 2 and 3.
 
-**Delivery status:** implemented and tested locally. This copy has not been pushed
-or submitted. The course requires a **public GitHub repository URL and commit SHA**.
+**Delivery status:** implemented, tested locally, and published at
+https://github.com/sachinmehra1/multi-agent-dev-team. LMS submission remains pending.
+The course requires the **public GitHub repository URL and published commit SHA**.
 See [submission instructions](docs/submission.md) and [test evidence](docs/verification.md).
 The live GPT-4o + Chroma + Docker addition task passed; its actual result is in
 [the live run record](docs/live-addition-output.json).
