@@ -2,6 +2,10 @@
 
 ## Latest results
 
+- Full suite with Docker, MiniLM and live GPT-4o enabled: **37 passed, zero skips**.
+- Instrumented two-task rubric verification: **passed**, four iterations per task;
+  actual read/write/execute calls, persisted follow-up recall and artifact-matching
+  Pydantic output. See [rubric evidence](rubric-evidence.md).
 - Default offline suite: **34 passed, 3 skipped**.
 - Suite with real Docker and MiniLM semantic retrieval enabled: **36 passed, 1 skipped** in 3.56 seconds.
 - Live CLI run using GPT-4o, persistent Chroma with production MiniLM embeddings,
@@ -9,9 +13,10 @@
 - Generated addition code passed assertions for positive, negative, mixed-sign,
   and zero inputs. Execution exited 0 and printed `All test cases passed.`
 - See `live-addition-output.json` for the actual successful live result.
-- The optional pytest live-LLM test remains skipped; the equivalent live CLI task
-  was exercised separately. Docker build/Compose and hosted CI remain untested.
-- No GitHub push or LMS submission has occurred.
+- The optional pytest live-LLM test has now passed. Docker build/Compose remains
+  untested; the README local setup with Docker execution was verified. Hosted CI
+  passed on the published submission hub before this rubric audit.
+- The public repository is published. LMS submission remains pending.
 
 ## Fix discovered during live testing
 

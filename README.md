@@ -2,7 +2,15 @@
 
 Saras AI Institute · Build Autonomous Multi-Agent Systems · Module 1.
 
-## Module 1 submission hub
+## Graded Module 1 Coder Agent
+
+The main project implements the six C1.1–C1.6 criteria using **LangGraph + GPT-4o**.
+See the [rubric evidence map](docs/rubric-evidence.md) and the
+[instrumented live memory/tool runs](docs/rubric-live-evidence.json).
+The course-wide grading rubric states that recommended labs and multiple
+frameworks are optional; the linked lab forks are supplementary work.
+
+## Supporting course labs
 
 The four official lab forks are completed and tested:
 

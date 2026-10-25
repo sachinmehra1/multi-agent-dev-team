@@ -1,8 +1,10 @@
-# Module 1 official lab submission
+# Supplementary Module 1 course labs
 
 Submit this hub URL: https://github.com/sachinmehra1/multi-agent-dev-team
 
-The four official lab forks are linked below. The original standalone Coder Agent
+The consolidated rubric explicitly makes recommended labs and multiple frameworks optional.
+The graded artifact is the main Coder Agent; see [rubric evidence](rubric-evidence.md).
+The four completed lab forks are linked below as supplementary work. The original standalone Coder Agent
 remains available in this repository, with its separate verification evidence.
 
 | Lab | Completed fork | Verification |

@@ -51,3 +51,11 @@ def test_live_end_to_end(tmp_path):
     agent = build_agent(model, tmp_path/"work", tmp_path/"chroma")
     result = agent.run("Write a Python addition function and a runnable script with assertions for 2+3 and -1+1; execute it.")
     assert result.task_complete and result.result.status == "passed", result
+    from orchestration.models import AgentOutput
+    assert {"code", "explanation", "plan", "result"} <= result.model_dump().keys()
+    AgentOutput.model_validate_json(result.model_dump_json())
+    assert result.code and result.explanation and result.plan
+    actual = "\n\n".join(f"# File: {name}\n" + agent.tools.files.read_file(name)
+                            for name in result.files_written)
+    assert result.code == actual
+    assert result.result.exit_code == 0

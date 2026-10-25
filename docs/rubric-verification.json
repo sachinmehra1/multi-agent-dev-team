@@ -1,0 +1,32 @@
+{
+  "date": "2026-10-26",
+  "suite": {
+    "passed": 37,
+    "skipped": 0,
+    "docker": true,
+    "semantic_minilm": true,
+    "live_llm": true
+  },
+  "observed_runs": [
+    {
+      "iterations": 4,
+      "tools": [
+        "write_file",
+        "read_file",
+        "run_code"
+      ],
+      "stdout": "saras-memory-17 5\n",
+      "task_complete": true
+    },
+    {
+      "iterations": 4,
+      "tools": [
+        "write_file",
+        "read_file",
+        "run_code"
+      ],
+      "stdout": "saras-memory-17 -10\n",
+      "task_complete": true
+    }
+  ]
+}
