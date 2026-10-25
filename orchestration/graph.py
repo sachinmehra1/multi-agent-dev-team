@@ -1,5 +1,6 @@
 import json
 import logging
+from pydantic import ValidationError
 from langgraph.graph import StateGraph, START, END
 from orchestration.llm import SYSTEM_PROMPT
 from orchestration.models import AgentState, AgentOutput, Decision, ExecutionResult
@@ -50,9 +51,12 @@ class CoderGraph:
         event("llm_response", iteration=iteration, total_tokens=reply.total_tokens)
         try:
             decision = Decision.model_validate_json(reply.content)
-        except (ValueError, TypeError):
-            # Only one repair, charged to the same hard ten-call cap.
-            self.conversation.add("Invalid model output", "Return valid JSON matching the supplied schema.")
+        except (ValueError, TypeError) as exc:
+            # Send field-level errors without echoing raw response data or secrets.
+            details = exc.errors(include_input=False, include_url=False) if isinstance(exc, ValidationError) else []
+            event("validation_error", errors=[{"field": e.get("loc"), "type": e.get("type"), "message": e.get("msg")} for e in details])
+            self.conversation.add(reply.content[:12000], "Return valid JSON matching the supplied schema. "
+                                  + json.dumps(details, default=str))
             invalid = state.invalid_outputs + 1
             return {"iterations": iteration, "total_tokens": tokens, "invalid_outputs": invalid,
                     "decision": None, "error": "Invalid structured output after repair" if invalid >= 2 else None}

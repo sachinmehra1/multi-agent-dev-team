@@ -9,6 +9,8 @@ The PM and QA modules are explicitly reserved for Modules 2 and 3.
 **Delivery status:** implemented and tested locally. This copy has not been pushed
 or submitted. The course requires a **public GitHub repository URL and commit SHA**.
 See [submission instructions](docs/submission.md) and [test evidence](docs/verification.md).
+The live GPT-4o + Chroma + Docker addition task passed; its actual result is in
+[the live run record](docs/live-addition-output.json).
 
 ## Setup
 
@@ -154,7 +156,7 @@ only use this configuration with trusted orchestration source on a development m
 Generated code never receives the socket or API credentials. For stronger separation,
 run the CLI locally against a dedicated Docker daemon/VM. Compose's named volume
 preserves workspace and memory; its embedding cache is temporary and may redownload.
-Docker setup is provided but was not executed in the delivery environment.
+Docker sandbox execution and timeout checks passed locally; the Compose build remains untested.
 
 ## Limits
 

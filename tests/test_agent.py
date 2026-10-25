@@ -117,3 +117,12 @@ def test_execution_aliases_share_loop_guard(factory):
     assert "Repeated" in out.error
     assert out.iterations_used == 4
     assert memory.collection.count() == 3
+
+
+def test_repair_reports_field_level_validation_error(factory):
+    invalid = finish()
+    invalid['final']['result'] = 'passed'
+    agent, model, _ = factory([invalid, finish(False)])
+    agent.run('addition')
+    repair = str(model.messages[-1])
+    assert 'extra_forbidden' in repair and 'result' in repair
