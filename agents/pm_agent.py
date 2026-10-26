@@ -29,7 +29,8 @@ class ProductManager:
         prompt = (
             'You are the Product Manager. Convert the original requirement into a technical '
             'specification with name, description, acceptance_criteria and ordered tasks. '
-            'Preserve every requested behavior. Each task has task_id, description, '
+            'Preserve every requested behavior. For a compact Python data structure, use one implementation task covering all methods and initial assertions. '
+            'Each task has task_id, description, '
             'acceptance_criteria and priority (1 highest, 5 lowest); status is pending. '
             'Plan 2-4 discrete tasks for the REST API: implement health first, then echo '
             'and input validation, then tests only if necessary. Tasks execute in list order. '

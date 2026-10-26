@@ -15,3 +15,5 @@ jobs:
       - run: RUN_DOCKER_TESTS=1 python -m pytest tests/test_integration.py -q
       - run: docker build -f Dockerfile.executor -t coder-python-api:module2 .
       - run: RUN_MODULE2_DOCKER_TESTS=1 python -m pytest tests/test_api_fixture.py -q
+      - run: docker build -f Dockerfile.qa -t coder-python-qa:module3 .
+      - run: RUN_MODULE3_DOCKER_TESTS=1 python -m pytest tests/test_qa_team.py -q

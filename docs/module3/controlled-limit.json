@@ -1,0 +1,660 @@
+{
+  "evidence_type": "Controlled fixture: scripted model outputs, real Docker pytest execution",
+  "state": {
+    "requirement": "Implement a Python module that contains a linked list class with insert, delete, search, and reverse methods. All methods must be covered by tests.\nUse linked_list.py with LinkedList() and head nodes exposing data and next. insert(value) appends; delete(value) removes the first matching item and returns a bool; search(value) returns a bool; reverse() reverses in place and returns None. Support empty lists, singletons, duplicates and missing values. Use runnable assertion scripts for the initial Coder checks; QA will generate pytest tests separately.",
+    "project": {
+      "original_requirement": "Implement a Python module that contains a linked list class with insert, delete, search, and reverse methods. All methods must be covered by tests.\nUse linked_list.py with LinkedList() and head nodes exposing data and next. insert(value) appends; delete(value) removes the first matching item and returns a bool; search(value) returns a bool; reverse() reverses in place and returns None. Support empty lists, singletons, duplicates and missing values. Use runnable assertion scripts for the initial Coder checks; QA will generate pytest tests separately.",
+      "technical_spec": {
+        "name": "Linked list",
+        "description": "Implement a Python module that contains a linked list class with insert, delete, search, and reverse methods. All methods must be covered by tests.\nUse linked_list.py with LinkedList() and head nodes exposing data and next. insert(value) appends; delete(value) removes the first matching item and returns a bool; search(value) returns a bool; reverse() reverses in place and returns None. Support empty lists, singletons, duplicates and missing values. Use runnable assertion scripts for the initial Coder checks; QA will generate pytest tests separately.",
+        "acceptance_criteria": [
+          "insert appends values",
+          "delete removes first match",
+          "search finds values",
+          "reverse changes order"
+        ],
+        "tasks": [
+          {
+            "task_id": "linked-list",
+            "description": "Implement linked list",
+            "acceptance_criteria": [
+              "insert appends values",
+              "delete removes first match",
+              "search finds values",
+              "reverse changes order"
+            ],
+            "priority": 1,
+            "source_task_ids": [],
+            "status": "pending"
+          }
+        ]
+      },
+      "original_tasks": [],
+      "tasks": [
+        {
+          "task_id": "linked-list",
+          "description": "Implement linked list",
+          "acceptance_criteria": [
+            "insert appends values",
+            "delete removes first match",
+            "search finds values",
+            "reverse changes order"
+          ],
+          "priority": 1,
+          "source_task_ids": [],
+          "status": "completed"
+        }
+      ],
+      "current_task_index": 0,
+      "handoff": null,
+      "handoff_history": [],
+      "progress": [],
+      "code_output": {
+        "linked_list.py": "class Node:\n    def __init__(self, data):\n        self.data, self.next = data, None\n\nclass LinkedList:\n    def __init__(self):\n        self.head = None\n\n    def insert(self, value):\n        node = Node(value)\n        if self.head is None:\n            self.head = node\n            return\n        current = self.head\n        while current.next is not None:\n            current = current.next\n        current.next = node\n\n    def delete(self, value):\n        previous, current = None, self.head\n        while current is not None:\n            if current.data == value:\n                if previous is None:\n                    self.head = current.next\n                else:\n                    previous.next = current.next\n                return True\n            previous, current = current, current.next\n        return False\n\n    def search(self, value):\n        current = self.head\n        while current is not None:\n            if current.data == value:\n                return True\n            current = current.next\n        return False\n\n    def reverse(self):\n        return None\n\nATTEMPT = 1\n"
+      },
+      "artifacts": [],
+      "verification": null,
+      "complete": false,
+      "error": null
+    },
+    "source": {
+      "linked_list.py": "class Node:\n    def __init__(self, data):\n        self.data, self.next = data, None\n\nclass LinkedList:\n    def __init__(self):\n        self.head = None\n\n    def insert(self, value):\n        node = Node(value)\n        if self.head is None:\n            self.head = node\n            return\n        current = self.head\n        while current.next is not None:\n            current = current.next\n        current.next = node\n\n    def delete(self, value):\n        previous, current = None, self.head\n        while current is not None:\n            if current.data == value:\n                if previous is None:\n                    self.head = current.next\n                else:\n                    previous.next = current.next\n                return True\n            previous, current = current, current.next\n        return False\n\n    def search(self, value):\n        current = self.head\n        while current is not None:\n            if current.data == value:\n                return True\n            current = current.next\n        return False\n\n    def reverse(self):\n        return None\n\nATTEMPT = 1\n"
+    },
+    "acceptance_criteria": [
+      "insert appends values",
+      "delete removes first match",
+      "search finds values",
+      "reverse changes order"
+    ],
+    "reflection": {
+      "critique": {
+        "items": [
+          {
+            "location": "linked_list.py:LinkedList.search",
+            "concern": "Falsey values such as zero are incorrectly rejected.",
+            "proposed_revision": "Compare stored values for equality even when they are falsey."
+          }
+        ]
+      },
+      "explanation": "Correct zero-value lookup before QA",
+      "before": {
+        "linked_list.py": "class Node:\n    def __init__(self, data):\n        self.data, self.next = data, None\n\nclass LinkedList:\n    def __init__(self):\n        self.head = None\n\n    def insert(self, value):\n        node = Node(value)\n        if self.head is None:\n            self.head = node\n            return\n        current = self.head\n        while current.next is not None:\n            current = current.next\n        current.next = node\n\n    def delete(self, value):\n        previous, current = None, self.head\n        while current is not None:\n            if current.data == value:\n                if previous is None:\n                    self.head = current.next\n                else:\n                    previous.next = current.next\n                return True\n            previous, current = current, current.next\n        return False\n\n    def search(self, value):\n        if not value:\n            return False\n        current = self.head\n        while current is not None:\n            if current.data == value:\n                return True\n            current = current.next\n        return False\n\n    def reverse(self):\n        return None\n"
+      },
+      "after": {
+        "linked_list.py": "class Node:\n    def __init__(self, data):\n        self.data, self.next = data, None\n\nclass LinkedList:\n    def __init__(self):\n        self.head = None\n\n    def insert(self, value):\n        node = Node(value)\n        if self.head is None:\n            self.head = node\n            return\n        current = self.head\n        while current.next is not None:\n            current = current.next\n        current.next = node\n\n    def delete(self, value):\n        previous, current = None, self.head\n        while current is not None:\n            if current.data == value:\n                if previous is None:\n                    self.head = current.next\n                else:\n                    previous.next = current.next\n                return True\n            previous, current = current, current.next\n        return False\n\n    def search(self, value):\n        current = self.head\n        while current is not None:\n            if current.data == value:\n                return True\n            current = current.next\n        return False\n\n    def reverse(self):\n        return None\n"
+      }
+    },
+    "fixes": [
+      {
+        "feedback": {
+          "task_id": "controlled-limit",
+          "source_digest": "0dcc0c181b02aad2cfe1d51d0ef4678d5a92aa08b640f407d45d3cb48aa7bc8d",
+          "approved": false,
+          "issues": [
+            {
+              "severity": "High",
+              "location": "qa_tests/test_generated.py::test_reverse",
+              "description": "qa_tests/test_generated.py:47: in test_reverse\n    assert values(linked) == [3, 2, 1]\nE   assert [1, 2, 3] == [3, 2, 1]\nE     \nE     At index 0 diff: 1 != 3\nE     Use -v to get more diff",
+              "fix_instruction": "Revise the application to satisfy this failing assertion; keep the QA tests unchanged. qa_tests/test_generated.py:47: in test_reverse\n    assert values(linked) == [3, 2, 1]\nE   assert [1, 2, 3] == [3, 2, 1]\nE     \nE     At index 0 diff: 1 != 3\nE     Use -v to get more diff",
+              "acceptance_criteria": [
+                "reverse changes order"
+              ]
+            }
+          ],
+          "execution": {
+            "status": "failed",
+            "stdout": "...F                                                                     [100%]\n=================================== FAILURES ===================================\n_________________________________ test_reverse _________________________________\nqa_tests/test_generated.py:47: in test_reverse\n    assert values(linked) == [3, 2, 1]\nE   assert [1, 2, 3] == [3, 2, 1]\nE     \nE     At index 0 diff: 1 != 3\nE     Use -v to get more diff\n=========================== short test summary info ============================\nFAILED qa_tests/test_generated.py::test_reverse - assert [1, 2, 3] == [3, 2, 1]\n1 failed, 3 passed in 0.02s\n\n__QA_REPORT__={\"exit_code\": 1, \"records\": [{\"nodeid\": \"qa_tests/test_generated.py::test_insert\", \"phase\": \"call\", \"outcome\": \"passed\", \"detail\": \"\"}, {\"nodeid\": \"qa_tests/test_generated.py::test_delete\", \"phase\": \"call\", \"outcome\": \"passed\", \"detail\": \"\"}, {\"nodeid\": \"qa_tests/test_generated.py::test_search\", \"phase\": \"call\", \"outcome\": \"passed\", \"detail\": \"\"}, {\"nodeid\": \"qa_tests/test_generated.py::test_reverse\", \"phase\": \"call\", \"outcome\": \"failed\", \"detail\": \"qa_tests/test_generated.py:47: in test_reverse\\n    assert values(linked) == [3, 2, 1]\\nE   assert [1, 2, 3] == [3, 2, 1]\\nE     \\nE     At index 0 diff: 1 != 3\\nE     Use -v to get more diff\"}]}\n",
+            "stderr": "",
+            "exit_code": 1
+          },
+          "tests_run": 4,
+          "passed_tests": [
+            "qa_tests/test_generated.py::test_insert",
+            "qa_tests/test_generated.py::test_delete",
+            "qa_tests/test_generated.py::test_search"
+          ],
+          "test_code": "from linked_list import LinkedList\n\ndef values(linked):\n    result = []\n    node = linked.head\n    while node is not None:\n        assert len(result) < 20, 'cycle detected'\n        result.append(node.data)\n        node = node.next\n    return result\n\ndef test_insert():\n    linked = LinkedList()\n    assert values(linked) == []\n    for value in [0, 2, 2]: linked.insert(value)\n    assert values(linked) == [0, 2, 2]\n\ndef test_delete():\n    linked = LinkedList()\n    assert linked.delete(8) is False\n    for value in [1, 2, 2, 3]: linked.insert(value)\n    assert linked.delete(1) is True\n    assert linked.delete(2) is True\n    assert values(linked) == [2, 3]\n    assert linked.delete(3) is True\n    assert linked.delete(2) is True\n    assert linked.head is None\n    assert linked.delete(2) is False\n\ndef test_search():\n    linked = LinkedList()\n    assert linked.search(0) is False\n    linked.insert(0)\n    assert linked.search(0) is True\n    assert linked.search(99) is False\n\ndef test_reverse():\n    linked = LinkedList()\n    assert linked.reverse() is None\n    assert values(linked) == []\n    linked.insert(1)\n    linked.reverse()\n    assert values(linked) == [1]\n    linked.insert(2)\n    linked.insert(3)\n    linked.reverse()\n    assert values(linked) == [3, 2, 1]\n    linked.reverse()\n    assert values(linked) == [1, 2, 3]\n",
+          "coverage": {
+            "insert appends values": [
+              "test_insert"
+            ],
+            "delete removes first match": [
+              "test_delete"
+            ],
+            "search finds values": [
+              "test_search"
+            ],
+            "reverse changes order": [
+              "test_reverse"
+            ]
+          },
+          "command": [
+            "python",
+            "-I",
+            "_qa_runner.py",
+            "=>",
+            "pytest",
+            "-q",
+            "--tb=short",
+            "-p",
+            "no:cacheprovider",
+            "qa_tests/test_generated.py"
+          ],
+          "timeout_seconds": 10.0
+        },
+        "explanation": "Attempt an ineffective correction",
+        "before": {
+          "linked_list.py": "class Node:\n    def __init__(self, data):\n        self.data, self.next = data, None\n\nclass LinkedList:\n    def __init__(self):\n        self.head = None\n\n    def insert(self, value):\n        node = Node(value)\n        if self.head is None:\n            self.head = node\n            return\n        current = self.head\n        while current.next is not None:\n            current = current.next\n        current.next = node\n\n    def delete(self, value):\n        previous, current = None, self.head\n        while current is not None:\n            if current.data == value:\n                if previous is None:\n                    self.head = current.next\n                else:\n                    previous.next = current.next\n                return True\n            previous, current = current, current.next\n        return False\n\n    def search(self, value):\n        current = self.head\n        while current is not None:\n            if current.data == value:\n                return True\n            current = current.next\n        return False\n\n    def reverse(self):\n        return None\n"
+        },
+        "after": {
+          "linked_list.py": "class Node:\n    def __init__(self, data):\n        self.data, self.next = data, None\n\nclass LinkedList:\n    def __init__(self):\n        self.head = None\n\n    def insert(self, value):\n        node = Node(value)\n        if self.head is None:\n            self.head = node\n            return\n        current = self.head\n        while current.next is not None:\n            current = current.next\n        current.next = node\n\n    def delete(self, value):\n        previous, current = None, self.head\n        while current is not None:\n            if current.data == value:\n                if previous is None:\n                    self.head = current.next\n                else:\n                    previous.next = current.next\n                return True\n            previous, current = current, current.next\n        return False\n\n    def search(self, value):\n        current = self.head\n        while current is not None:\n            if current.data == value:\n                return True\n            current = current.next\n        return False\n\n    def reverse(self):\n        return None\n\nATTEMPT = 0\n"
+        }
+      },
+      {
+        "feedback": {
+          "task_id": "controlled-limit",
+          "source_digest": "c93eb80b6ce70416fbc470bd2cdc94d63659b6b4d764e494bb34b99265aa5c96",
+          "approved": false,
+          "issues": [
+            {
+              "severity": "High",
+              "location": "qa_tests/test_generated.py::test_reverse",
+              "description": "qa_tests/test_generated.py:47: in test_reverse\n    assert values(linked) == [3, 2, 1]\nE   assert [1, 2, 3] == [3, 2, 1]\nE     \nE     At index 0 diff: 1 != 3\nE     Use -v to get more diff",
+              "fix_instruction": "Revise the application to satisfy this failing assertion; keep the QA tests unchanged. qa_tests/test_generated.py:47: in test_reverse\n    assert values(linked) == [3, 2, 1]\nE   assert [1, 2, 3] == [3, 2, 1]\nE     \nE     At index 0 diff: 1 != 3\nE     Use -v to get more diff",
+              "acceptance_criteria": [
+                "reverse changes order"
+              ]
+            }
+          ],
+          "execution": {
+            "status": "failed",
+            "stdout": "...F                                                                     [100%]\n=================================== FAILURES ===================================\n_________________________________ test_reverse _________________________________\nqa_tests/test_generated.py:47: in test_reverse\n    assert values(linked) == [3, 2, 1]\nE   assert [1, 2, 3] == [3, 2, 1]\nE     \nE     At index 0 diff: 1 != 3\nE     Use -v to get more diff\n=========================== short test summary info ============================\nFAILED qa_tests/test_generated.py::test_reverse - assert [1, 2, 3] == [3, 2, 1]\n1 failed, 3 passed in 0.07s\n\n__QA_REPORT__={\"exit_code\": 1, \"records\": [{\"nodeid\": \"qa_tests/test_generated.py::test_insert\", \"phase\": \"call\", \"outcome\": \"passed\", \"detail\": \"\"}, {\"nodeid\": \"qa_tests/test_generated.py::test_delete\", \"phase\": \"call\", \"outcome\": \"passed\", \"detail\": \"\"}, {\"nodeid\": \"qa_tests/test_generated.py::test_search\", \"phase\": \"call\", \"outcome\": \"passed\", \"detail\": \"\"}, {\"nodeid\": \"qa_tests/test_generated.py::test_reverse\", \"phase\": \"call\", \"outcome\": \"failed\", \"detail\": \"qa_tests/test_generated.py:47: in test_reverse\\n    assert values(linked) == [3, 2, 1]\\nE   assert [1, 2, 3] == [3, 2, 1]\\nE     \\nE     At index 0 diff: 1 != 3\\nE     Use -v to get more diff\"}]}\n",
+            "stderr": "",
+            "exit_code": 1
+          },
+          "tests_run": 4,
+          "passed_tests": [
+            "qa_tests/test_generated.py::test_insert",
+            "qa_tests/test_generated.py::test_delete",
+            "qa_tests/test_generated.py::test_search"
+          ],
+          "test_code": "from linked_list import LinkedList\n\ndef values(linked):\n    result = []\n    node = linked.head\n    while node is not None:\n        assert len(result) < 20, 'cycle detected'\n        result.append(node.data)\n        node = node.next\n    return result\n\ndef test_insert():\n    linked = LinkedList()\n    assert values(linked) == []\n    for value in [0, 2, 2]: linked.insert(value)\n    assert values(linked) == [0, 2, 2]\n\ndef test_delete():\n    linked = LinkedList()\n    assert linked.delete(8) is False\n    for value in [1, 2, 2, 3]: linked.insert(value)\n    assert linked.delete(1) is True\n    assert linked.delete(2) is True\n    assert values(linked) == [2, 3]\n    assert linked.delete(3) is True\n    assert linked.delete(2) is True\n    assert linked.head is None\n    assert linked.delete(2) is False\n\ndef test_search():\n    linked = LinkedList()\n    assert linked.search(0) is False\n    linked.insert(0)\n    assert linked.search(0) is True\n    assert linked.search(99) is False\n\ndef test_reverse():\n    linked = LinkedList()\n    assert linked.reverse() is None\n    assert values(linked) == []\n    linked.insert(1)\n    linked.reverse()\n    assert values(linked) == [1]\n    linked.insert(2)\n    linked.insert(3)\n    linked.reverse()\n    assert values(linked) == [3, 2, 1]\n    linked.reverse()\n    assert values(linked) == [1, 2, 3]\n",
+          "coverage": {
+            "insert appends values": [
+              "test_insert"
+            ],
+            "delete removes first match": [
+              "test_delete"
+            ],
+            "search finds values": [
+              "test_search"
+            ],
+            "reverse changes order": [
+              "test_reverse"
+            ]
+          },
+          "command": [
+            "python",
+            "-I",
+            "_qa_runner.py",
+            "=>",
+            "pytest",
+            "-q",
+            "--tb=short",
+            "-p",
+            "no:cacheprovider",
+            "qa_tests/test_generated.py"
+          ],
+          "timeout_seconds": 10.0
+        },
+        "explanation": "Attempt an ineffective correction",
+        "before": {
+          "linked_list.py": "class Node:\n    def __init__(self, data):\n        self.data, self.next = data, None\n\nclass LinkedList:\n    def __init__(self):\n        self.head = None\n\n    def insert(self, value):\n        node = Node(value)\n        if self.head is None:\n            self.head = node\n            return\n        current = self.head\n        while current.next is not None:\n            current = current.next\n        current.next = node\n\n    def delete(self, value):\n        previous, current = None, self.head\n        while current is not None:\n            if current.data == value:\n                if previous is None:\n                    self.head = current.next\n                else:\n                    previous.next = current.next\n                return True\n            previous, current = current, current.next\n        return False\n\n    def search(self, value):\n        current = self.head\n        while current is not None:\n            if current.data == value:\n                return True\n            current = current.next\n        return False\n\n    def reverse(self):\n        return None\n\nATTEMPT = 0\n"
+        },
+        "after": {
+          "linked_list.py": "class Node:\n    def __init__(self, data):\n        self.data, self.next = data, None\n\nclass LinkedList:\n    def __init__(self):\n        self.head = None\n\n    def insert(self, value):\n        node = Node(value)\n        if self.head is None:\n            self.head = node\n            return\n        current = self.head\n        while current.next is not None:\n            current = current.next\n        current.next = node\n\n    def delete(self, value):\n        previous, current = None, self.head\n        while current is not None:\n            if current.data == value:\n                if previous is None:\n                    self.head = current.next\n                else:\n                    previous.next = current.next\n                return True\n            previous, current = current, current.next\n        return False\n\n    def search(self, value):\n        current = self.head\n        while current is not None:\n            if current.data == value:\n                return True\n            current = current.next\n        return False\n\n    def reverse(self):\n        return None\n\nATTEMPT = 1\n"
+        }
+      }
+    ],
+    "qa_reports": [
+      {
+        "task_id": "controlled-limit",
+        "source_digest": "0dcc0c181b02aad2cfe1d51d0ef4678d5a92aa08b640f407d45d3cb48aa7bc8d",
+        "approved": false,
+        "issues": [
+          {
+            "severity": "High",
+            "location": "qa_tests/test_generated.py::test_reverse",
+            "description": "qa_tests/test_generated.py:47: in test_reverse\n    assert values(linked) == [3, 2, 1]\nE   assert [1, 2, 3] == [3, 2, 1]\nE     \nE     At index 0 diff: 1 != 3\nE     Use -v to get more diff",
+            "fix_instruction": "Revise the application to satisfy this failing assertion; keep the QA tests unchanged. qa_tests/test_generated.py:47: in test_reverse\n    assert values(linked) == [3, 2, 1]\nE   assert [1, 2, 3] == [3, 2, 1]\nE     \nE     At index 0 diff: 1 != 3\nE     Use -v to get more diff",
+            "acceptance_criteria": [
+              "reverse changes order"
+            ]
+          }
+        ],
+        "execution": {
+          "status": "failed",
+          "stdout": "...F                                                                     [100%]\n=================================== FAILURES ===================================\n_________________________________ test_reverse _________________________________\nqa_tests/test_generated.py:47: in test_reverse\n    assert values(linked) == [3, 2, 1]\nE   assert [1, 2, 3] == [3, 2, 1]\nE     \nE     At index 0 diff: 1 != 3\nE     Use -v to get more diff\n=========================== short test summary info ============================\nFAILED qa_tests/test_generated.py::test_reverse - assert [1, 2, 3] == [3, 2, 1]\n1 failed, 3 passed in 0.02s\n\n__QA_REPORT__={\"exit_code\": 1, \"records\": [{\"nodeid\": \"qa_tests/test_generated.py::test_insert\", \"phase\": \"call\", \"outcome\": \"passed\", \"detail\": \"\"}, {\"nodeid\": \"qa_tests/test_generated.py::test_delete\", \"phase\": \"call\", \"outcome\": \"passed\", \"detail\": \"\"}, {\"nodeid\": \"qa_tests/test_generated.py::test_search\", \"phase\": \"call\", \"outcome\": \"passed\", \"detail\": \"\"}, {\"nodeid\": \"qa_tests/test_generated.py::test_reverse\", \"phase\": \"call\", \"outcome\": \"failed\", \"detail\": \"qa_tests/test_generated.py:47: in test_reverse\\n    assert values(linked) == [3, 2, 1]\\nE   assert [1, 2, 3] == [3, 2, 1]\\nE     \\nE     At index 0 diff: 1 != 3\\nE     Use -v to get more diff\"}]}\n",
+          "stderr": "",
+          "exit_code": 1
+        },
+        "tests_run": 4,
+        "passed_tests": [
+          "qa_tests/test_generated.py::test_insert",
+          "qa_tests/test_generated.py::test_delete",
+          "qa_tests/test_generated.py::test_search"
+        ],
+        "test_code": "from linked_list import LinkedList\n\ndef values(linked):\n    result = []\n    node = linked.head\n    while node is not None:\n        assert len(result) < 20, 'cycle detected'\n        result.append(node.data)\n        node = node.next\n    return result\n\ndef test_insert():\n    linked = LinkedList()\n    assert values(linked) == []\n    for value in [0, 2, 2]: linked.insert(value)\n    assert values(linked) == [0, 2, 2]\n\ndef test_delete():\n    linked = LinkedList()\n    assert linked.delete(8) is False\n    for value in [1, 2, 2, 3]: linked.insert(value)\n    assert linked.delete(1) is True\n    assert linked.delete(2) is True\n    assert values(linked) == [2, 3]\n    assert linked.delete(3) is True\n    assert linked.delete(2) is True\n    assert linked.head is None\n    assert linked.delete(2) is False\n\ndef test_search():\n    linked = LinkedList()\n    assert linked.search(0) is False\n    linked.insert(0)\n    assert linked.search(0) is True\n    assert linked.search(99) is False\n\ndef test_reverse():\n    linked = LinkedList()\n    assert linked.reverse() is None\n    assert values(linked) == []\n    linked.insert(1)\n    linked.reverse()\n    assert values(linked) == [1]\n    linked.insert(2)\n    linked.insert(3)\n    linked.reverse()\n    assert values(linked) == [3, 2, 1]\n    linked.reverse()\n    assert values(linked) == [1, 2, 3]\n",
+        "coverage": {
+          "insert appends values": [
+            "test_insert"
+          ],
+          "delete removes first match": [
+            "test_delete"
+          ],
+          "search finds values": [
+            "test_search"
+          ],
+          "reverse changes order": [
+            "test_reverse"
+          ]
+        },
+        "command": [
+          "python",
+          "-I",
+          "_qa_runner.py",
+          "=>",
+          "pytest",
+          "-q",
+          "--tb=short",
+          "-p",
+          "no:cacheprovider",
+          "qa_tests/test_generated.py"
+        ],
+        "timeout_seconds": 10.0
+      },
+      {
+        "task_id": "controlled-limit",
+        "source_digest": "c93eb80b6ce70416fbc470bd2cdc94d63659b6b4d764e494bb34b99265aa5c96",
+        "approved": false,
+        "issues": [
+          {
+            "severity": "High",
+            "location": "qa_tests/test_generated.py::test_reverse",
+            "description": "qa_tests/test_generated.py:47: in test_reverse\n    assert values(linked) == [3, 2, 1]\nE   assert [1, 2, 3] == [3, 2, 1]\nE     \nE     At index 0 diff: 1 != 3\nE     Use -v to get more diff",
+            "fix_instruction": "Revise the application to satisfy this failing assertion; keep the QA tests unchanged. qa_tests/test_generated.py:47: in test_reverse\n    assert values(linked) == [3, 2, 1]\nE   assert [1, 2, 3] == [3, 2, 1]\nE     \nE     At index 0 diff: 1 != 3\nE     Use -v to get more diff",
+            "acceptance_criteria": [
+              "reverse changes order"
+            ]
+          }
+        ],
+        "execution": {
+          "status": "failed",
+          "stdout": "...F                                                                     [100%]\n=================================== FAILURES ===================================\n_________________________________ test_reverse _________________________________\nqa_tests/test_generated.py:47: in test_reverse\n    assert values(linked) == [3, 2, 1]\nE   assert [1, 2, 3] == [3, 2, 1]\nE     \nE     At index 0 diff: 1 != 3\nE     Use -v to get more diff\n=========================== short test summary info ============================\nFAILED qa_tests/test_generated.py::test_reverse - assert [1, 2, 3] == [3, 2, 1]\n1 failed, 3 passed in 0.07s\n\n__QA_REPORT__={\"exit_code\": 1, \"records\": [{\"nodeid\": \"qa_tests/test_generated.py::test_insert\", \"phase\": \"call\", \"outcome\": \"passed\", \"detail\": \"\"}, {\"nodeid\": \"qa_tests/test_generated.py::test_delete\", \"phase\": \"call\", \"outcome\": \"passed\", \"detail\": \"\"}, {\"nodeid\": \"qa_tests/test_generated.py::test_search\", \"phase\": \"call\", \"outcome\": \"passed\", \"detail\": \"\"}, {\"nodeid\": \"qa_tests/test_generated.py::test_reverse\", \"phase\": \"call\", \"outcome\": \"failed\", \"detail\": \"qa_tests/test_generated.py:47: in test_reverse\\n    assert values(linked) == [3, 2, 1]\\nE   assert [1, 2, 3] == [3, 2, 1]\\nE     \\nE     At index 0 diff: 1 != 3\\nE     Use -v to get more diff\"}]}\n",
+          "stderr": "",
+          "exit_code": 1
+        },
+        "tests_run": 4,
+        "passed_tests": [
+          "qa_tests/test_generated.py::test_insert",
+          "qa_tests/test_generated.py::test_delete",
+          "qa_tests/test_generated.py::test_search"
+        ],
+        "test_code": "from linked_list import LinkedList\n\ndef values(linked):\n    result = []\n    node = linked.head\n    while node is not None:\n        assert len(result) < 20, 'cycle detected'\n        result.append(node.data)\n        node = node.next\n    return result\n\ndef test_insert():\n    linked = LinkedList()\n    assert values(linked) == []\n    for value in [0, 2, 2]: linked.insert(value)\n    assert values(linked) == [0, 2, 2]\n\ndef test_delete():\n    linked = LinkedList()\n    assert linked.delete(8) is False\n    for value in [1, 2, 2, 3]: linked.insert(value)\n    assert linked.delete(1) is True\n    assert linked.delete(2) is True\n    assert values(linked) == [2, 3]\n    assert linked.delete(3) is True\n    assert linked.delete(2) is True\n    assert linked.head is None\n    assert linked.delete(2) is False\n\ndef test_search():\n    linked = LinkedList()\n    assert linked.search(0) is False\n    linked.insert(0)\n    assert linked.search(0) is True\n    assert linked.search(99) is False\n\ndef test_reverse():\n    linked = LinkedList()\n    assert linked.reverse() is None\n    assert values(linked) == []\n    linked.insert(1)\n    linked.reverse()\n    assert values(linked) == [1]\n    linked.insert(2)\n    linked.insert(3)\n    linked.reverse()\n    assert values(linked) == [3, 2, 1]\n    linked.reverse()\n    assert values(linked) == [1, 2, 3]\n",
+        "coverage": {
+          "insert appends values": [
+            "test_insert"
+          ],
+          "delete removes first match": [
+            "test_delete"
+          ],
+          "search finds values": [
+            "test_search"
+          ],
+          "reverse changes order": [
+            "test_reverse"
+          ]
+        },
+        "command": [
+          "python",
+          "-I",
+          "_qa_runner.py",
+          "=>",
+          "pytest",
+          "-q",
+          "--tb=short",
+          "-p",
+          "no:cacheprovider",
+          "qa_tests/test_generated.py"
+        ],
+        "timeout_seconds": 10.0
+      },
+      {
+        "task_id": "controlled-limit",
+        "source_digest": "316e5f5b41875474fe188f7d49a269a4d0d209013c631f9ce29ca5e36f974d7e",
+        "approved": false,
+        "issues": [
+          {
+            "severity": "High",
+            "location": "qa_tests/test_generated.py::test_reverse",
+            "description": "qa_tests/test_generated.py:47: in test_reverse\n    assert values(linked) == [3, 2, 1]\nE   assert [1, 2, 3] == [3, 2, 1]\nE     \nE     At index 0 diff: 1 != 3\nE     Use -v to get more diff",
+            "fix_instruction": "Revise the application to satisfy this failing assertion; keep the QA tests unchanged. qa_tests/test_generated.py:47: in test_reverse\n    assert values(linked) == [3, 2, 1]\nE   assert [1, 2, 3] == [3, 2, 1]\nE     \nE     At index 0 diff: 1 != 3\nE     Use -v to get more diff",
+            "acceptance_criteria": [
+              "reverse changes order"
+            ]
+          }
+        ],
+        "execution": {
+          "status": "failed",
+          "stdout": "...F                                                                     [100%]\n=================================== FAILURES ===================================\n_________________________________ test_reverse _________________________________\nqa_tests/test_generated.py:47: in test_reverse\n    assert values(linked) == [3, 2, 1]\nE   assert [1, 2, 3] == [3, 2, 1]\nE     \nE     At index 0 diff: 1 != 3\nE     Use -v to get more diff\n=========================== short test summary info ============================\nFAILED qa_tests/test_generated.py::test_reverse - assert [1, 2, 3] == [3, 2, 1]\n1 failed, 3 passed in 0.02s\n\n__QA_REPORT__={\"exit_code\": 1, \"records\": [{\"nodeid\": \"qa_tests/test_generated.py::test_insert\", \"phase\": \"call\", \"outcome\": \"passed\", \"detail\": \"\"}, {\"nodeid\": \"qa_tests/test_generated.py::test_delete\", \"phase\": \"call\", \"outcome\": \"passed\", \"detail\": \"\"}, {\"nodeid\": \"qa_tests/test_generated.py::test_search\", \"phase\": \"call\", \"outcome\": \"passed\", \"detail\": \"\"}, {\"nodeid\": \"qa_tests/test_generated.py::test_reverse\", \"phase\": \"call\", \"outcome\": \"failed\", \"detail\": \"qa_tests/test_generated.py:47: in test_reverse\\n    assert values(linked) == [3, 2, 1]\\nE   assert [1, 2, 3] == [3, 2, 1]\\nE     \\nE     At index 0 diff: 1 != 3\\nE     Use -v to get more diff\"}]}\n",
+          "stderr": "",
+          "exit_code": 1
+        },
+        "tests_run": 4,
+        "passed_tests": [
+          "qa_tests/test_generated.py::test_insert",
+          "qa_tests/test_generated.py::test_delete",
+          "qa_tests/test_generated.py::test_search"
+        ],
+        "test_code": "from linked_list import LinkedList\n\ndef values(linked):\n    result = []\n    node = linked.head\n    while node is not None:\n        assert len(result) < 20, 'cycle detected'\n        result.append(node.data)\n        node = node.next\n    return result\n\ndef test_insert():\n    linked = LinkedList()\n    assert values(linked) == []\n    for value in [0, 2, 2]: linked.insert(value)\n    assert values(linked) == [0, 2, 2]\n\ndef test_delete():\n    linked = LinkedList()\n    assert linked.delete(8) is False\n    for value in [1, 2, 2, 3]: linked.insert(value)\n    assert linked.delete(1) is True\n    assert linked.delete(2) is True\n    assert values(linked) == [2, 3]\n    assert linked.delete(3) is True\n    assert linked.delete(2) is True\n    assert linked.head is None\n    assert linked.delete(2) is False\n\ndef test_search():\n    linked = LinkedList()\n    assert linked.search(0) is False\n    linked.insert(0)\n    assert linked.search(0) is True\n    assert linked.search(99) is False\n\ndef test_reverse():\n    linked = LinkedList()\n    assert linked.reverse() is None\n    assert values(linked) == []\n    linked.insert(1)\n    linked.reverse()\n    assert values(linked) == [1]\n    linked.insert(2)\n    linked.insert(3)\n    linked.reverse()\n    assert values(linked) == [3, 2, 1]\n    linked.reverse()\n    assert values(linked) == [1, 2, 3]\n",
+        "coverage": {
+          "insert appends values": [
+            "test_insert"
+          ],
+          "delete removes first match": [
+            "test_delete"
+          ],
+          "search finds values": [
+            "test_search"
+          ],
+          "reverse changes order": [
+            "test_reverse"
+          ]
+        },
+        "command": [
+          "python",
+          "-I",
+          "_qa_runner.py",
+          "=>",
+          "pytest",
+          "-q",
+          "--tb=short",
+          "-p",
+          "no:cacheprovider",
+          "qa_tests/test_generated.py"
+        ],
+        "timeout_seconds": 10.0
+      }
+    ],
+    "messages": [
+      {
+        "sender": "coder",
+        "receiver": "qa",
+        "intent": "review_request",
+        "payload": {
+          "task_id": "controlled-limit",
+          "requirement": "Implement a Python module that contains a linked list class with insert, delete, search, and reverse methods. All methods must be covered by tests.\nUse linked_list.py with LinkedList() and head nodes exposing data and next. insert(value) appends; delete(value) removes the first matching item and returns a bool; search(value) returns a bool; reverse() reverses in place and returns None. Support empty lists, singletons, duplicates and missing values. Use runnable assertion scripts for the initial Coder checks; QA will generate pytest tests separately.",
+          "acceptance_criteria": [
+            "insert appends values",
+            "delete removes first match",
+            "search finds values",
+            "reverse changes order"
+          ],
+          "source": {
+            "linked_list.py": "class Node:\n    def __init__(self, data):\n        self.data, self.next = data, None\n\nclass LinkedList:\n    def __init__(self):\n        self.head = None\n\n    def insert(self, value):\n        node = Node(value)\n        if self.head is None:\n            self.head = node\n            return\n        current = self.head\n        while current.next is not None:\n            current = current.next\n        current.next = node\n\n    def delete(self, value):\n        previous, current = None, self.head\n        while current is not None:\n            if current.data == value:\n                if previous is None:\n                    self.head = current.next\n                else:\n                    previous.next = current.next\n                return True\n            previous, current = current, current.next\n        return False\n\n    def search(self, value):\n        current = self.head\n        while current is not None:\n            if current.data == value:\n                return True\n            current = current.next\n        return False\n\n    def reverse(self):\n        return None\n"
+          },
+          "source_digest": "0dcc0c181b02aad2cfe1d51d0ef4678d5a92aa08b640f407d45d3cb48aa7bc8d",
+          "iteration": 1
+        },
+        "correlation_id": "c8d88c33-d4cc-4612-a4a2-2e9b5f4acaaf"
+      },
+      {
+        "sender": "qa",
+        "receiver": "coder",
+        "intent": "fix_instruction",
+        "payload": {
+          "task_id": "controlled-limit",
+          "source_digest": "0dcc0c181b02aad2cfe1d51d0ef4678d5a92aa08b640f407d45d3cb48aa7bc8d",
+          "approved": false,
+          "issues": [
+            {
+              "severity": "High",
+              "location": "qa_tests/test_generated.py::test_reverse",
+              "description": "qa_tests/test_generated.py:47: in test_reverse\n    assert values(linked) == [3, 2, 1]\nE   assert [1, 2, 3] == [3, 2, 1]\nE     \nE     At index 0 diff: 1 != 3\nE     Use -v to get more diff",
+              "fix_instruction": "Revise the application to satisfy this failing assertion; keep the QA tests unchanged. qa_tests/test_generated.py:47: in test_reverse\n    assert values(linked) == [3, 2, 1]\nE   assert [1, 2, 3] == [3, 2, 1]\nE     \nE     At index 0 diff: 1 != 3\nE     Use -v to get more diff",
+              "acceptance_criteria": [
+                "reverse changes order"
+              ]
+            }
+          ],
+          "execution": {
+            "status": "failed",
+            "stdout": "...F                                                                     [100%]\n=================================== FAILURES ===================================\n_________________________________ test_reverse _________________________________\nqa_tests/test_generated.py:47: in test_reverse\n    assert values(linked) == [3, 2, 1]\nE   assert [1, 2, 3] == [3, 2, 1]\nE     \nE     At index 0 diff: 1 != 3\nE     Use -v to get more diff\n=========================== short test summary info ============================\nFAILED qa_tests/test_generated.py::test_reverse - assert [1, 2, 3] == [3, 2, 1]\n1 failed, 3 passed in 0.02s\n\n__QA_REPORT__={\"exit_code\": 1, \"records\": [{\"nodeid\": \"qa_tests/test_generated.py::test_insert\", \"phase\": \"call\", \"outcome\": \"passed\", \"detail\": \"\"}, {\"nodeid\": \"qa_tests/test_generated.py::test_delete\", \"phase\": \"call\", \"outcome\": \"passed\", \"detail\": \"\"}, {\"nodeid\": \"qa_tests/test_generated.py::test_search\", \"phase\": \"call\", \"outcome\": \"passed\", \"detail\": \"\"}, {\"nodeid\": \"qa_tests/test_generated.py::test_reverse\", \"phase\": \"call\", \"outcome\": \"failed\", \"detail\": \"qa_tests/test_generated.py:47: in test_reverse\\n    assert values(linked) == [3, 2, 1]\\nE   assert [1, 2, 3] == [3, 2, 1]\\nE     \\nE     At index 0 diff: 1 != 3\\nE     Use -v to get more diff\"}]}\n",
+            "stderr": "",
+            "exit_code": 1
+          },
+          "tests_run": 4,
+          "passed_tests": [
+            "qa_tests/test_generated.py::test_insert",
+            "qa_tests/test_generated.py::test_delete",
+            "qa_tests/test_generated.py::test_search"
+          ],
+          "test_code": "from linked_list import LinkedList\n\ndef values(linked):\n    result = []\n    node = linked.head\n    while node is not None:\n        assert len(result) < 20, 'cycle detected'\n        result.append(node.data)\n        node = node.next\n    return result\n\ndef test_insert():\n    linked = LinkedList()\n    assert values(linked) == []\n    for value in [0, 2, 2]: linked.insert(value)\n    assert values(linked) == [0, 2, 2]\n\ndef test_delete():\n    linked = LinkedList()\n    assert linked.delete(8) is False\n    for value in [1, 2, 2, 3]: linked.insert(value)\n    assert linked.delete(1) is True\n    assert linked.delete(2) is True\n    assert values(linked) == [2, 3]\n    assert linked.delete(3) is True\n    assert linked.delete(2) is True\n    assert linked.head is None\n    assert linked.delete(2) is False\n\ndef test_search():\n    linked = LinkedList()\n    assert linked.search(0) is False\n    linked.insert(0)\n    assert linked.search(0) is True\n    assert linked.search(99) is False\n\ndef test_reverse():\n    linked = LinkedList()\n    assert linked.reverse() is None\n    assert values(linked) == []\n    linked.insert(1)\n    linked.reverse()\n    assert values(linked) == [1]\n    linked.insert(2)\n    linked.insert(3)\n    linked.reverse()\n    assert values(linked) == [3, 2, 1]\n    linked.reverse()\n    assert values(linked) == [1, 2, 3]\n",
+          "coverage": {
+            "insert appends values": [
+              "test_insert"
+            ],
+            "delete removes first match": [
+              "test_delete"
+            ],
+            "search finds values": [
+              "test_search"
+            ],
+            "reverse changes order": [
+              "test_reverse"
+            ]
+          },
+          "command": [
+            "python",
+            "-I",
+            "_qa_runner.py",
+            "=>",
+            "pytest",
+            "-q",
+            "--tb=short",
+            "-p",
+            "no:cacheprovider",
+            "qa_tests/test_generated.py"
+          ],
+          "timeout_seconds": 10.0
+        },
+        "correlation_id": "c8d88c33-d4cc-4612-a4a2-2e9b5f4acaaf"
+      },
+      {
+        "sender": "coder",
+        "receiver": "qa",
+        "intent": "review_request",
+        "payload": {
+          "task_id": "controlled-limit",
+          "requirement": "Implement a Python module that contains a linked list class with insert, delete, search, and reverse methods. All methods must be covered by tests.\nUse linked_list.py with LinkedList() and head nodes exposing data and next. insert(value) appends; delete(value) removes the first matching item and returns a bool; search(value) returns a bool; reverse() reverses in place and returns None. Support empty lists, singletons, duplicates and missing values. Use runnable assertion scripts for the initial Coder checks; QA will generate pytest tests separately.",
+          "acceptance_criteria": [
+            "insert appends values",
+            "delete removes first match",
+            "search finds values",
+            "reverse changes order"
+          ],
+          "source": {
+            "linked_list.py": "class Node:\n    def __init__(self, data):\n        self.data, self.next = data, None\n\nclass LinkedList:\n    def __init__(self):\n        self.head = None\n\n    def insert(self, value):\n        node = Node(value)\n        if self.head is None:\n            self.head = node\n            return\n        current = self.head\n        while current.next is not None:\n            current = current.next\n        current.next = node\n\n    def delete(self, value):\n        previous, current = None, self.head\n        while current is not None:\n            if current.data == value:\n                if previous is None:\n                    self.head = current.next\n                else:\n                    previous.next = current.next\n                return True\n            previous, current = current, current.next\n        return False\n\n    def search(self, value):\n        current = self.head\n        while current is not None:\n            if current.data == value:\n                return True\n            current = current.next\n        return False\n\n    def reverse(self):\n        return None\n\nATTEMPT = 0\n"
+          },
+          "source_digest": "c93eb80b6ce70416fbc470bd2cdc94d63659b6b4d764e494bb34b99265aa5c96",
+          "iteration": 2
+        },
+        "correlation_id": "65f6bf47-250d-4289-8343-2f65908a9925"
+      },
+      {
+        "sender": "qa",
+        "receiver": "coder",
+        "intent": "fix_instruction",
+        "payload": {
+          "task_id": "controlled-limit",
+          "source_digest": "c93eb80b6ce70416fbc470bd2cdc94d63659b6b4d764e494bb34b99265aa5c96",
+          "approved": false,
+          "issues": [
+            {
+              "severity": "High",
+              "location": "qa_tests/test_generated.py::test_reverse",
+              "description": "qa_tests/test_generated.py:47: in test_reverse\n    assert values(linked) == [3, 2, 1]\nE   assert [1, 2, 3] == [3, 2, 1]\nE     \nE     At index 0 diff: 1 != 3\nE     Use -v to get more diff",
+              "fix_instruction": "Revise the application to satisfy this failing assertion; keep the QA tests unchanged. qa_tests/test_generated.py:47: in test_reverse\n    assert values(linked) == [3, 2, 1]\nE   assert [1, 2, 3] == [3, 2, 1]\nE     \nE     At index 0 diff: 1 != 3\nE     Use -v to get more diff",
+              "acceptance_criteria": [
+                "reverse changes order"
+              ]
+            }
+          ],
+          "execution": {
+            "status": "failed",
+            "stdout": "...F                                                                     [100%]\n=================================== FAILURES ===================================\n_________________________________ test_reverse _________________________________\nqa_tests/test_generated.py:47: in test_reverse\n    assert values(linked) == [3, 2, 1]\nE   assert [1, 2, 3] == [3, 2, 1]\nE     \nE     At index 0 diff: 1 != 3\nE     Use -v to get more diff\n=========================== short test summary info ============================\nFAILED qa_tests/test_generated.py::test_reverse - assert [1, 2, 3] == [3, 2, 1]\n1 failed, 3 passed in 0.07s\n\n__QA_REPORT__={\"exit_code\": 1, \"records\": [{\"nodeid\": \"qa_tests/test_generated.py::test_insert\", \"phase\": \"call\", \"outcome\": \"passed\", \"detail\": \"\"}, {\"nodeid\": \"qa_tests/test_generated.py::test_delete\", \"phase\": \"call\", \"outcome\": \"passed\", \"detail\": \"\"}, {\"nodeid\": \"qa_tests/test_generated.py::test_search\", \"phase\": \"call\", \"outcome\": \"passed\", \"detail\": \"\"}, {\"nodeid\": \"qa_tests/test_generated.py::test_reverse\", \"phase\": \"call\", \"outcome\": \"failed\", \"detail\": \"qa_tests/test_generated.py:47: in test_reverse\\n    assert values(linked) == [3, 2, 1]\\nE   assert [1, 2, 3] == [3, 2, 1]\\nE     \\nE     At index 0 diff: 1 != 3\\nE     Use -v to get more diff\"}]}\n",
+            "stderr": "",
+            "exit_code": 1
+          },
+          "tests_run": 4,
+          "passed_tests": [
+            "qa_tests/test_generated.py::test_insert",
+            "qa_tests/test_generated.py::test_delete",
+            "qa_tests/test_generated.py::test_search"
+          ],
+          "test_code": "from linked_list import LinkedList\n\ndef values(linked):\n    result = []\n    node = linked.head\n    while node is not None:\n        assert len(result) < 20, 'cycle detected'\n        result.append(node.data)\n        node = node.next\n    return result\n\ndef test_insert():\n    linked = LinkedList()\n    assert values(linked) == []\n    for value in [0, 2, 2]: linked.insert(value)\n    assert values(linked) == [0, 2, 2]\n\ndef test_delete():\n    linked = LinkedList()\n    assert linked.delete(8) is False\n    for value in [1, 2, 2, 3]: linked.insert(value)\n    assert linked.delete(1) is True\n    assert linked.delete(2) is True\n    assert values(linked) == [2, 3]\n    assert linked.delete(3) is True\n    assert linked.delete(2) is True\n    assert linked.head is None\n    assert linked.delete(2) is False\n\ndef test_search():\n    linked = LinkedList()\n    assert linked.search(0) is False\n    linked.insert(0)\n    assert linked.search(0) is True\n    assert linked.search(99) is False\n\ndef test_reverse():\n    linked = LinkedList()\n    assert linked.reverse() is None\n    assert values(linked) == []\n    linked.insert(1)\n    linked.reverse()\n    assert values(linked) == [1]\n    linked.insert(2)\n    linked.insert(3)\n    linked.reverse()\n    assert values(linked) == [3, 2, 1]\n    linked.reverse()\n    assert values(linked) == [1, 2, 3]\n",
+          "coverage": {
+            "insert appends values": [
+              "test_insert"
+            ],
+            "delete removes first match": [
+              "test_delete"
+            ],
+            "search finds values": [
+              "test_search"
+            ],
+            "reverse changes order": [
+              "test_reverse"
+            ]
+          },
+          "command": [
+            "python",
+            "-I",
+            "_qa_runner.py",
+            "=>",
+            "pytest",
+            "-q",
+            "--tb=short",
+            "-p",
+            "no:cacheprovider",
+            "qa_tests/test_generated.py"
+          ],
+          "timeout_seconds": 10.0
+        },
+        "correlation_id": "65f6bf47-250d-4289-8343-2f65908a9925"
+      },
+      {
+        "sender": "coder",
+        "receiver": "qa",
+        "intent": "review_request",
+        "payload": {
+          "task_id": "controlled-limit",
+          "requirement": "Implement a Python module that contains a linked list class with insert, delete, search, and reverse methods. All methods must be covered by tests.\nUse linked_list.py with LinkedList() and head nodes exposing data and next. insert(value) appends; delete(value) removes the first matching item and returns a bool; search(value) returns a bool; reverse() reverses in place and returns None. Support empty lists, singletons, duplicates and missing values. Use runnable assertion scripts for the initial Coder checks; QA will generate pytest tests separately.",
+          "acceptance_criteria": [
+            "insert appends values",
+            "delete removes first match",
+            "search finds values",
+            "reverse changes order"
+          ],
+          "source": {
+            "linked_list.py": "class Node:\n    def __init__(self, data):\n        self.data, self.next = data, None\n\nclass LinkedList:\n    def __init__(self):\n        self.head = None\n\n    def insert(self, value):\n        node = Node(value)\n        if self.head is None:\n            self.head = node\n            return\n        current = self.head\n        while current.next is not None:\n            current = current.next\n        current.next = node\n\n    def delete(self, value):\n        previous, current = None, self.head\n        while current is not None:\n            if current.data == value:\n                if previous is None:\n                    self.head = current.next\n                else:\n                    previous.next = current.next\n                return True\n            previous, current = current, current.next\n        return False\n\n    def search(self, value):\n        current = self.head\n        while current is not None:\n            if current.data == value:\n                return True\n            current = current.next\n        return False\n\n    def reverse(self):\n        return None\n\nATTEMPT = 1\n"
+          },
+          "source_digest": "316e5f5b41875474fe188f7d49a269a4d0d209013c631f9ce29ca5e36f974d7e",
+          "iteration": 3
+        },
+        "correlation_id": "b2b6df0b-ab4c-4a5c-a325-5b4b1bc1b997"
+      },
+      {
+        "sender": "qa",
+        "receiver": "coder",
+        "intent": "fix_instruction",
+        "payload": {
+          "task_id": "controlled-limit",
+          "source_digest": "316e5f5b41875474fe188f7d49a269a4d0d209013c631f9ce29ca5e36f974d7e",
+          "approved": false,
+          "issues": [
+            {
+              "severity": "High",
+              "location": "qa_tests/test_generated.py::test_reverse",
+              "description": "qa_tests/test_generated.py:47: in test_reverse\n    assert values(linked) == [3, 2, 1]\nE   assert [1, 2, 3] == [3, 2, 1]\nE     \nE     At index 0 diff: 1 != 3\nE     Use -v to get more diff",
+              "fix_instruction": "Revise the application to satisfy this failing assertion; keep the QA tests unchanged. qa_tests/test_generated.py:47: in test_reverse\n    assert values(linked) == [3, 2, 1]\nE   assert [1, 2, 3] == [3, 2, 1]\nE     \nE     At index 0 diff: 1 != 3\nE     Use -v to get more diff",
+              "acceptance_criteria": [
+                "reverse changes order"
+              ]
+            }
+          ],
+          "execution": {
+            "status": "failed",
+            "stdout": "...F                                                                     [100%]\n=================================== FAILURES ===================================\n_________________________________ test_reverse _________________________________\nqa_tests/test_generated.py:47: in test_reverse\n    assert values(linked) == [3, 2, 1]\nE   assert [1, 2, 3] == [3, 2, 1]\nE     \nE     At index 0 diff: 1 != 3\nE     Use -v to get more diff\n=========================== short test summary info ============================\nFAILED qa_tests/test_generated.py::test_reverse - assert [1, 2, 3] == [3, 2, 1]\n1 failed, 3 passed in 0.02s\n\n__QA_REPORT__={\"exit_code\": 1, \"records\": [{\"nodeid\": \"qa_tests/test_generated.py::test_insert\", \"phase\": \"call\", \"outcome\": \"passed\", \"detail\": \"\"}, {\"nodeid\": \"qa_tests/test_generated.py::test_delete\", \"phase\": \"call\", \"outcome\": \"passed\", \"detail\": \"\"}, {\"nodeid\": \"qa_tests/test_generated.py::test_search\", \"phase\": \"call\", \"outcome\": \"passed\", \"detail\": \"\"}, {\"nodeid\": \"qa_tests/test_generated.py::test_reverse\", \"phase\": \"call\", \"outcome\": \"failed\", \"detail\": \"qa_tests/test_generated.py:47: in test_reverse\\n    assert values(linked) == [3, 2, 1]\\nE   assert [1, 2, 3] == [3, 2, 1]\\nE     \\nE     At index 0 diff: 1 != 3\\nE     Use -v to get more diff\"}]}\n",
+            "stderr": "",
+            "exit_code": 1
+          },
+          "tests_run": 4,
+          "passed_tests": [
+            "qa_tests/test_generated.py::test_insert",
+            "qa_tests/test_generated.py::test_delete",
+            "qa_tests/test_generated.py::test_search"
+          ],
+          "test_code": "from linked_list import LinkedList\n\ndef values(linked):\n    result = []\n    node = linked.head\n    while node is not None:\n        assert len(result) < 20, 'cycle detected'\n        result.append(node.data)\n        node = node.next\n    return result\n\ndef test_insert():\n    linked = LinkedList()\n    assert values(linked) == []\n    for value in [0, 2, 2]: linked.insert(value)\n    assert values(linked) == [0, 2, 2]\n\ndef test_delete():\n    linked = LinkedList()\n    assert linked.delete(8) is False\n    for value in [1, 2, 2, 3]: linked.insert(value)\n    assert linked.delete(1) is True\n    assert linked.delete(2) is True\n    assert values(linked) == [2, 3]\n    assert linked.delete(3) is True\n    assert linked.delete(2) is True\n    assert linked.head is None\n    assert linked.delete(2) is False\n\ndef test_search():\n    linked = LinkedList()\n    assert linked.search(0) is False\n    linked.insert(0)\n    assert linked.search(0) is True\n    assert linked.search(99) is False\n\ndef test_reverse():\n    linked = LinkedList()\n    assert linked.reverse() is None\n    assert values(linked) == []\n    linked.insert(1)\n    linked.reverse()\n    assert values(linked) == [1]\n    linked.insert(2)\n    linked.insert(3)\n    linked.reverse()\n    assert values(linked) == [3, 2, 1]\n    linked.reverse()\n    assert values(linked) == [1, 2, 3]\n",
+          "coverage": {
+            "insert appends values": [
+              "test_insert"
+            ],
+            "delete removes first match": [
+              "test_delete"
+            ],
+            "search finds values": [
+              "test_search"
+            ],
+            "reverse changes order": [
+              "test_reverse"
+            ]
+          },
+          "command": [
+            "python",
+            "-I",
+            "_qa_runner.py",
+            "=>",
+            "pytest",
+            "-q",
+            "--tb=short",
+            "-p",
+            "no:cacheprovider",
+            "qa_tests/test_generated.py"
+          ],
+          "timeout_seconds": 10.0
+        },
+        "correlation_id": "b2b6df0b-ab4c-4a5c-a325-5b4b1bc1b997"
+      }
+    ],
+    "qa_iterations": 3,
+    "error": null,
+    "final_report": {
+      "approved": false,
+      "reason": "iteration_limit",
+      "qa_iterations": 3,
+      "max_qa_iterations": 3,
+      "unresolved_issues": [
+        {
+          "severity": "High",
+          "location": "qa_tests/test_generated.py::test_reverse",
+          "description": "qa_tests/test_generated.py:47: in test_reverse\n    assert values(linked) == [3, 2, 1]\nE   assert [1, 2, 3] == [3, 2, 1]\nE     \nE     At index 0 diff: 1 != 3\nE     Use -v to get more diff",
+          "fix_instruction": "Revise the application to satisfy this failing assertion; keep the QA tests unchanged. qa_tests/test_generated.py:47: in test_reverse\n    assert values(linked) == [3, 2, 1]\nE   assert [1, 2, 3] == [3, 2, 1]\nE     \nE     At index 0 diff: 1 != 3\nE     Use -v to get more diff",
+          "acceptance_criteria": [
+            "reverse changes order"
+          ]
+        }
+      ]
+    }
+  }
+}

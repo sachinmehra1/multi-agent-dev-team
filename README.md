@@ -1,7 +1,89 @@
-# Multi-Agent Development Team — PM + Coder
+# Multi-Agent Development Team — PM + Coder + QA
 
-Saras AI Institute · Build Autonomous Multi-Agent Systems · Modules 1–2.
+Saras AI Institute · Build Autonomous Multi-Agent Systems · Modules 1–3.
 
+
+## Module 3: complete three-agent team
+
+The PM and Coder remain in LangGraph. A Coder self-critique step produces revised
+application code before QA receives it. QA independently generates behavioral
+pytest tests, runs them in Docker with a timeout, and returns typed issues and fix
+instructions. The Coder revises the application and QA reruns the **same tests**.
+
+```mermaid
+flowchart TD
+    R[Requirement] --> PM[PM: typed specification and ordered tasks]
+    PM --> C[Coder: bounded generation and initial execution]
+    C --> S[(Shared project and team state)]
+    C --> REF[Coder self-critique then substantive revision]
+    REF --> REQ[A2A review_request with source digest]
+    REQ --> QA[QA: generate and retain behavioral pytest tests]
+    QA --> RUN[Isolated Docker subprocess with timeout]
+    RUN --> CHECK{All tests pass?}
+    CHECK -->|Yes: A2A approved| OK[Final approved report]
+    CHECK -->|No: A2A fix_instruction| LIMIT{QA round limit reached?}
+    LIMIT -->|No| FIX[Coder revision from structured issues]
+    FIX --> REQ
+    LIMIT -->|Yes| FAIL[Final report with unresolved issues]
+    QA --> S
+    FIX --> S
+```
+
+**Protocol choice:** the course's simplified in-process A2A protocol fits the
+Coder/QA peer interaction. `orchestration/a2a.py` serializes messages to JSON,
+routes them through agent queues, validates intent-specific payloads and matches
+responses by correlation ID, task ID and source digest. Every envelope contains
+`sender`, `receiver`, `intent`, `payload` and `correlation_id`. This is the course
+protocol, not a claim of external HTTP A2A interoperability. MCP is not implemented
+because the rubric requires only one route. The optional debate lab is omitted.
+
+After the common Python setup below:
+
+```bash
+docker build -f Dockerfile.qa -t coder-python-qa:module3 .
+python team_main.py --output module3-result.json
+# Reproduce live evidence plus controlled repair and limit probes:
+python -m scripts.verify_module3
+```
+
+The default task implements a linked list with `insert`, `delete`, `search` and
+`reverse`. Our explicit local contract is `linked_list.py`, `LinkedList()`, and
+nodes with `data`/`next`: insert appends; delete removes the first match and returns
+a boolean; search returns a boolean; reverse operates in place and returns None.
+These method semantics supplement the course task, which does not specify them.
+Tests cover empty lists, singletons, duplicates and missing values.
+
+Set `QA_MAX_ITERATIONS` in `.env` to change the total QA round budget (default **5**,
+including the initial review; supported range 1–20). Thus at most four QA-driven
+fixes occur at the default setting. `QA_TIMEOUT_SECONDS` defaults to **10** and
+supports values greater than zero up to 60. Initial Coder tasks retain their separate
+ten-model-call bound. Reflection is two bounded model calls: critique, then revision.
+A revision must change the parsed Python code; comments alone are rejected.
+
+Exit 0 means the final current source passed QA; exit 1 means unresolved failures
+or a workflow error. QA never accepts an empty test run, skipped tests, missing
+execution results or an old source version as approval. Test assertions and
+coverage maps are checked structurally, but generated tests remain fallible;
+review their behavioral coverage rather than treating approval as proof.
+
+```bash
+python -m pytest -q
+RUN_MODULE3_DOCKER_TESTS=1 python -m pytest tests/test_qa_team.py -q
+python -m scripts.verify_module3 --controlled-only
+```
+
+The default tests use scripted models and trusted fixtures; the controlled probes
+use real Docker pytest runs with clearly labeled scripted model responses. The
+separate live demo uses the configured model for PM, Coder, reflection and QA.
+No person edits or repairs its generated code during a run.
+
+[Module 3 rubric evidence](docs/module3/README.md) ·
+[Live run state](docs/module3/live-final-state.json) ·
+[A2A message log](docs/module3/a2a-messages.json) ·
+[Real model repair after seeded failure](docs/module3/live-seeded-repair.json)
+
+Module 3 is published on `module-3`. Earlier submissions remain on `main`
+(Module 1) and `module-2` (Module 2). Submit the Module 3 branch URL with its commit SHA.
 
 ## Module 2: PM → Coder
 
@@ -94,7 +176,7 @@ LMS submission remains pending.
 
 A single LangGraph Coder agent accepts a natural-language Python task, writes files,
 executes them in a restricted container, and returns Pydantic-validated JSON.
-Module 2 adds the PM; QA remains reserved for Module 3.
+Module 2 adds the PM; Module 3 adds QA and the revision loop.
 
 **Delivery status:** implemented, tested locally, and published at
 https://github.com/sachinmehra1/multi-agent-dev-team. LMS submission remains pending.
@@ -145,7 +227,7 @@ that arbitrary requirements are correct. Review generated code before relying on
 
 ```text
 multi-agent-dev-team/
-├── agents/                 # coder_agent.py, pm_agent.py; reserved qa_agent.py
+├── agents/                 # coder_agent.py, pm_agent.py, qa_agent.py
 ├── tools/                  # confined file I/O, bounded Docker subprocess, registry
 ├── orchestration/          # LangGraph, Pydantic state/output, LLM, two-layer memory
 ├── tests/                  # smoke, failures, memory, opt-in integrations
