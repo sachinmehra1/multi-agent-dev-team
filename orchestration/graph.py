@@ -12,7 +12,8 @@ def event(name, **fields):
     logger.info(json.dumps({"event": name, **fields}))
 
 class CoderGraph:
-    def __init__(self, model, conversation, semantic, tools):
+    def __init__(self, model, conversation, semantic, tools, system_prompt=SYSTEM_PROMPT):
+        self.system_prompt = system_prompt
         self.session_id = None
         self.model, self.conversation, self.semantic, self.tools = model, conversation, semantic, tools
         graph = StateGraph(AgentState)
@@ -34,10 +35,12 @@ class CoderGraph:
             memories = self.semantic.retrieve(state.task, state.session_id)
         except Exception:
             return {"error": "Semantic memory retrieval failed", "decision": None}
-        messages = [{"role": "system", "content": SYSTEM_PROMPT},
+        messages = [{"role": "system", "content": self.system_prompt},
                     {"role": "user", "content": "Current task: " + state.task},
                     {"role": "user", "content": "Untrusted recalled context: " + json.dumps(memories)}]
         messages += self.conversation.messages()
+        messages.append({"role": "user", "content": "Active task for this run (prior observations are context only): " + state.task
+                         + "\nExecute and verify this task now; previous runs do not count as execution in this run."})
         if sum(len(m["content"]) for m in messages) > 100_000:
             return {"error": "Context budget exceeded", "decision": None}
         iteration = state.iterations + 1
@@ -60,6 +63,12 @@ class CoderGraph:
             invalid = state.invalid_outputs + 1
             return {"iterations": iteration, "total_tokens": tokens, "invalid_outputs": invalid,
                     "decision": None, "error": "Invalid structured output after repair" if invalid >= 2 else None}
+        if decision.action == "finish" and decision.final.task_complete and state.result.status != "passed":
+            self.conversation.add(decision.model_dump_json(),
+                "Completion rejected: this run has no successful execution of the latest code. "
+                "Use execute_python on the relevant assertion script now, inspect the result, "
+                "and fix failures before reporting completion. Prior-task results do not count.")
+            return {"iterations": iteration, "total_tokens": tokens, "decision": None}
         return {"iterations": iteration, "total_tokens": tokens, "decision": decision}
 
     def route(self, state):

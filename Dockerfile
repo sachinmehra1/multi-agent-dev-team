@@ -8,7 +8,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY agents agents
 COPY tools tools
 COPY orchestration orchestration
-COPY main.py .
+COPY main.py project_main.py ./
+COPY tests/fixtures tests/fixtures
 ENV PYTHONUNBUFFERED=1 WORKSPACE_DIR=/data/workspace CHROMA_DIR=/data/chroma
 ENTRYPOINT ["python", "main.py"]
 CMD ["Write a Python addition function with assertions and execute it."]

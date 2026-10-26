@@ -1,6 +1,67 @@
-# Multi-Agent Development Team — Coder Agent v1.0
+# Multi-Agent Development Team — PM + Coder
 
-Saras AI Institute · Build Autonomous Multi-Agent Systems · Module 1.
+Saras AI Institute · Build Autonomous Multi-Agent Systems · Modules 1–2.
+
+
+## Module 2: PM → Coder
+
+Module 2 retains **LangGraph and GPT-4o**. The PM converts a free-text requirement
+into a validated specification and an ordered task list. The Coder consumes each
+ready handoff and updates the same typed project state after each task.
+
+```mermaid
+flowchart TD
+    R[Free-text requirement] --> PM[PM: structured specification and tasks]
+    PM --> S[(Pydantic shared project state)]
+    S --> H[Prepare ready handoff: ID, description, criteria, priority]
+    H --> C[Coder: bounded ReACT subgraph]
+    C --> T[Read / write / execute tools]
+    T --> C
+    C --> S
+    C --> N{More tasks?}
+    N -->|Yes| H
+    N -->|No| V[Optional local API acceptance fixture]
+    V --> O[Validated final project state]
+```
+
+PM and Coder execute in one workflow and process; Docker runs generated code only.
+Shared state preserves the original requirement, specification, original and
+consolidated tasks, per-task status, handoff history and accumulated code. Plans
+larger than eight tasks are grouped in order, retaining every original description,
+acceptance criterion and source task ID. The Coder has at most ten model calls per
+task. A failed task stops the workflow and keeps earlier outputs for inspection.
+
+After the setup below, build the Flask execution image and run the published task:
+
+```bash
+docker build -f Dockerfile.executor -t coder-python-api:module2 .
+python project_main.py --verify-api --output module2-result.json
+# Or provide a different requirement:
+python project_main.py "Build a REST API with GET /health and POST /echo with input validation" --verify-api
+```
+
+The default task is the course's published health/echo API requirement. The
+`--verify-api` option uses **our documented local request fixture**, not an
+instructor-supplied fixture. It expects JSON objects to echo unchanged, rejects
+malformed/non-object JSON with 400, and rejects non-JSON input with 415. These
+choices must be compared with the instructor fixture when it becomes available.
+The Flask image supports sibling imports when the generated assertion script
+adds its own directory to `sys.path`; the Module 1 image remains standard-library only.
+
+```bash
+python -m pytest -q
+RUN_MODULE2_DOCKER_TESTS=1 python -m pytest tests/test_api_fixture.py -q
+# Uses the API key from .env, incurs model usage, and writes fresh run evidence:
+python -m scripts.verify_module2
+```
+
+[Module 2 evidence and rubric map](docs/module2/README.md) ·
+[Live state transitions](docs/module2/live-state-trace.json) ·
+[Final state and actual request results](docs/module2/live-final-state.json)
+
+Module 2 is published on the `module-2` branch so the Module 1 submission remains
+available on `main`. Optional Lab 2.4 and a new cross-framework comparison are not
+part of this milestone; there is no framework change to justify.
 
 ## Graded Module 1 Coder Agent
 
@@ -33,7 +94,7 @@ LMS submission remains pending.
 
 A single LangGraph Coder agent accepts a natural-language Python task, writes files,
 executes them in a restricted container, and returns Pydantic-validated JSON.
-The PM and QA modules are explicitly reserved for Modules 2 and 3.
+Module 2 adds the PM; QA remains reserved for Module 3.
 
 **Delivery status:** implemented, tested locally, and published at
 https://github.com/sachinmehra1/multi-agent-dev-team. LMS submission remains pending.
@@ -84,7 +145,7 @@ that arbitrary requirements are correct. Review generated code before relying on
 
 ```text
 multi-agent-dev-team/
-├── agents/                 # coder_agent.py; reserved pm_agent.py, qa_agent.py
+├── agents/                 # coder_agent.py, pm_agent.py; reserved qa_agent.py
 ├── tools/                  # confined file I/O, bounded Docker subprocess, registry
 ├── orchestration/          # LangGraph, Pydantic state/output, LLM, two-layer memory
 ├── tests/                  # smoke, failures, memory, opt-in integrations

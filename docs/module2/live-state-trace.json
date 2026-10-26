@@ -1,0 +1,1077 @@
+[
+  {
+    "original_requirement": "Build a REST API with two endpoints: GET /health (returns {status: ok}) and POST /echo (returns the JSON body it receives). Include basic input validation.",
+    "technical_spec": null,
+    "original_tasks": [],
+    "tasks": [],
+    "current_task_index": 0,
+    "handoff": null,
+    "handoff_history": [],
+    "progress": [],
+    "code_output": {},
+    "artifacts": [],
+    "verification": null,
+    "complete": false,
+    "error": null
+  },
+  {
+    "original_requirement": "Build a REST API with two endpoints: GET /health (returns {status: ok}) and POST /echo (returns the JSON body it receives). Include basic input validation.",
+    "technical_spec": {
+      "name": "REST API Implementation",
+      "description": "A REST API with two endpoints: GET /health and POST /echo, including basic input validation.",
+      "acceptance_criteria": [
+        "GET /health returns a JSON object with {status: 'ok'}.",
+        "POST /echo returns the JSON object it receives.",
+        "POST /echo rejects malformed JSON and non-object JSON with a 400 status code.",
+        "POST /echo rejects requests with the wrong content type with a 415 status code."
+      ],
+      "tasks": [
+        {
+          "task_id": "1",
+          "description": "Implement GET /health endpoint.",
+          "acceptance_criteria": [
+            "GET /health returns a JSON object with {status: 'ok'}."
+          ],
+          "priority": 1,
+          "source_task_ids": [
+            "1"
+          ],
+          "status": "pending"
+        },
+        {
+          "task_id": "2",
+          "description": "Implement POST /echo endpoint with JSON validation.",
+          "acceptance_criteria": [
+            "POST /echo returns the JSON object it receives.",
+            "POST /echo rejects malformed JSON and non-object JSON with a 400 status code.",
+            "POST /echo rejects requests with the wrong content type with a 415 status code."
+          ],
+          "priority": 2,
+          "source_task_ids": [
+            "2"
+          ],
+          "status": "pending"
+        }
+      ]
+    },
+    "original_tasks": [
+      {
+        "task_id": "1",
+        "description": "Implement GET /health endpoint.",
+        "acceptance_criteria": [
+          "GET /health returns a JSON object with {status: 'ok'}."
+        ],
+        "priority": 1,
+        "source_task_ids": [],
+        "status": "pending"
+      },
+      {
+        "task_id": "2",
+        "description": "Implement POST /echo endpoint with JSON validation.",
+        "acceptance_criteria": [
+          "POST /echo returns the JSON object it receives.",
+          "POST /echo rejects malformed JSON and non-object JSON with a 400 status code.",
+          "POST /echo rejects requests with the wrong content type with a 415 status code."
+        ],
+        "priority": 2,
+        "source_task_ids": [],
+        "status": "pending"
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "1",
+        "description": "Implement GET /health endpoint.",
+        "acceptance_criteria": [
+          "GET /health returns a JSON object with {status: 'ok'}."
+        ],
+        "priority": 1,
+        "source_task_ids": [
+          "1"
+        ],
+        "status": "pending"
+      },
+      {
+        "task_id": "2",
+        "description": "Implement POST /echo endpoint with JSON validation.",
+        "acceptance_criteria": [
+          "POST /echo returns the JSON object it receives.",
+          "POST /echo rejects malformed JSON and non-object JSON with a 400 status code.",
+          "POST /echo rejects requests with the wrong content type with a 415 status code."
+        ],
+        "priority": 2,
+        "source_task_ids": [
+          "2"
+        ],
+        "status": "pending"
+      }
+    ],
+    "current_task_index": 0,
+    "handoff": {
+      "ready": true,
+      "task_id": "1",
+      "description": "Implement GET /health endpoint.",
+      "acceptance_criteria": [
+        "GET /health returns a JSON object with {status: 'ok'}."
+      ],
+      "priority": 1
+    },
+    "handoff_history": [
+      {
+        "ready": true,
+        "task_id": "1",
+        "description": "Implement GET /health endpoint.",
+        "acceptance_criteria": [
+          "GET /health returns a JSON object with {status: 'ok'}."
+        ],
+        "priority": 1
+      }
+    ],
+    "progress": [
+      {
+        "task_id": "1",
+        "status": "ready",
+        "message": "PM specification validated; task ready"
+      }
+    ],
+    "code_output": {},
+    "artifacts": [],
+    "verification": null,
+    "complete": false,
+    "error": null
+  },
+  {
+    "original_requirement": "Build a REST API with two endpoints: GET /health (returns {status: ok}) and POST /echo (returns the JSON body it receives). Include basic input validation.",
+    "technical_spec": {
+      "name": "REST API Implementation",
+      "description": "A REST API with two endpoints: GET /health and POST /echo, including basic input validation.",
+      "acceptance_criteria": [
+        "GET /health returns a JSON object with {status: 'ok'}.",
+        "POST /echo returns the JSON object it receives.",
+        "POST /echo rejects malformed JSON and non-object JSON with a 400 status code.",
+        "POST /echo rejects requests with the wrong content type with a 415 status code."
+      ],
+      "tasks": [
+        {
+          "task_id": "1",
+          "description": "Implement GET /health endpoint.",
+          "acceptance_criteria": [
+            "GET /health returns a JSON object with {status: 'ok'}."
+          ],
+          "priority": 1,
+          "source_task_ids": [
+            "1"
+          ],
+          "status": "pending"
+        },
+        {
+          "task_id": "2",
+          "description": "Implement POST /echo endpoint with JSON validation.",
+          "acceptance_criteria": [
+            "POST /echo returns the JSON object it receives.",
+            "POST /echo rejects malformed JSON and non-object JSON with a 400 status code.",
+            "POST /echo rejects requests with the wrong content type with a 415 status code."
+          ],
+          "priority": 2,
+          "source_task_ids": [
+            "2"
+          ],
+          "status": "pending"
+        }
+      ]
+    },
+    "original_tasks": [
+      {
+        "task_id": "1",
+        "description": "Implement GET /health endpoint.",
+        "acceptance_criteria": [
+          "GET /health returns a JSON object with {status: 'ok'}."
+        ],
+        "priority": 1,
+        "source_task_ids": [],
+        "status": "pending"
+      },
+      {
+        "task_id": "2",
+        "description": "Implement POST /echo endpoint with JSON validation.",
+        "acceptance_criteria": [
+          "POST /echo returns the JSON object it receives.",
+          "POST /echo rejects malformed JSON and non-object JSON with a 400 status code.",
+          "POST /echo rejects requests with the wrong content type with a 415 status code."
+        ],
+        "priority": 2,
+        "source_task_ids": [],
+        "status": "pending"
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "1",
+        "description": "Implement GET /health endpoint.",
+        "acceptance_criteria": [
+          "GET /health returns a JSON object with {status: 'ok'}."
+        ],
+        "priority": 1,
+        "source_task_ids": [
+          "1"
+        ],
+        "status": "running"
+      },
+      {
+        "task_id": "2",
+        "description": "Implement POST /echo endpoint with JSON validation.",
+        "acceptance_criteria": [
+          "POST /echo returns the JSON object it receives.",
+          "POST /echo rejects malformed JSON and non-object JSON with a 400 status code.",
+          "POST /echo rejects requests with the wrong content type with a 415 status code."
+        ],
+        "priority": 2,
+        "source_task_ids": [
+          "2"
+        ],
+        "status": "pending"
+      }
+    ],
+    "current_task_index": 0,
+    "handoff": {
+      "ready": true,
+      "task_id": "1",
+      "description": "Implement GET /health endpoint.",
+      "acceptance_criteria": [
+        "GET /health returns a JSON object with {status: 'ok'}."
+      ],
+      "priority": 1
+    },
+    "handoff_history": [
+      {
+        "ready": true,
+        "task_id": "1",
+        "description": "Implement GET /health endpoint.",
+        "acceptance_criteria": [
+          "GET /health returns a JSON object with {status: 'ok'}."
+        ],
+        "priority": 1
+      }
+    ],
+    "progress": [
+      {
+        "task_id": "1",
+        "status": "ready",
+        "message": "PM specification validated; task ready"
+      },
+      {
+        "task_id": "1",
+        "status": "running",
+        "message": "Coder received ready handoff"
+      }
+    ],
+    "code_output": {},
+    "artifacts": [],
+    "verification": null,
+    "complete": false,
+    "error": null
+  },
+  {
+    "original_requirement": "Build a REST API with two endpoints: GET /health (returns {status: ok}) and POST /echo (returns the JSON body it receives). Include basic input validation.",
+    "technical_spec": {
+      "name": "REST API Implementation",
+      "description": "A REST API with two endpoints: GET /health and POST /echo, including basic input validation.",
+      "acceptance_criteria": [
+        "GET /health returns a JSON object with {status: 'ok'}.",
+        "POST /echo returns the JSON object it receives.",
+        "POST /echo rejects malformed JSON and non-object JSON with a 400 status code.",
+        "POST /echo rejects requests with the wrong content type with a 415 status code."
+      ],
+      "tasks": [
+        {
+          "task_id": "1",
+          "description": "Implement GET /health endpoint.",
+          "acceptance_criteria": [
+            "GET /health returns a JSON object with {status: 'ok'}."
+          ],
+          "priority": 1,
+          "source_task_ids": [
+            "1"
+          ],
+          "status": "pending"
+        },
+        {
+          "task_id": "2",
+          "description": "Implement POST /echo endpoint with JSON validation.",
+          "acceptance_criteria": [
+            "POST /echo returns the JSON object it receives.",
+            "POST /echo rejects malformed JSON and non-object JSON with a 400 status code.",
+            "POST /echo rejects requests with the wrong content type with a 415 status code."
+          ],
+          "priority": 2,
+          "source_task_ids": [
+            "2"
+          ],
+          "status": "pending"
+        }
+      ]
+    },
+    "original_tasks": [
+      {
+        "task_id": "1",
+        "description": "Implement GET /health endpoint.",
+        "acceptance_criteria": [
+          "GET /health returns a JSON object with {status: 'ok'}."
+        ],
+        "priority": 1,
+        "source_task_ids": [],
+        "status": "pending"
+      },
+      {
+        "task_id": "2",
+        "description": "Implement POST /echo endpoint with JSON validation.",
+        "acceptance_criteria": [
+          "POST /echo returns the JSON object it receives.",
+          "POST /echo rejects malformed JSON and non-object JSON with a 400 status code.",
+          "POST /echo rejects requests with the wrong content type with a 415 status code."
+        ],
+        "priority": 2,
+        "source_task_ids": [],
+        "status": "pending"
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "1",
+        "description": "Implement GET /health endpoint.",
+        "acceptance_criteria": [
+          "GET /health returns a JSON object with {status: 'ok'}."
+        ],
+        "priority": 1,
+        "source_task_ids": [
+          "1"
+        ],
+        "status": "completed"
+      },
+      {
+        "task_id": "2",
+        "description": "Implement POST /echo endpoint with JSON validation.",
+        "acceptance_criteria": [
+          "POST /echo returns the JSON object it receives.",
+          "POST /echo rejects malformed JSON and non-object JSON with a 400 status code.",
+          "POST /echo rejects requests with the wrong content type with a 415 status code."
+        ],
+        "priority": 2,
+        "source_task_ids": [
+          "2"
+        ],
+        "status": "pending"
+      }
+    ],
+    "current_task_index": 1,
+    "handoff": {
+      "ready": false,
+      "task_id": "1",
+      "description": "Implement GET /health endpoint.",
+      "acceptance_criteria": [
+        "GET /health returns a JSON object with {status: 'ok'}."
+      ],
+      "priority": 1
+    },
+    "handoff_history": [
+      {
+        "ready": true,
+        "task_id": "1",
+        "description": "Implement GET /health endpoint.",
+        "acceptance_criteria": [
+          "GET /health returns a JSON object with {status: 'ok'}."
+        ],
+        "priority": 1
+      }
+    ],
+    "progress": [
+      {
+        "task_id": "1",
+        "status": "ready",
+        "message": "PM specification validated; task ready"
+      },
+      {
+        "task_id": "1",
+        "status": "running",
+        "message": "Coder received ready handoff"
+      },
+      {
+        "task_id": "1",
+        "status": "completed",
+        "message": "Implemented the GET /health endpoint in Flask and verified it with a test script. The endpoint returns the expected JSON response with status 'ok'."
+      }
+    ],
+    "code_output": {
+      "app.py": "from flask import Flask, jsonify\n\napp = Flask(__name__)\n\n@app.route('/health', methods=['GET'])\ndef health():\n    return jsonify({'status': 'ok'})\n",
+      "test_app.py": "import sys\nimport pathlib\nimport json\n\n# Add the current directory to sys.path for local imports\nsys.path.append(str(pathlib.Path(__file__).resolve().parent))\n\nfrom app import app\n\ndef test_health_endpoint():\n    with app.test_client() as client:\n        response = client.get('/health')\n        assert response.status_code == 200\n        assert response.is_json\n        assert response.get_json() == {'status': 'ok'}\n\nif __name__ == '__main__':\n    test_health_endpoint()\n    print('GET /health endpoint test passed.')\n"
+    },
+    "artifacts": [
+      {
+        "task_id": "1",
+        "output": {
+          "task_complete": true,
+          "code": "# File: app.py\nfrom flask import Flask, jsonify\n\napp = Flask(__name__)\n\n@app.route('/health', methods=['GET'])\ndef health():\n    return jsonify({'status': 'ok'})\n\n\n# File: test_app.py\nimport sys\nimport pathlib\nimport json\n\n# Add the current directory to sys.path for local imports\nsys.path.append(str(pathlib.Path(__file__).resolve().parent))\n\nfrom app import app\n\ndef test_health_endpoint():\n    with app.test_client() as client:\n        response = client.get('/health')\n        assert response.status_code == 200\n        assert response.is_json\n        assert response.get_json() == {'status': 'ok'}\n\nif __name__ == '__main__':\n    test_health_endpoint()\n    print('GET /health endpoint test passed.')\n",
+          "explanation": "Implemented the GET /health endpoint in Flask and verified it with a test script. The endpoint returns the expected JSON response with status 'ok'.",
+          "plan": [
+            "To implement the GET /health endpoint, I will create a Flask app with the specified endpoint and then write a test script to verify its functionality.",
+            "I will write a test script to verify the GET /health endpoint functionality using Flask's test client.",
+            "I will execute the test script to verify the GET /health endpoint implementation.",
+            "The error indicates that the module 'app' is not found. I will adjust the sys.path modification to ensure the app module is correctly imported.",
+            "I will execute the test script again to verify the GET /health endpoint implementation after adjusting the sys.path."
+          ],
+          "result": {
+            "status": "passed",
+            "stdout": "GET /health endpoint test passed.\n",
+            "stderr": "",
+            "exit_code": 0
+          },
+          "files_written": [
+            "app.py",
+            "test_app.py"
+          ],
+          "iterations_used": 6,
+          "total_tokens": 26873,
+          "error": null,
+          "warnings": []
+        }
+      }
+    ],
+    "verification": null,
+    "complete": false,
+    "error": null
+  },
+  {
+    "original_requirement": "Build a REST API with two endpoints: GET /health (returns {status: ok}) and POST /echo (returns the JSON body it receives). Include basic input validation.",
+    "technical_spec": {
+      "name": "REST API Implementation",
+      "description": "A REST API with two endpoints: GET /health and POST /echo, including basic input validation.",
+      "acceptance_criteria": [
+        "GET /health returns a JSON object with {status: 'ok'}.",
+        "POST /echo returns the JSON object it receives.",
+        "POST /echo rejects malformed JSON and non-object JSON with a 400 status code.",
+        "POST /echo rejects requests with the wrong content type with a 415 status code."
+      ],
+      "tasks": [
+        {
+          "task_id": "1",
+          "description": "Implement GET /health endpoint.",
+          "acceptance_criteria": [
+            "GET /health returns a JSON object with {status: 'ok'}."
+          ],
+          "priority": 1,
+          "source_task_ids": [
+            "1"
+          ],
+          "status": "pending"
+        },
+        {
+          "task_id": "2",
+          "description": "Implement POST /echo endpoint with JSON validation.",
+          "acceptance_criteria": [
+            "POST /echo returns the JSON object it receives.",
+            "POST /echo rejects malformed JSON and non-object JSON with a 400 status code.",
+            "POST /echo rejects requests with the wrong content type with a 415 status code."
+          ],
+          "priority": 2,
+          "source_task_ids": [
+            "2"
+          ],
+          "status": "pending"
+        }
+      ]
+    },
+    "original_tasks": [
+      {
+        "task_id": "1",
+        "description": "Implement GET /health endpoint.",
+        "acceptance_criteria": [
+          "GET /health returns a JSON object with {status: 'ok'}."
+        ],
+        "priority": 1,
+        "source_task_ids": [],
+        "status": "pending"
+      },
+      {
+        "task_id": "2",
+        "description": "Implement POST /echo endpoint with JSON validation.",
+        "acceptance_criteria": [
+          "POST /echo returns the JSON object it receives.",
+          "POST /echo rejects malformed JSON and non-object JSON with a 400 status code.",
+          "POST /echo rejects requests with the wrong content type with a 415 status code."
+        ],
+        "priority": 2,
+        "source_task_ids": [],
+        "status": "pending"
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "1",
+        "description": "Implement GET /health endpoint.",
+        "acceptance_criteria": [
+          "GET /health returns a JSON object with {status: 'ok'}."
+        ],
+        "priority": 1,
+        "source_task_ids": [
+          "1"
+        ],
+        "status": "completed"
+      },
+      {
+        "task_id": "2",
+        "description": "Implement POST /echo endpoint with JSON validation.",
+        "acceptance_criteria": [
+          "POST /echo returns the JSON object it receives.",
+          "POST /echo rejects malformed JSON and non-object JSON with a 400 status code.",
+          "POST /echo rejects requests with the wrong content type with a 415 status code."
+        ],
+        "priority": 2,
+        "source_task_ids": [
+          "2"
+        ],
+        "status": "running"
+      }
+    ],
+    "current_task_index": 1,
+    "handoff": {
+      "ready": true,
+      "task_id": "2",
+      "description": "Implement POST /echo endpoint with JSON validation.",
+      "acceptance_criteria": [
+        "POST /echo returns the JSON object it receives.",
+        "POST /echo rejects malformed JSON and non-object JSON with a 400 status code.",
+        "POST /echo rejects requests with the wrong content type with a 415 status code."
+      ],
+      "priority": 2
+    },
+    "handoff_history": [
+      {
+        "ready": true,
+        "task_id": "1",
+        "description": "Implement GET /health endpoint.",
+        "acceptance_criteria": [
+          "GET /health returns a JSON object with {status: 'ok'}."
+        ],
+        "priority": 1
+      },
+      {
+        "ready": true,
+        "task_id": "2",
+        "description": "Implement POST /echo endpoint with JSON validation.",
+        "acceptance_criteria": [
+          "POST /echo returns the JSON object it receives.",
+          "POST /echo rejects malformed JSON and non-object JSON with a 400 status code.",
+          "POST /echo rejects requests with the wrong content type with a 415 status code."
+        ],
+        "priority": 2
+      }
+    ],
+    "progress": [
+      {
+        "task_id": "1",
+        "status": "ready",
+        "message": "PM specification validated; task ready"
+      },
+      {
+        "task_id": "1",
+        "status": "running",
+        "message": "Coder received ready handoff"
+      },
+      {
+        "task_id": "1",
+        "status": "completed",
+        "message": "Implemented the GET /health endpoint in Flask and verified it with a test script. The endpoint returns the expected JSON response with status 'ok'."
+      },
+      {
+        "task_id": "2",
+        "status": "running",
+        "message": "Coder received ready handoff"
+      }
+    ],
+    "code_output": {
+      "app.py": "from flask import Flask, jsonify\n\napp = Flask(__name__)\n\n@app.route('/health', methods=['GET'])\ndef health():\n    return jsonify({'status': 'ok'})\n",
+      "test_app.py": "import sys\nimport pathlib\nimport json\n\n# Add the current directory to sys.path for local imports\nsys.path.append(str(pathlib.Path(__file__).resolve().parent))\n\nfrom app import app\n\ndef test_health_endpoint():\n    with app.test_client() as client:\n        response = client.get('/health')\n        assert response.status_code == 200\n        assert response.is_json\n        assert response.get_json() == {'status': 'ok'}\n\nif __name__ == '__main__':\n    test_health_endpoint()\n    print('GET /health endpoint test passed.')\n"
+    },
+    "artifacts": [
+      {
+        "task_id": "1",
+        "output": {
+          "task_complete": true,
+          "code": "# File: app.py\nfrom flask import Flask, jsonify\n\napp = Flask(__name__)\n\n@app.route('/health', methods=['GET'])\ndef health():\n    return jsonify({'status': 'ok'})\n\n\n# File: test_app.py\nimport sys\nimport pathlib\nimport json\n\n# Add the current directory to sys.path for local imports\nsys.path.append(str(pathlib.Path(__file__).resolve().parent))\n\nfrom app import app\n\ndef test_health_endpoint():\n    with app.test_client() as client:\n        response = client.get('/health')\n        assert response.status_code == 200\n        assert response.is_json\n        assert response.get_json() == {'status': 'ok'}\n\nif __name__ == '__main__':\n    test_health_endpoint()\n    print('GET /health endpoint test passed.')\n",
+          "explanation": "Implemented the GET /health endpoint in Flask and verified it with a test script. The endpoint returns the expected JSON response with status 'ok'.",
+          "plan": [
+            "To implement the GET /health endpoint, I will create a Flask app with the specified endpoint and then write a test script to verify its functionality.",
+            "I will write a test script to verify the GET /health endpoint functionality using Flask's test client.",
+            "I will execute the test script to verify the GET /health endpoint implementation.",
+            "The error indicates that the module 'app' is not found. I will adjust the sys.path modification to ensure the app module is correctly imported.",
+            "I will execute the test script again to verify the GET /health endpoint implementation after adjusting the sys.path."
+          ],
+          "result": {
+            "status": "passed",
+            "stdout": "GET /health endpoint test passed.\n",
+            "stderr": "",
+            "exit_code": 0
+          },
+          "files_written": [
+            "app.py",
+            "test_app.py"
+          ],
+          "iterations_used": 6,
+          "total_tokens": 26873,
+          "error": null,
+          "warnings": []
+        }
+      }
+    ],
+    "verification": null,
+    "complete": false,
+    "error": null
+  },
+  {
+    "original_requirement": "Build a REST API with two endpoints: GET /health (returns {status: ok}) and POST /echo (returns the JSON body it receives). Include basic input validation.",
+    "technical_spec": {
+      "name": "REST API Implementation",
+      "description": "A REST API with two endpoints: GET /health and POST /echo, including basic input validation.",
+      "acceptance_criteria": [
+        "GET /health returns a JSON object with {status: 'ok'}.",
+        "POST /echo returns the JSON object it receives.",
+        "POST /echo rejects malformed JSON and non-object JSON with a 400 status code.",
+        "POST /echo rejects requests with the wrong content type with a 415 status code."
+      ],
+      "tasks": [
+        {
+          "task_id": "1",
+          "description": "Implement GET /health endpoint.",
+          "acceptance_criteria": [
+            "GET /health returns a JSON object with {status: 'ok'}."
+          ],
+          "priority": 1,
+          "source_task_ids": [
+            "1"
+          ],
+          "status": "pending"
+        },
+        {
+          "task_id": "2",
+          "description": "Implement POST /echo endpoint with JSON validation.",
+          "acceptance_criteria": [
+            "POST /echo returns the JSON object it receives.",
+            "POST /echo rejects malformed JSON and non-object JSON with a 400 status code.",
+            "POST /echo rejects requests with the wrong content type with a 415 status code."
+          ],
+          "priority": 2,
+          "source_task_ids": [
+            "2"
+          ],
+          "status": "pending"
+        }
+      ]
+    },
+    "original_tasks": [
+      {
+        "task_id": "1",
+        "description": "Implement GET /health endpoint.",
+        "acceptance_criteria": [
+          "GET /health returns a JSON object with {status: 'ok'}."
+        ],
+        "priority": 1,
+        "source_task_ids": [],
+        "status": "pending"
+      },
+      {
+        "task_id": "2",
+        "description": "Implement POST /echo endpoint with JSON validation.",
+        "acceptance_criteria": [
+          "POST /echo returns the JSON object it receives.",
+          "POST /echo rejects malformed JSON and non-object JSON with a 400 status code.",
+          "POST /echo rejects requests with the wrong content type with a 415 status code."
+        ],
+        "priority": 2,
+        "source_task_ids": [],
+        "status": "pending"
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "1",
+        "description": "Implement GET /health endpoint.",
+        "acceptance_criteria": [
+          "GET /health returns a JSON object with {status: 'ok'}."
+        ],
+        "priority": 1,
+        "source_task_ids": [
+          "1"
+        ],
+        "status": "completed"
+      },
+      {
+        "task_id": "2",
+        "description": "Implement POST /echo endpoint with JSON validation.",
+        "acceptance_criteria": [
+          "POST /echo returns the JSON object it receives.",
+          "POST /echo rejects malformed JSON and non-object JSON with a 400 status code.",
+          "POST /echo rejects requests with the wrong content type with a 415 status code."
+        ],
+        "priority": 2,
+        "source_task_ids": [
+          "2"
+        ],
+        "status": "completed"
+      }
+    ],
+    "current_task_index": 2,
+    "handoff": {
+      "ready": false,
+      "task_id": "2",
+      "description": "Implement POST /echo endpoint with JSON validation.",
+      "acceptance_criteria": [
+        "POST /echo returns the JSON object it receives.",
+        "POST /echo rejects malformed JSON and non-object JSON with a 400 status code.",
+        "POST /echo rejects requests with the wrong content type with a 415 status code."
+      ],
+      "priority": 2
+    },
+    "handoff_history": [
+      {
+        "ready": true,
+        "task_id": "1",
+        "description": "Implement GET /health endpoint.",
+        "acceptance_criteria": [
+          "GET /health returns a JSON object with {status: 'ok'}."
+        ],
+        "priority": 1
+      },
+      {
+        "ready": true,
+        "task_id": "2",
+        "description": "Implement POST /echo endpoint with JSON validation.",
+        "acceptance_criteria": [
+          "POST /echo returns the JSON object it receives.",
+          "POST /echo rejects malformed JSON and non-object JSON with a 400 status code.",
+          "POST /echo rejects requests with the wrong content type with a 415 status code."
+        ],
+        "priority": 2
+      }
+    ],
+    "progress": [
+      {
+        "task_id": "1",
+        "status": "ready",
+        "message": "PM specification validated; task ready"
+      },
+      {
+        "task_id": "1",
+        "status": "running",
+        "message": "Coder received ready handoff"
+      },
+      {
+        "task_id": "1",
+        "status": "completed",
+        "message": "Implemented the GET /health endpoint in Flask and verified it with a test script. The endpoint returns the expected JSON response with status 'ok'."
+      },
+      {
+        "task_id": "2",
+        "status": "running",
+        "message": "Coder received ready handoff"
+      },
+      {
+        "task_id": "2",
+        "status": "completed",
+        "message": "Implemented the POST /echo endpoint with JSON validation. It returns the JSON object it receives, rejects malformed JSON and non-object JSON with a 400 status code, and rejects requests with the wrong content type with a 415 status code. All tests passed."
+      }
+    ],
+    "code_output": {
+      "app.py": "from flask import Flask, jsonify, request\n\napp = Flask(__name__)\n\n@app.route('/health', methods=['GET'])\ndef health():\n    return jsonify({'status': 'ok'})\n\n@app.route('/echo', methods=['POST'])\ndef echo():\n    if request.content_type != 'application/json':\n        return jsonify({'error': 'Unsupported Media Type'}), 415\n    try:\n        data = request.get_json(force=True)\n        if not isinstance(data, dict):\n            raise ValueError('JSON is not an object')\n    except Exception:\n        return jsonify({'error': 'Bad Request'}), 400\n    return jsonify(data)\n",
+      "test_app.py": "import sys\nimport pathlib\nimport json\n\n# Add the current directory to sys.path for local imports\nsys.path.append(str(pathlib.Path(__file__).resolve().parent))\n\nfrom app import app\n\ndef test_health_endpoint():\n    with app.test_client() as client:\n        response = client.get('/health')\n        assert response.status_code == 200\n        assert response.is_json\n        assert response.get_json() == {'status': 'ok'}\n\ndef test_echo_endpoint():\n    with app.test_client() as client:\n        # Test valid JSON object\n        response = client.post('/echo', json={'message': 'hello', 'count': 2})\n        assert response.status_code == 200\n        assert response.is_json\n        assert response.get_json() == {'message': 'hello', 'count': 2}\n\n        # Test nested JSON object\n        response = client.post('/echo', json={'nested': {'items': [1, True, None]}})\n        assert response.status_code == 200\n        assert response.is_json\n        assert response.get_json() == {'nested': {'items': [1, True, None]}}\n\n        # Test empty JSON object\n        response = client.post('/echo', json={})\n        assert response.status_code == 200\n        assert response.is_json\n        assert response.get_json() == {}\n\n        # Test malformed JSON\n        response = client.post('/echo', data='{broken', content_type='application/json')\n        assert response.status_code == 400\n\n        # Test non-object JSON (array)\n        response = client.post('/echo', json=[1, 2])\n        assert response.status_code == 400\n\n        # Test non-object JSON (null)\n        response = client.post('/echo', data='null', content_type='application/json')\n        assert response.status_code == 400\n\n        # Test wrong content type\n        response = client.post('/echo', data='hello', content_type='text/plain')\n        assert response.status_code == 415\n\nif __name__ == '__main__':\n    test_health_endpoint()\n    print('GET /health endpoint test passed.')\n    test_echo_endpoint()\n    print('POST /echo endpoint tests passed.')\n"
+    },
+    "artifacts": [
+      {
+        "task_id": "1",
+        "output": {
+          "task_complete": true,
+          "code": "# File: app.py\nfrom flask import Flask, jsonify\n\napp = Flask(__name__)\n\n@app.route('/health', methods=['GET'])\ndef health():\n    return jsonify({'status': 'ok'})\n\n\n# File: test_app.py\nimport sys\nimport pathlib\nimport json\n\n# Add the current directory to sys.path for local imports\nsys.path.append(str(pathlib.Path(__file__).resolve().parent))\n\nfrom app import app\n\ndef test_health_endpoint():\n    with app.test_client() as client:\n        response = client.get('/health')\n        assert response.status_code == 200\n        assert response.is_json\n        assert response.get_json() == {'status': 'ok'}\n\nif __name__ == '__main__':\n    test_health_endpoint()\n    print('GET /health endpoint test passed.')\n",
+          "explanation": "Implemented the GET /health endpoint in Flask and verified it with a test script. The endpoint returns the expected JSON response with status 'ok'.",
+          "plan": [
+            "To implement the GET /health endpoint, I will create a Flask app with the specified endpoint and then write a test script to verify its functionality.",
+            "I will write a test script to verify the GET /health endpoint functionality using Flask's test client.",
+            "I will execute the test script to verify the GET /health endpoint implementation.",
+            "The error indicates that the module 'app' is not found. I will adjust the sys.path modification to ensure the app module is correctly imported.",
+            "I will execute the test script again to verify the GET /health endpoint implementation after adjusting the sys.path."
+          ],
+          "result": {
+            "status": "passed",
+            "stdout": "GET /health endpoint test passed.\n",
+            "stderr": "",
+            "exit_code": 0
+          },
+          "files_written": [
+            "app.py",
+            "test_app.py"
+          ],
+          "iterations_used": 6,
+          "total_tokens": 26873,
+          "error": null,
+          "warnings": []
+        }
+      },
+      {
+        "task_id": "2",
+        "output": {
+          "task_complete": true,
+          "code": "# File: app.py\nfrom flask import Flask, jsonify, request\n\napp = Flask(__name__)\n\n@app.route('/health', methods=['GET'])\ndef health():\n    return jsonify({'status': 'ok'})\n\n@app.route('/echo', methods=['POST'])\ndef echo():\n    if request.content_type != 'application/json':\n        return jsonify({'error': 'Unsupported Media Type'}), 415\n    try:\n        data = request.get_json(force=True)\n        if not isinstance(data, dict):\n            raise ValueError('JSON is not an object')\n    except Exception:\n        return jsonify({'error': 'Bad Request'}), 400\n    return jsonify(data)\n\n\n# File: test_app.py\nimport sys\nimport pathlib\nimport json\n\n# Add the current directory to sys.path for local imports\nsys.path.append(str(pathlib.Path(__file__).resolve().parent))\n\nfrom app import app\n\ndef test_health_endpoint():\n    with app.test_client() as client:\n        response = client.get('/health')\n        assert response.status_code == 200\n        assert response.is_json\n        assert response.get_json() == {'status': 'ok'}\n\ndef test_echo_endpoint():\n    with app.test_client() as client:\n        # Test valid JSON object\n        response = client.post('/echo', json={'message': 'hello', 'count': 2})\n        assert response.status_code == 200\n        assert response.is_json\n        assert response.get_json() == {'message': 'hello', 'count': 2}\n\n        # Test nested JSON object\n        response = client.post('/echo', json={'nested': {'items': [1, True, None]}})\n        assert response.status_code == 200\n        assert response.is_json\n        assert response.get_json() == {'nested': {'items': [1, True, None]}}\n\n        # Test empty JSON object\n        response = client.post('/echo', json={})\n        assert response.status_code == 200\n        assert response.is_json\n        assert response.get_json() == {}\n\n        # Test malformed JSON\n        response = client.post('/echo', data='{broken', content_type='application/json')\n        assert response.status_code == 400\n\n        # Test non-object JSON (array)\n        response = client.post('/echo', json=[1, 2])\n        assert response.status_code == 400\n\n        # Test non-object JSON (null)\n        response = client.post('/echo', data='null', content_type='application/json')\n        assert response.status_code == 400\n\n        # Test wrong content type\n        response = client.post('/echo', data='hello', content_type='text/plain')\n        assert response.status_code == 415\n\nif __name__ == '__main__':\n    test_health_endpoint()\n    print('GET /health endpoint test passed.')\n    test_echo_endpoint()\n    print('POST /echo endpoint tests passed.')\n",
+          "explanation": "Implemented the POST /echo endpoint with JSON validation. It returns the JSON object it receives, rejects malformed JSON and non-object JSON with a 400 status code, and rejects requests with the wrong content type with a 415 status code. All tests passed.",
+          "plan": [
+            "I will implement the POST /echo endpoint with JSON validation in app.py, then write tests for it in test_app.py.",
+            "I will write a test script for the POST /echo endpoint to verify its functionality and validation logic.",
+            "I will execute the test script to verify the POST /echo endpoint implementation and its validation logic.",
+            "The error suggests the app module isn't found. I will ensure the sys.path modification is correct and re-run the tests.",
+            "I will execute the test script again to verify the POST /echo endpoint implementation and its validation logic."
+          ],
+          "result": {
+            "status": "passed",
+            "stdout": "GET /health endpoint test passed.\nPOST /echo endpoint tests passed.\n",
+            "stderr": "",
+            "exit_code": 0
+          },
+          "files_written": [
+            "app.py",
+            "test_app.py"
+          ],
+          "iterations_used": 6,
+          "total_tokens": 41981,
+          "error": null,
+          "warnings": []
+        }
+      }
+    ],
+    "verification": null,
+    "complete": false,
+    "error": null
+  },
+  {
+    "original_requirement": "Build a REST API with two endpoints: GET /health (returns {status: ok}) and POST /echo (returns the JSON body it receives). Include basic input validation.",
+    "technical_spec": {
+      "name": "REST API Implementation",
+      "description": "A REST API with two endpoints: GET /health and POST /echo, including basic input validation.",
+      "acceptance_criteria": [
+        "GET /health returns a JSON object with {status: 'ok'}.",
+        "POST /echo returns the JSON object it receives.",
+        "POST /echo rejects malformed JSON and non-object JSON with a 400 status code.",
+        "POST /echo rejects requests with the wrong content type with a 415 status code."
+      ],
+      "tasks": [
+        {
+          "task_id": "1",
+          "description": "Implement GET /health endpoint.",
+          "acceptance_criteria": [
+            "GET /health returns a JSON object with {status: 'ok'}."
+          ],
+          "priority": 1,
+          "source_task_ids": [
+            "1"
+          ],
+          "status": "pending"
+        },
+        {
+          "task_id": "2",
+          "description": "Implement POST /echo endpoint with JSON validation.",
+          "acceptance_criteria": [
+            "POST /echo returns the JSON object it receives.",
+            "POST /echo rejects malformed JSON and non-object JSON with a 400 status code.",
+            "POST /echo rejects requests with the wrong content type with a 415 status code."
+          ],
+          "priority": 2,
+          "source_task_ids": [
+            "2"
+          ],
+          "status": "pending"
+        }
+      ]
+    },
+    "original_tasks": [
+      {
+        "task_id": "1",
+        "description": "Implement GET /health endpoint.",
+        "acceptance_criteria": [
+          "GET /health returns a JSON object with {status: 'ok'}."
+        ],
+        "priority": 1,
+        "source_task_ids": [],
+        "status": "pending"
+      },
+      {
+        "task_id": "2",
+        "description": "Implement POST /echo endpoint with JSON validation.",
+        "acceptance_criteria": [
+          "POST /echo returns the JSON object it receives.",
+          "POST /echo rejects malformed JSON and non-object JSON with a 400 status code.",
+          "POST /echo rejects requests with the wrong content type with a 415 status code."
+        ],
+        "priority": 2,
+        "source_task_ids": [],
+        "status": "pending"
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "1",
+        "description": "Implement GET /health endpoint.",
+        "acceptance_criteria": [
+          "GET /health returns a JSON object with {status: 'ok'}."
+        ],
+        "priority": 1,
+        "source_task_ids": [
+          "1"
+        ],
+        "status": "completed"
+      },
+      {
+        "task_id": "2",
+        "description": "Implement POST /echo endpoint with JSON validation.",
+        "acceptance_criteria": [
+          "POST /echo returns the JSON object it receives.",
+          "POST /echo rejects malformed JSON and non-object JSON with a 400 status code.",
+          "POST /echo rejects requests with the wrong content type with a 415 status code."
+        ],
+        "priority": 2,
+        "source_task_ids": [
+          "2"
+        ],
+        "status": "completed"
+      }
+    ],
+    "current_task_index": 2,
+    "handoff": {
+      "ready": false,
+      "task_id": "2",
+      "description": "Implement POST /echo endpoint with JSON validation.",
+      "acceptance_criteria": [
+        "POST /echo returns the JSON object it receives.",
+        "POST /echo rejects malformed JSON and non-object JSON with a 400 status code.",
+        "POST /echo rejects requests with the wrong content type with a 415 status code."
+      ],
+      "priority": 2
+    },
+    "handoff_history": [
+      {
+        "ready": true,
+        "task_id": "1",
+        "description": "Implement GET /health endpoint.",
+        "acceptance_criteria": [
+          "GET /health returns a JSON object with {status: 'ok'}."
+        ],
+        "priority": 1
+      },
+      {
+        "ready": true,
+        "task_id": "2",
+        "description": "Implement POST /echo endpoint with JSON validation.",
+        "acceptance_criteria": [
+          "POST /echo returns the JSON object it receives.",
+          "POST /echo rejects malformed JSON and non-object JSON with a 400 status code.",
+          "POST /echo rejects requests with the wrong content type with a 415 status code."
+        ],
+        "priority": 2
+      }
+    ],
+    "progress": [
+      {
+        "task_id": "1",
+        "status": "ready",
+        "message": "PM specification validated; task ready"
+      },
+      {
+        "task_id": "1",
+        "status": "running",
+        "message": "Coder received ready handoff"
+      },
+      {
+        "task_id": "1",
+        "status": "completed",
+        "message": "Implemented the GET /health endpoint in Flask and verified it with a test script. The endpoint returns the expected JSON response with status 'ok'."
+      },
+      {
+        "task_id": "2",
+        "status": "running",
+        "message": "Coder received ready handoff"
+      },
+      {
+        "task_id": "2",
+        "status": "completed",
+        "message": "Implemented the POST /echo endpoint with JSON validation. It returns the JSON object it receives, rejects malformed JSON and non-object JSON with a 400 status code, and rejects requests with the wrong content type with a 415 status code. All tests passed."
+      }
+    ],
+    "code_output": {
+      "app.py": "from flask import Flask, jsonify, request\n\napp = Flask(__name__)\n\n@app.route('/health', methods=['GET'])\ndef health():\n    return jsonify({'status': 'ok'})\n\n@app.route('/echo', methods=['POST'])\ndef echo():\n    if request.content_type != 'application/json':\n        return jsonify({'error': 'Unsupported Media Type'}), 415\n    try:\n        data = request.get_json(force=True)\n        if not isinstance(data, dict):\n            raise ValueError('JSON is not an object')\n    except Exception:\n        return jsonify({'error': 'Bad Request'}), 400\n    return jsonify(data)\n",
+      "test_app.py": "import sys\nimport pathlib\nimport json\n\n# Add the current directory to sys.path for local imports\nsys.path.append(str(pathlib.Path(__file__).resolve().parent))\n\nfrom app import app\n\ndef test_health_endpoint():\n    with app.test_client() as client:\n        response = client.get('/health')\n        assert response.status_code == 200\n        assert response.is_json\n        assert response.get_json() == {'status': 'ok'}\n\ndef test_echo_endpoint():\n    with app.test_client() as client:\n        # Test valid JSON object\n        response = client.post('/echo', json={'message': 'hello', 'count': 2})\n        assert response.status_code == 200\n        assert response.is_json\n        assert response.get_json() == {'message': 'hello', 'count': 2}\n\n        # Test nested JSON object\n        response = client.post('/echo', json={'nested': {'items': [1, True, None]}})\n        assert response.status_code == 200\n        assert response.is_json\n        assert response.get_json() == {'nested': {'items': [1, True, None]}}\n\n        # Test empty JSON object\n        response = client.post('/echo', json={})\n        assert response.status_code == 200\n        assert response.is_json\n        assert response.get_json() == {}\n\n        # Test malformed JSON\n        response = client.post('/echo', data='{broken', content_type='application/json')\n        assert response.status_code == 400\n\n        # Test non-object JSON (array)\n        response = client.post('/echo', json=[1, 2])\n        assert response.status_code == 400\n\n        # Test non-object JSON (null)\n        response = client.post('/echo', data='null', content_type='application/json')\n        assert response.status_code == 400\n\n        # Test wrong content type\n        response = client.post('/echo', data='hello', content_type='text/plain')\n        assert response.status_code == 415\n\nif __name__ == '__main__':\n    test_health_endpoint()\n    print('GET /health endpoint test passed.')\n    test_echo_endpoint()\n    print('POST /echo endpoint tests passed.')\n"
+    },
+    "artifacts": [
+      {
+        "task_id": "1",
+        "output": {
+          "task_complete": true,
+          "code": "# File: app.py\nfrom flask import Flask, jsonify\n\napp = Flask(__name__)\n\n@app.route('/health', methods=['GET'])\ndef health():\n    return jsonify({'status': 'ok'})\n\n\n# File: test_app.py\nimport sys\nimport pathlib\nimport json\n\n# Add the current directory to sys.path for local imports\nsys.path.append(str(pathlib.Path(__file__).resolve().parent))\n\nfrom app import app\n\ndef test_health_endpoint():\n    with app.test_client() as client:\n        response = client.get('/health')\n        assert response.status_code == 200\n        assert response.is_json\n        assert response.get_json() == {'status': 'ok'}\n\nif __name__ == '__main__':\n    test_health_endpoint()\n    print('GET /health endpoint test passed.')\n",
+          "explanation": "Implemented the GET /health endpoint in Flask and verified it with a test script. The endpoint returns the expected JSON response with status 'ok'.",
+          "plan": [
+            "To implement the GET /health endpoint, I will create a Flask app with the specified endpoint and then write a test script to verify its functionality.",
+            "I will write a test script to verify the GET /health endpoint functionality using Flask's test client.",
+            "I will execute the test script to verify the GET /health endpoint implementation.",
+            "The error indicates that the module 'app' is not found. I will adjust the sys.path modification to ensure the app module is correctly imported.",
+            "I will execute the test script again to verify the GET /health endpoint implementation after adjusting the sys.path."
+          ],
+          "result": {
+            "status": "passed",
+            "stdout": "GET /health endpoint test passed.\n",
+            "stderr": "",
+            "exit_code": 0
+          },
+          "files_written": [
+            "app.py",
+            "test_app.py"
+          ],
+          "iterations_used": 6,
+          "total_tokens": 26873,
+          "error": null,
+          "warnings": []
+        }
+      },
+      {
+        "task_id": "2",
+        "output": {
+          "task_complete": true,
+          "code": "# File: app.py\nfrom flask import Flask, jsonify, request\n\napp = Flask(__name__)\n\n@app.route('/health', methods=['GET'])\ndef health():\n    return jsonify({'status': 'ok'})\n\n@app.route('/echo', methods=['POST'])\ndef echo():\n    if request.content_type != 'application/json':\n        return jsonify({'error': 'Unsupported Media Type'}), 415\n    try:\n        data = request.get_json(force=True)\n        if not isinstance(data, dict):\n            raise ValueError('JSON is not an object')\n    except Exception:\n        return jsonify({'error': 'Bad Request'}), 400\n    return jsonify(data)\n\n\n# File: test_app.py\nimport sys\nimport pathlib\nimport json\n\n# Add the current directory to sys.path for local imports\nsys.path.append(str(pathlib.Path(__file__).resolve().parent))\n\nfrom app import app\n\ndef test_health_endpoint():\n    with app.test_client() as client:\n        response = client.get('/health')\n        assert response.status_code == 200\n        assert response.is_json\n        assert response.get_json() == {'status': 'ok'}\n\ndef test_echo_endpoint():\n    with app.test_client() as client:\n        # Test valid JSON object\n        response = client.post('/echo', json={'message': 'hello', 'count': 2})\n        assert response.status_code == 200\n        assert response.is_json\n        assert response.get_json() == {'message': 'hello', 'count': 2}\n\n        # Test nested JSON object\n        response = client.post('/echo', json={'nested': {'items': [1, True, None]}})\n        assert response.status_code == 200\n        assert response.is_json\n        assert response.get_json() == {'nested': {'items': [1, True, None]}}\n\n        # Test empty JSON object\n        response = client.post('/echo', json={})\n        assert response.status_code == 200\n        assert response.is_json\n        assert response.get_json() == {}\n\n        # Test malformed JSON\n        response = client.post('/echo', data='{broken', content_type='application/json')\n        assert response.status_code == 400\n\n        # Test non-object JSON (array)\n        response = client.post('/echo', json=[1, 2])\n        assert response.status_code == 400\n\n        # Test non-object JSON (null)\n        response = client.post('/echo', data='null', content_type='application/json')\n        assert response.status_code == 400\n\n        # Test wrong content type\n        response = client.post('/echo', data='hello', content_type='text/plain')\n        assert response.status_code == 415\n\nif __name__ == '__main__':\n    test_health_endpoint()\n    print('GET /health endpoint test passed.')\n    test_echo_endpoint()\n    print('POST /echo endpoint tests passed.')\n",
+          "explanation": "Implemented the POST /echo endpoint with JSON validation. It returns the JSON object it receives, rejects malformed JSON and non-object JSON with a 400 status code, and rejects requests with the wrong content type with a 415 status code. All tests passed.",
+          "plan": [
+            "I will implement the POST /echo endpoint with JSON validation in app.py, then write tests for it in test_app.py.",
+            "I will write a test script for the POST /echo endpoint to verify its functionality and validation logic.",
+            "I will execute the test script to verify the POST /echo endpoint implementation and its validation logic.",
+            "The error suggests the app module isn't found. I will ensure the sys.path modification is correct and re-run the tests.",
+            "I will execute the test script again to verify the POST /echo endpoint implementation and its validation logic."
+          ],
+          "result": {
+            "status": "passed",
+            "stdout": "GET /health endpoint test passed.\nPOST /echo endpoint tests passed.\n",
+            "stderr": "",
+            "exit_code": 0
+          },
+          "files_written": [
+            "app.py",
+            "test_app.py"
+          ],
+          "iterations_used": 6,
+          "total_tokens": 41981,
+          "error": null,
+          "warnings": []
+        }
+      }
+    ],
+    "verification": {
+      "status": "passed",
+      "stdout": "[{\"name\": \"health\", \"passed\": true, \"status\": 200, \"body\": {\"status\": \"ok\"}}, {\"name\": \"echo object\", \"passed\": true, \"status\": 200, \"body\": {\"count\": 2, \"message\": \"hello\"}}, {\"name\": \"echo nested\", \"passed\": true, \"status\": 200, \"body\": {\"nested\": {\"items\": [1, true, null]}}}, {\"name\": \"empty object\", \"passed\": true, \"status\": 200, \"body\": {}}, {\"name\": \"malformed JSON\", \"passed\": true, \"status\": 400, \"body\": {\"error\": \"Bad Request\"}}, {\"name\": \"array rejected\", \"passed\": true, \"status\": 400, \"body\": {\"error\": \"Bad Request\"}}, {\"name\": \"null rejected\", \"passed\": true, \"status\": 400, \"body\": {\"error\": \"Bad Request\"}}, {\"name\": \"text rejected\", \"passed\": true, \"status\": 415, \"body\": {\"error\": \"Unsupported Media Type\"}}]\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    "complete": true,
+    "error": null
+  }
+]

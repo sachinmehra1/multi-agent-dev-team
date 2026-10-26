@@ -1,0 +1,13 @@
+{
+  "origin": "Locally authored fixture, not an instructor-supplied fixture",
+  "cases": [
+    {"name":"health", "method":"GET", "path":"/health", "status":200, "response":{"status":"ok"}},
+    {"name":"echo object", "method":"POST", "path":"/echo", "json":{"message":"hello","count":2}, "status":200, "response":{"message":"hello","count":2}},
+    {"name":"echo nested", "method":"POST", "path":"/echo", "json":{"nested":{"items":[1,true,null]}}, "status":200, "response":{"nested":{"items":[1,true,null]}}},
+    {"name":"empty object", "method":"POST", "path":"/echo", "json":{}, "status":200, "response":{}},
+    {"name":"malformed JSON", "method":"POST", "path":"/echo", "data":"{broken", "content_type":"application/json", "status":400},
+    {"name":"array rejected", "method":"POST", "path":"/echo", "json":[1,2], "status":400},
+    {"name":"null rejected", "method":"POST", "path":"/echo", "data":"null", "content_type":"application/json", "status":400},
+    {"name":"text rejected", "method":"POST", "path":"/echo", "data":"hello", "content_type":"text/plain", "status":415}
+  ]
+}

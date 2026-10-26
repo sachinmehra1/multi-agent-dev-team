@@ -1,4 +1,4 @@
-name: Module 1 checks
+name: Project checks
 on: [push, pull_request]
 jobs:
   tests:
@@ -13,3 +13,5 @@ jobs:
       - run: python -m pytest -q
       - run: docker pull python:3.12-slim
       - run: RUN_DOCKER_TESTS=1 python -m pytest tests/test_integration.py -q
+      - run: docker build -f Dockerfile.executor -t coder-python-api:module2 .
+      - run: RUN_MODULE2_DOCKER_TESTS=1 python -m pytest tests/test_api_fixture.py -q

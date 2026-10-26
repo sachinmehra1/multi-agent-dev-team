@@ -7,7 +7,6 @@ __pycache__
 workspace
 .chroma
 logs
-tests
 docs
 *.zip
 *.bundle

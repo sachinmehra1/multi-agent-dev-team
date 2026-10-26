@@ -126,3 +126,20 @@ def test_repair_reports_field_level_validation_error(factory):
     agent.run('addition')
     repair = str(model.messages[-1])
     assert 'extra_forbidden' in repair and 'result' in repair
+
+
+def test_premature_finish_is_repaired_with_fresh_execution(factory):
+    agent, model, _ = factory([decision("write_file", path="x.py", content="assert 2+3==5"),
+                              finish(), decision("execute_python", path="x.py"), finish()])
+    out = agent.run("Write and verify addition")
+    assert out.task_complete and out.result.status == "passed"
+    assert out.iterations_used == 4
+    assert "Completion rejected" in str(model.messages[2])
+
+
+def test_repeated_unverified_finish_respects_ten_call_limit(factory):
+    agent, model, _ = factory([finish()] * 12)
+    out = agent.run("must execute")
+    assert not out.task_complete
+    assert out.iterations_used == len(model.messages) == 10
+    assert "Maximum iteration" in out.error
