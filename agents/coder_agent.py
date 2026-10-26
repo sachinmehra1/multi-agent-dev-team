@@ -1,4 +1,5 @@
 """Composition root for Module 1; future agents can call run(task)."""
+from orchestration.observability import agent_span
 from orchestration.graph import CoderGraph
 from orchestration.memory import ConversationMemory, SemanticMemory
 from tools.files import FileTools
@@ -80,6 +81,7 @@ class CoderReviser:
             self.files.write_file(name, code)
         return {**source, **revision.files}, revision.explanation
 
+    @agent_span("coder")
     def reflect(self, source, requirement):
         import json
         from orchestration.qa_models import Critique, ReflectionRecord
@@ -94,6 +96,7 @@ class CoderReviser:
         after, explanation = self._revise(source, requirement, critique.model_dump())
         return ReflectionRecord(critique=critique, explanation=explanation, before=source, after=after)
 
+    @agent_span("coder")
     def fix(self, source, requirement, message):
         from orchestration.a2a import Message
         from orchestration.qa_models import QAReport, FixRecord, source_digest

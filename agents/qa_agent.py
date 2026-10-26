@@ -1,6 +1,8 @@
 """Generate behavioral pytest tests, execute them, and return evidence-based fixes."""
+from orchestration.observability import agent_span
 import ast
 import json
+from pydantic import ValidationError
 from orchestration.a2a import Message
 from orchestration.qa_models import TestSuite, QAIssue, QAReport, ReviewRequest
 from tools.pytest_runner import PytestRunner, PYTEST_ARGS
@@ -10,8 +12,12 @@ from orchestration.models import ExecutionResult
 def validate_suite(suite, criteria):
     tree = ast.parse(suite.code)
     functions = {n.name:n for n in tree.body if isinstance(n, ast.FunctionDef) and n.name.startswith('test_')}
-    if not functions or set(suite.coverage) != set(criteria):
-        raise ValueError('Tests must map every acceptance criterion')
+    if not functions:
+        raise ValueError('Use top-level test_* functions containing behavioral assertions')
+    if set(suite.coverage) != set(criteria):
+        raise ValueError('Coverage keys must match verbatim, including punctuation. Missing keys: '
+                         + json.dumps(sorted(set(criteria)-set(suite.coverage)))
+                         + '; unexpected keys: '+json.dumps(sorted(set(suite.coverage)-set(criteria))))
     for names in suite.coverage.values():
         if not names or any(name not in functions for name in names):
             raise ValueError('Coverage refers to missing test functions')
@@ -44,14 +50,28 @@ class QAAgent:
                   'Assert every specified return value, including reverse() is None for empty and non-empty lists. '
                   'Do not start servers, modify application code, skip, xfail, mock the application or execute shell commands. '
                   'Use only pytest and Python standard library. Each top-level test_* function needs an assert. '
-                  'The coverage keys must EXACTLY match the provided acceptance criteria; values are test function names. '
+                  'Use top-level test_* functions, not test classes. The coverage keys must EXACTLY match every provided acceptance criterion, including similar wording. '
+                  'Each coverage value must be a JSON ARRAY of function-name strings, for example ["test_insert"], never a bare string. '
                   'Return only JSON matching this schema: ' + json.dumps(TestSuite.model_json_schema()))
-        reply = self.model.complete([{'role':'system','content':prompt},
-                                    {'role':'user','content':request.model_dump_json()}])
-        suite = validate_suite(TestSuite.model_validate_json(reply.content), request.acceptance_criteria)
-        self.suites[request.task_id] = (request.acceptance_criteria[:], suite)
-        return suite
+        messages = [{'role':'system','content':prompt},
+                    {'role':'user','content':request.model_dump_json()}]
+        # One bounded schema correction before execution; never replace an executed suite.
+        for attempt in range(2):
+            reply = self.model.complete(messages)
+            try:
+                suite = validate_suite(TestSuite.model_validate_json(reply.content), request.acceptance_criteria)
+            except (ValueError, SyntaxError) as exc:
+                if attempt: raise
+                details = (exc.errors(include_input=False, include_url=False) if isinstance(exc,ValidationError)
+                           else str(exc))
+                messages = messages + [{'role':'assistant','content':reply.content},
+                    {'role':'user','content':'The suite was rejected BEFORE execution. Correct the JSON/schema or test structure. '
+                     + json.dumps(details,default=str)}]
+                continue
+            self.suites[request.task_id] = (request.acceptance_criteria[:], suite)
+            return suite
 
+    @agent_span("qa")
     def review(self, request):
         suite = None
         try:

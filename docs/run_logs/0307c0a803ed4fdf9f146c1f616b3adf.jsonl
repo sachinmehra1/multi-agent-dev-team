@@ -1,0 +1,7 @@
+{"event": "pipeline_started", "level": "INFO", "run_id": "0307c0a803ed4fdf9f146c1f616b3adf", "trace_id": "0b6e504c2a8960042e213c80afc7e94a", "agent_name": "pipeline"}
+{"event": "tool_call", "level": "INFO", "run_id": "0307c0a803ed4fdf9f146c1f616b3adf", "trace_id": "0b6e504c2a8960042e213c80afc7e94a", "agent_name": "pipeline", "tool": "chroma.heartbeat"}
+{"event": "call_attempt", "level": "INFO", "run_id": "0307c0a803ed4fdf9f146c1f616b3adf", "trace_id": "0b6e504c2a8960042e213c80afc7e94a", "agent_name": "pipeline", "call_boundary": "tool.chroma.heartbeat", "attempt": 1, "retry_number": 0}
+{"event": "chroma_ready", "level": "INFO", "run_id": "0307c0a803ed4fdf9f146c1f616b3adf", "trace_id": "0b6e504c2a8960042e213c80afc7e94a", "agent_name": "pipeline", "heartbeat": 1792977536558201171}
+{"event": "pipeline_error", "level": "INFO", "run_id": "0307c0a803ed4fdf9f146c1f616b3adf", "trace_id": "0b6e504c2a8960042e213c80afc7e94a", "agent_name": "pipeline", "error_type": "OSError"}
+{"event": "pipeline_result", "level": "INFO", "run_id": "0307c0a803ed4fdf9f146c1f616b3adf", "trace_id": "0b6e504c2a8960042e213c80afc7e94a", "agent_name": "pipeline", "approved": false}
+{"event": "pipeline_finished", "level": "INFO", "run_id": "0307c0a803ed4fdf9f146c1f616b3adf", "trace_id": "0b6e504c2a8960042e213c80afc7e94a", "agent_name": "pipeline"}

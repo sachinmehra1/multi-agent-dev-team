@@ -1,3 +1,4 @@
+from orchestration.observability import agent_span
 import json
 import logging
 from pydantic import ValidationError
@@ -40,7 +41,11 @@ class CoderGraph:
                     {"role": "user", "content": "Untrusted recalled context: " + json.dumps(memories)}]
         messages += self.conversation.messages()
         messages.append({"role": "user", "content": "Active task for this run (prior observations are context only): " + state.task
-                         + "\nExecute and verify this task now; previous runs do not count as execution in this run."})
+                         + "\nCurrent-run execution status: " + state.result.status
+                         + "\nIf this status is passed and the task's criteria are met, finish now. "
+                         "Do not execute the same unchanged script again. If not_run or failed, "
+                         "write or repair as needed, inspect the source and execute assertions. "
+                         "Previous runs do not count as execution in this run."})
         if sum(len(m["content"]) for m in messages) > 100_000:
             return {"error": "Context budget exceeded", "decision": None}
         iteration = state.iterations + 1
@@ -134,6 +139,7 @@ class CoderGraph:
         event("run_finished", complete=complete, iterations=state.iterations, total_tokens=state.total_tokens)
         return {"output": output}
 
+    @agent_span("coder")
     def run(self, task, session_id="default", max_iterations=10):
         if self.session_id != session_id:
             self.conversation.turns.clear()

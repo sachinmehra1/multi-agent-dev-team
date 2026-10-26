@@ -100,7 +100,8 @@ class TeamWorkflow:
                                                  payload=request.model_dump()), self.qa)
             report = QAReport.model_validate(response.payload)
             return {'qa_reports':state.qa_reports + [report], 'qa_iterations':iteration,
-                    'messages':[Message.model_validate(m) for m in self.broker.log]}
+                    'messages':[Message.model_validate(m) for m in self.broker.log],
+                    'error':None if report.test_code else 'QA could not produce a validated test suite'}
         except Exception as exc:
             return {'qa_iterations':iteration, 'error':'QA protocol failed: '+type(exc).__name__,
                     'messages':[Message.model_validate(m) for m in self.broker.log]}

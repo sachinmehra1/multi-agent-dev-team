@@ -1,4 +1,5 @@
 """Docker is the security boundary; a working directory alone is not a sandbox."""
+from orchestration.observability import tool_call
 import json
 import os
 import shutil
@@ -78,6 +79,7 @@ class CodeRunner:
             raise ValueError("Unknown execution backend")
         self.files, self.timeout, self.image, self.backend = files, timeout, image, backend
 
+    @tool_call("run_code")
     def run_code(self, path):
         target = self.files.path(path)
         if target.suffix != ".py" or not target.is_file():
@@ -102,8 +104,8 @@ class CodeRunner:
                    "--pids-limit=32", "--ulimit", "nofile=64:64", "--ulimit", "fsize=1048576:1048576",
                    "--tmpfs", "/work:rw,noexec,nosuid,size=16m,uid=65534,gid=65534",
                    "--tmpfs", "/tmp:rw,noexec,nosuid,size=16m,uid=65534,gid=65534",
-                   "--workdir=/work", "--log-driver=none", "-i", self.image,
-                   "python", "-I", "-c", BOOTSTRAP]
+                   "--workdir=/work", "--log-driver=none", "--entrypoint=python", "-i", self.image,
+                   "-I", "-c", BOOTSTRAP]
         try:
             return bounded_process(command, timeout=self.timeout,
                                    payload=json.dumps({"files": snapshot, "path": path}).encode())

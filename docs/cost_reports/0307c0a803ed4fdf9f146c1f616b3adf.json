@@ -1,0 +1,49 @@
+{
+  "run_id": "0307c0a803ed4fdf9f146c1f616b3adf",
+  "trace_id": "0b6e504c2a8960042e213c80afc7e94a",
+  "models": {
+    "pm": "gpt-4o",
+    "coder": "gpt-4o-mini",
+    "qa": "gpt-4o-mini"
+  },
+  "rates_usd_per_million_tokens": {
+    "pm": {
+      "prompt": 2.5,
+      "completion": 10.0
+    },
+    "coder": {
+      "prompt": 0.15,
+      "completion": 0.6
+    },
+    "qa": {
+      "prompt": 0.15,
+      "completion": 0.6
+    }
+  },
+  "per_agent": {
+    "pm": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "estimated_usd": 0.0,
+      "calls": 0,
+      "cache_hits": 0
+    },
+    "coder": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "estimated_usd": 0.0,
+      "calls": 0,
+      "cache_hits": 0
+    },
+    "qa": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "estimated_usd": 0.0,
+      "calls": 0,
+      "cache_hits": 0
+    }
+  },
+  "total_estimated_usd": 0.0,
+  "unknown_usage_calls": 0,
+  "calls": []
+}

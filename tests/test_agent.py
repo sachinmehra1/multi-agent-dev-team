@@ -143,3 +143,15 @@ def test_repeated_unverified_finish_respects_ten_call_limit(factory):
     assert not out.task_complete
     assert out.iterations_used == len(model.messages) == 10
     assert "Maximum iteration" in out.error
+
+
+def test_current_run_execution_status_guides_finish_and_resets(factory):
+    agent, model, _ = factory([
+        decision("write_file", path="add.py", content=CODE),
+        decision("run_code", path="add.py"), finish(),
+        decision("run_code", path="add.py"), finish()])
+    assert agent.run("Write and test addition", session_id="shared").task_complete
+    assert agent.run("Verify the existing addition script", session_id="shared").task_complete
+    statuses = [messages[-1]["content"].split("Current-run execution status: ")[1].split("\n")[0]
+                for messages in model.messages]
+    assert statuses == ["not_run", "not_run", "passed", "not_run", "passed"]

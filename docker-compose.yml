@@ -1,21 +1,60 @@
+name: saras-module4
 services:
-  coder:
+  agent:
+    image: saras-team:module4
     build: .
     env_file: .env
     environment:
+      CHROMA_HOST: chroma
+      CHROMA_PORT: '8000'
+      PHOENIX_TRACES_ENDPOINT: http://phoenix:6006/v1/traces
+      EXECUTION_IMAGE: saras-team:module4
+      OUTPUT_ROOT: /app/docs
       WORKSPACE_DIR: /data/workspace
       CHROMA_DIR: /data/chroma
+      PM_MODEL: ${PM_MODEL:-gpt-4o}
+      CODER_MODEL: ${CODER_MODEL:-gpt-4o-mini}
+      QA_MODEL: ${QA_MODEL:-gpt-4o-mini}
+    depends_on:
+      chroma:
+        condition: service_healthy
+      phoenix:
+        condition: service_healthy
     volumes:
-      - coder_data:/data
-      # Trusted orchestrator only. Generated-code containers never receive this socket.
+      - agent_data:/data
+      - ${OUTPUT_DIR:-./docs}:/app/docs
+      # Only the trusted orchestrator gets this socket. Generated-code containers do not.
       - /var/run/docker.sock:/var/run/docker.sock
     init: true
     cap_drop: [ALL]
     security_opt: [no-new-privileges:true]
     read_only: true
-    tmpfs:
-      - /tmp
-      - /root/.cache
-    command: ["Write a Python addition function with assertions and execute it."]
+    tmpfs: [/tmp]
+  chroma:
+    image: saras-team:module4
+    build: .
+    entrypoint: [chroma]
+    command: [run, --host, 0.0.0.0, --port, '8000', --path, /data]
+    volumes: [chroma_data:/data]
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://localhost:8000/api/v2/heartbeat', timeout=2)"]
+      interval: 3s
+      timeout: 3s
+      retries: 30
+      start_period: 10s
+  phoenix:
+    image: arizephoenix/phoenix:20.26.1
+    ports: ['127.0.0.1:6006:6006']
+    environment:
+      PHOENIX_WORKING_DIR: /tmp/phoenix
+    volumes: [phoenix_data:/tmp]
+    healthcheck:
+      test: [CMD, python3, -c, "import urllib.request; urllib.request.urlopen('http://localhost:6006/healthz', timeout=2)"]
+      interval: 3s
+      timeout: 3s
+      retries: 30
+      start_period: 10s
 volumes:
-  coder_data:
+  agent_data:
+  chroma_data:
+  phoenix_data:

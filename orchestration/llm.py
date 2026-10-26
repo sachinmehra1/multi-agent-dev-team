@@ -7,6 +7,9 @@ from orchestration.models import Decision
 class ModelReply:
     content: str
     total_tokens: int = 0
+    prompt_tokens: int = 0
+    completion_tokens: int = 0
+    usage_known: bool = False
 
 class ChatModel:
     """OpenAI-compatible chat endpoint; works with OpenAI or local Ollama."""
@@ -14,7 +17,14 @@ class ChatModel:
         self.model, self.api_key, self.base_url = model, api_key, base_url.rstrip("/")
 
     def complete(self, messages):
-        # No SDK retries hidden outside the ten-call budget. Never log headers/body.
+        from orchestration.observability import ACTIVE
+        runtime = ACTIVE.get()
+        if runtime is not None:
+            return runtime.llm(self, messages, lambda:self._complete_once(messages))
+        return self._complete_once(messages)
+
+    def _complete_once(self, messages):
+        # Runtime retries individual requests, never an agent loop. No headers/body logs.
         with httpx.Client(timeout=45) as client:
             response = client.post(self.base_url + "/chat/completions",
                 headers={"Authorization": "Bearer " + self.api_key},
@@ -23,7 +33,10 @@ class ChatModel:
             response.raise_for_status()
             data = response.json()
         return ModelReply(data["choices"][0]["message"]["content"],
-                          data.get("usage", {}).get("total_tokens", 0))
+                          data.get("usage", {}).get("total_tokens", 0),
+                          data.get("usage", {}).get("prompt_tokens", 0),
+                          data.get("usage", {}).get("completion_tokens", 0),
+                          'prompt_tokens' in data.get('usage', {}) and 'completion_tokens' in data.get('usage', {}))
 
 SYSTEM_PROMPT = """You are Coder Agent v1.0. Solve the user's coding task using ReACT:
 brief operational thought, one action, then inspect the observation. Do not provide

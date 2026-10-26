@@ -193,3 +193,32 @@ def test_coder_rejects_feedback_for_a_different_source(tmp_path):
     with pytest.raises(ValueError):
         CoderReviser(model,FileTools(tmp_path)).fix({'linked_list.py':GOOD},'linked list',feedback)
     assert not model.messages
+
+
+def test_qa_corrects_schema_before_execution_and_then_retains_suite():
+    invalid = {'code':TESTS, 'coverage':{key:value[0] for key,value in SUITE['coverage'].items()}}
+    agent = QAAgent(ScriptedModel([invalid,SUITE]), PytestRunner(backend='trusted-local'))
+    assert not agent.review(request(BAD_REVERSE)).approved
+    assert agent.review(request(GOOD,2)).approved
+    assert len(agent.model.messages)==2
+    assert 'rejected BEFORE execution' in agent.model.messages[1][-1]['content']
+
+
+def test_invalid_qa_suite_stops_without_unrelated_coder_repairs(tmp_path):
+    team = workflow(tmp_path)
+    team.qa = QAAgent(ScriptedModel(['{}','{}']), PytestRunner(backend='trusted-local'))
+    final = team.run('Implement linked list')
+    assert final.final_report.reason=='workflow_error'
+    assert not final.final_report.approved and not final.fixes
+    assert final.qa_iterations==1 and final.qa_reports[0].tests_run==0
+    assert len(team.qa.model.messages)==2
+
+
+def test_qa_coverage_correction_identifies_exact_missing_labels():
+    altered = {'code':TESTS, 'coverage':dict(SUITE['coverage'])}
+    key = next(iter(altered['coverage']))
+    altered['coverage'][key+'.'] = altered['coverage'].pop(key)
+    agent = QAAgent(ScriptedModel([altered,SUITE]), PytestRunner(backend='trusted-local'))
+    assert agent.review(request(GOOD)).approved
+    feedback=agent.model.messages[1][-1]['content']
+    assert 'Missing keys' in feedback and key in feedback and key+'.' in feedback

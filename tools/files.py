@@ -1,3 +1,4 @@
+from orchestration.observability import tool_call
 from pathlib import Path
 
 class FileTools:
@@ -29,6 +30,7 @@ class FileTools:
             raise ValueError("Path escapes workspace")
         return target
 
+    @tool_call("read_file")
     def read_file(self, path):
         p = self.path(path)
         with p.open("rb") as stream:
@@ -37,6 +39,7 @@ class FileTools:
             raise ValueError("File exceeds 100 KB limit")
         return data.decode("utf-8")
 
+    @tool_call("write_file")
     def write_file(self, path, content):
         if not isinstance(content, str) or len(content.encode()) > self.MAX_BYTES:
             raise ValueError("Content must be UTF-8 text <= 100 KB")

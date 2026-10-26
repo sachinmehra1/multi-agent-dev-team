@@ -1,7 +1,94 @@
 # Multi-Agent Development Team — PM + Coder + QA
 
-Saras AI Institute · Build Autonomous Multi-Agent Systems · Modules 1–3.
+Saras AI Institute · Build Autonomous Multi-Agent Systems · Modules 1–4.
 
+
+## Module 4: traced and recoverable deployment
+
+Module 4 runs the complete PM/Coder/QA team with Phoenix tracing, bounded call
+retries and circuit breakers, prompt caching, and automatic token/cost reports.
+The PM uses GPT-4o; Coder and QA use GPT-4o-mini by default. Earlier submissions
+remain on their own branches; this milestone is on `module-4`.
+
+```mermaid
+flowchart TD
+    ROOT[Single pipeline trace] --> PM[PM / GPT-4o]
+    PM --> CODER[Coder / GPT-4o-mini]
+    CODER --> REF[Coder reflection and revision]
+    REF --> QA[QA / GPT-4o-mini]
+    QA -->|A2A fixes within limit| CODER
+    QA -->|Approved| FIX[Independent BST acceptance fixture]
+    FIX --> RESULT[Structured result and automatic cost report]
+    PM -. child spans .-> PH[Phoenix dashboard]
+    CODER -. child spans .-> PH
+    QA -. child spans .-> PH
+    CODER <--> CH[Healthy Chroma service]
+```
+
+The graph above summarizes role flow; initial generation uses the Module 2 task
+workflow, and QA fixes use the Module 3 revision path. All invocations are beneath
+one root trace, including reflection, fixes and final acceptance verification.
+
+**Clean setup:** use Docker Desktop/Engine and Python 3.11 for local tests.
+Allow at least 10 GB of free disk space for the first image build and containers.
+Copy `.env.example` to `.env` and set your own `LLM_API_KEY` locally. Never commit it.
+
+```bash
+cp .env.example .env
+# Edit .env locally, then start the default published BST task:
+docker compose up --build -d
+docker compose wait agent
+docker compose logs agent
+```
+
+Compose waits for Chroma and Phoenix health checks before starting the agent.
+The first build downloads pinned Python dependencies and the public embedding
+model into the image. It can take several minutes. No existing Chroma volume or
+host embedding cache is needed. `docker compose up --build` also works in the
+foreground; stop it after inspecting the result.
+
+Open [Phoenix](http://localhost:6006), select project `module4`, and inspect the
+trace ID printed by the agent. The dashboard remains running after the agent exits.
+Artifacts are written automatically to:
+
+- `docs/results/<run_id>.json`: final state, code, QA and independent fixture result.
+- `docs/cost_reports/<run_id>.json`: per-call and per-agent usage and estimated USD.
+- `docs/traces/<run_id>.json`: exported spans with parent IDs and required metadata.
+- `docs/run_logs/<run_id>.jsonl`: structured events with the same run and trace IDs.
+
+For the default BST task, exit 0 / `approved=true` means the current code passed
+QA and the local BST fixture.
+Exit 1 / `approved=false` retains the failure or unresolved issues. A cache hit or
+open circuit never fabricates success. Missing provider usage is flagged explicitly.
+
+```bash
+# Local automated checks (no paid calls by default):
+python3.11 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+python -m pytest -q
+# Opt-in clean Compose end-to-end test: makes real model calls and leaves dashboard running.
+RUN_MODULE4_COMPOSE=1 python -m pytest tests/test_production_e2e.py -q
+```
+
+Before that isolated acceptance run, stop another Compose stack using port 6006.
+The test creates a new Compose project with fresh volumes, records startup logs and
+checks readiness precedes agent execution and every exported span arrived in Phoenix.
+Run artifacts use the standard `docs/` directories above; deployment logs, the
+Phoenix response and the project name are in `docs/module4/deployment/`.
+To stop that test stack later, run `docker compose -p <recorded-project-name> down`.
+`docker compose down` stops the default stack without deleting its data volumes.
+
+Configuration includes `PM_MODEL`, `CODER_MODEL`, `QA_MODEL`,
+`CALL_MAX_RETRIES` (0–3), `CIRCUIT_COOLDOWN_SECONDS`, `RETRY_BASE_DELAY_SECONDS`,
+`PROMPT_CACHE_TTL_SECONDS`, per-role token rates, and the existing QA limits.
+`OUTPUT_DIR` selects a host artifact directory for Compose. For local CLI use,
+set `CHROMA_HOST`/`CHROMA_PORT` and `PHOENIX_TRACES_ENDPOINT` as appropriate,
+then run `python production_main.py`. With no Chroma host, local CLI uses embedded
+Chroma; Compose always uses the readiness-gated service.
+
+[Module 4 rubric map, interfaces and recovery guide](docs/module4/README.md) ·
+[Passing clean-deployment evidence](docs/module4/validation.md)
 
 ## Module 3: complete three-agent team
 
@@ -187,7 +274,7 @@ The live GPT-4o + Chroma + Docker addition task passed; its actual result is in
 
 ## Setup
 
-Use Python 3.12, Git and Docker Engine/Desktop (Linux containers).
+Use Python 3.11, Git and Docker Engine/Desktop (Linux containers). Earlier milestones were also tested with Python 3.12.
 
 ```bash
 python3 -m venv .venv
@@ -313,7 +400,9 @@ live LLM quality or Docker isolation. The integration switches test those separa
 security sandbox and is never selected by the CLI or `build_agent`.
 Live tests need environment variables exported in the shell (pytest does not load `.env`).
 
-## Docker Compose
+## Historical Module 1 Compose usage
+
+These commands describe the `main` branch. On `module-4`, use the deployment commands above.
 
 After preparing `.env` and pulling `python:3.12-slim`:
 

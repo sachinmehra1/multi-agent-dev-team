@@ -1,0 +1,1275 @@
+[
+  {
+    "id": "U3Bhbjo1OQ==",
+    "name": "pipeline",
+    "context": {
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "01dba7caccaae75b"
+    },
+    "span_kind": "CHAIN",
+    "parent_id": null,
+    "start_time": "2026-10-26T01:23:00.049092+00:00",
+    "end_time": "2026-10-26T01:24:19.991935+00:00",
+    "status_code": "UNSET",
+    "status_message": "",
+    "attributes": {
+      "token_count": 41616,
+      "duration_ms": 79985.22249499997,
+      "agent_name": "pipeline",
+      "tool_calls": 41,
+      "run_id": "77ace252b1c943f59859bceb0d88ea22"
+    },
+    "events": []
+  },
+  {
+    "id": "U3Bhbjo1OA==",
+    "name": "qa.verify_bst",
+    "context": {
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "e3480ce9f3a95550"
+    },
+    "span_kind": "AGENT",
+    "parent_id": "01dba7caccaae75b",
+    "start_time": "2026-10-26T01:24:19.256579+00:00",
+    "end_time": "2026-10-26T01:24:19.989121+00:00",
+    "status_code": "UNSET",
+    "status_message": "",
+    "attributes": {
+      "token_count": 0,
+      "duration_ms": 732.4233329999288,
+      "agent_name": "qa",
+      "tool_calls": 7
+    },
+    "events": []
+  },
+  {
+    "id": "U3Bhbjo1Nw==",
+    "name": "tool.run_code",
+    "context": {
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "725b3872bc3f6dba"
+    },
+    "span_kind": "TOOL",
+    "parent_id": "e3480ce9f3a95550",
+    "start_time": "2026-10-26T01:24:19.264412+00:00",
+    "end_time": "2026-10-26T01:24:19.982429+00:00",
+    "status_code": "UNSET",
+    "status_message": "",
+    "attributes": {
+      "token_count": 0,
+      "duration_ms": 717.9309169999897,
+      "agent_name": "qa",
+      "tool_calls": 1
+    },
+    "events": []
+  },
+  {
+    "id": "U3Bhbjo1Ng==",
+    "name": "tool.read_file",
+    "context": {
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "158f146741230ec5"
+    },
+    "span_kind": "TOOL",
+    "parent_id": "725b3872bc3f6dba",
+    "start_time": "2026-10-26T01:24:19.268271+00:00",
+    "end_time": "2026-10-26T01:24:19.268369+00:00",
+    "status_code": "UNSET",
+    "status_message": "",
+    "attributes": {
+      "token_count": 0,
+      "duration_ms": 0.0864169999204023,
+      "agent_name": "qa",
+      "tool_calls": 1
+    },
+    "events": []
+  },
+  {
+    "id": "U3Bhbjo1NQ==",
+    "name": "tool.read_file",
+    "context": {
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "52d97427ff692055"
+    },
+    "span_kind": "TOOL",
+    "parent_id": "725b3872bc3f6dba",
+    "start_time": "2026-10-26T01:24:19.266551+00:00",
+    "end_time": "2026-10-26T01:24:19.266632+00:00",
+    "status_code": "UNSET",
+    "status_message": "",
+    "attributes": {
+      "token_count": 0,
+      "duration_ms": 0.07008399995811487,
+      "agent_name": "qa",
+      "tool_calls": 1
+    },
+    "events": []
+  },
+  {
+    "id": "U3Bhbjo1NA==",
+    "name": "tool.read_file",
+    "context": {
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "32b3f352ebc03b33"
+    },
+    "span_kind": "TOOL",
+    "parent_id": "725b3872bc3f6dba",
+    "start_time": "2026-10-26T01:24:19.264546+00:00",
+    "end_time": "2026-10-26T01:24:19.264618+00:00",
+    "status_code": "UNSET",
+    "status_message": "",
+    "attributes": {
+      "token_count": 0,
+      "duration_ms": 0.0624580000021524,
+      "agent_name": "qa",
+      "tool_calls": 1
+    },
+    "events": []
+  },
+  {
+    "id": "U3Bhbjo1Mw==",
+    "name": "tool.write_file",
+    "context": {
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "0317ec623786e059"
+    },
+    "span_kind": "TOOL",
+    "parent_id": "e3480ce9f3a95550",
+    "start_time": "2026-10-26T01:24:19.262464+00:00",
+    "end_time": "2026-10-26T01:24:19.262635+00:00",
+    "status_code": "UNSET",
+    "status_message": "",
+    "attributes": {
+      "token_count": 0,
+      "duration_ms": 0.15833300005851925,
+      "agent_name": "qa",
+      "tool_calls": 1
+    },
+    "events": []
+  },
+  {
+    "id": "U3Bhbjo1Mg==",
+    "name": "tool.write_file",
+    "context": {
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "bb40b009c2372006"
+    },
+    "span_kind": "TOOL",
+    "parent_id": "e3480ce9f3a95550",
+    "start_time": "2026-10-26T01:24:19.260403+00:00",
+    "end_time": "2026-10-26T01:24:19.260629+00:00",
+    "status_code": "UNSET",
+    "status_message": "",
+    "attributes": {
+      "token_count": 0,
+      "duration_ms": 0.2101659999880212,
+      "agent_name": "qa",
+      "tool_calls": 1
+    },
+    "events": []
+  },
+  {
+    "id": "U3Bhbjo1MQ==",
+    "name": "tool.write_file",
+    "context": {
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "a8f341689ed53508"
+    },
+    "span_kind": "TOOL",
+    "parent_id": "e3480ce9f3a95550",
+    "start_time": "2026-10-26T01:24:19.256983+00:00",
+    "end_time": "2026-10-26T01:24:19.257143+00:00",
+    "status_code": "UNSET",
+    "status_message": "",
+    "attributes": {
+      "token_count": 0,
+      "duration_ms": 0.1468339999064483,
+      "agent_name": "qa",
+      "tool_calls": 1
+    },
+    "events": []
+  },
+  {
+    "id": "U3Bhbjo1MA==",
+    "name": "qa.QAAgent.review",
+    "context": {
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "2a14b894dbbaadf1"
+    },
+    "span_kind": "AGENT",
+    "parent_id": "01dba7caccaae75b",
+    "start_time": "2026-10-26T01:24:04.087713+00:00",
+    "end_time": "2026-10-26T01:24:19.248412+00:00",
+    "status_code": "UNSET",
+    "status_message": "",
+    "attributes": {
+      "token_count": 2294,
+      "duration_ms": 15160.352674000023,
+      "agent_name": "qa",
+      "tool_calls": 7
+    },
+    "events": []
+  },
+  {
+    "id": "U3Bhbjo0OQ==",
+    "name": "tool.run_code",
+    "context": {
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "16c87168c8b9dcd9"
+    },
+    "span_kind": "TOOL",
+    "parent_id": "2a14b894dbbaadf1",
+    "start_time": "2026-10-26T01:24:17.930974+00:00",
+    "end_time": "2026-10-26T01:24:19.241178+00:00",
+    "status_code": "UNSET",
+    "status_message": "",
+    "attributes": {
+      "token_count": 0,
+      "duration_ms": 1310.1405840000098,
+      "agent_name": "qa",
+      "tool_calls": 1
+    },
+    "events": []
+  },
+  {
+    "id": "U3Bhbjo0OA==",
+    "name": "tool.read_file",
+    "context": {
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "16a44bcab8b809ba"
+    },
+    "span_kind": "TOOL",
+    "parent_id": "16c87168c8b9dcd9",
+    "start_time": "2026-10-26T01:24:17.936573+00:00",
+    "end_time": "2026-10-26T01:24:17.936755+00:00",
+    "status_code": "UNSET",
+    "status_message": "",
+    "attributes": {
+      "token_count": 0,
+      "duration_ms": 0.15854200000831042,
+      "agent_name": "qa",
+      "tool_calls": 1
+    },
+    "events": []
+  },
+  {
+    "id": "U3Bhbjo0Nw==",
+    "name": "tool.read_file",
+    "context": {
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "903037dd403e5996"
+    },
+    "span_kind": "TOOL",
+    "parent_id": "16c87168c8b9dcd9",
+    "start_time": "2026-10-26T01:24:17.933711+00:00",
+    "end_time": "2026-10-26T01:24:17.933806+00:00",
+    "status_code": "UNSET",
+    "status_message": "",
+    "attributes": {
+      "token_count": 0,
+      "duration_ms": 0.08216700007324107,
+      "agent_name": "qa",
+      "tool_calls": 1
+    },
+    "events": []
+  },
+  {
+    "id": "U3Bhbjo0Ng==",
+    "name": "tool.read_file",
+    "context": {
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "c6ec2f0fd892fa37"
+    },
+    "span_kind": "TOOL",
+    "parent_id": "16c87168c8b9dcd9",
+    "start_time": "2026-10-26T01:24:17.931180+00:00",
+    "end_time": "2026-10-26T01:24:17.931360+00:00",
+    "status_code": "UNSET",
+    "status_message": "",
+    "attributes": {
+      "token_count": 0,
+      "duration_ms": 0.16562500002237357,
+      "agent_name": "qa",
+      "tool_calls": 1
+    },
+    "events": []
+  },
+  {
+    "id": "U3Bhbjo0NQ==",
+    "name": "tool.write_file",
+    "context": {
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "571801ef7cef124d"
+    },
+    "span_kind": "TOOL",
+    "parent_id": "2a14b894dbbaadf1",
+    "start_time": "2026-10-26T01:24:17.927962+00:00",
+    "end_time": "2026-10-26T01:24:17.928308+00:00",
+    "status_code": "UNSET",
+    "status_message": "",
+    "attributes": {
+      "token_count": 0,
+      "duration_ms": 0.3248749999329448,
+      "agent_name": "qa",
+      "tool_calls": 1
+    },
+    "events": []
+  },
+  {
+    "id": "U3Bhbjo0NA==",
+    "name": "tool.write_file",
+    "context": {
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "b8f89b666a162add"
+    },
+    "span_kind": "TOOL",
+    "parent_id": "2a14b894dbbaadf1",
+    "start_time": "2026-10-26T01:24:17.923144+00:00",
+    "end_time": "2026-10-26T01:24:17.923673+00:00",
+    "status_code": "UNSET",
+    "status_message": "",
+    "attributes": {
+      "token_count": 0,
+      "duration_ms": 0.49995899996702065,
+      "agent_name": "qa",
+      "tool_calls": 1
+    },
+    "events": []
+  },
+  {
+    "id": "U3Bhbjo0Mw==",
+    "name": "tool.write_file",
+    "context": {
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "502b3c84728e4781"
+    },
+    "span_kind": "TOOL",
+    "parent_id": "2a14b894dbbaadf1",
+    "start_time": "2026-10-26T01:24:17.917932+00:00",
+    "end_time": "2026-10-26T01:24:17.918514+00:00",
+    "status_code": "UNSET",
+    "status_message": "",
+    "attributes": {
+      "token_count": 0,
+      "duration_ms": 0.5360000000109721,
+      "agent_name": "qa",
+      "tool_calls": 1
+    },
+    "events": []
+  },
+  {
+    "id": "U3Bhbjo0Mg==",
+    "name": "llm.gpt-4o-mini",
+    "context": {
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "7dc8d5391c606754"
+    },
+    "span_kind": "LLM",
+    "parent_id": "2a14b894dbbaadf1",
+    "start_time": "2026-10-26T01:24:04.089247+00:00",
+    "end_time": "2026-10-26T01:24:17.877000+00:00",
+    "status_code": "UNSET",
+    "status_message": "",
+    "attributes": {
+      "llm.model_name": "gpt-4o-mini",
+      "llm.token_count.prompt": 1097,
+      "llm.token_count.completion": 1197,
+      "token_count": 2294,
+      "duration_ms": 13787.103505999994,
+      "agent_name": "qa",
+      "tool_calls": 0
+    },
+    "events": []
+  },
+  {
+    "id": "U3Bhbjo0MQ==",
+    "name": "coder.CoderReviser.reflect",
+    "context": {
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "6acea97096eb76ac"
+    },
+    "span_kind": "AGENT",
+    "parent_id": "01dba7caccaae75b",
+    "start_time": "2026-10-26T01:23:49.611919+00:00",
+    "end_time": "2026-10-26T01:24:04.076692+00:00",
+    "status_code": "UNSET",
+    "status_message": "",
+    "attributes": {
+      "token_count": 2492,
+      "duration_ms": 14464.701798999955,
+      "agent_name": "coder",
+      "tool_calls": 1
+    },
+    "events": []
+  },
+  {
+    "id": "U3Bhbjo0MA==",
+    "name": "tool.write_file",
+    "context": {
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "ad1970103a3ed41e"
+    },
+    "span_kind": "TOOL",
+    "parent_id": "6acea97096eb76ac",
+    "start_time": "2026-10-26T01:24:04.068682+00:00",
+    "end_time": "2026-10-26T01:24:04.069854+00:00",
+    "status_code": "UNSET",
+    "status_message": "",
+    "attributes": {
+      "token_count": 0,
+      "duration_ms": 1.1212080000859714,
+      "agent_name": "coder",
+      "tool_calls": 1
+    },
+    "events": []
+  },
+  {
+    "id": "U3BhbjozOQ==",
+    "name": "llm.gpt-4o-mini",
+    "context": {
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "412bf31bf26fd5c0"
+    },
+    "span_kind": "LLM",
+    "parent_id": "6acea97096eb76ac",
+    "start_time": "2026-10-26T01:23:54.795558+00:00",
+    "end_time": "2026-10-26T01:24:04.023932+00:00",
+    "status_code": "UNSET",
+    "status_message": "",
+    "attributes": {
+      "llm.model_name": "gpt-4o-mini",
+      "llm.token_count.prompt": 889,
+      "llm.token_count.completion": 551,
+      "token_count": 1440,
+      "duration_ms": 9227.964796000037,
+      "agent_name": "coder",
+      "tool_calls": 0
+    },
+    "events": []
+  },
+  {
+    "id": "U3BhbjozOA==",
+    "name": "llm.gpt-4o-mini",
+    "context": {
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "3985718ee85ab994"
+    },
+    "span_kind": "LLM",
+    "parent_id": "6acea97096eb76ac",
+    "start_time": "2026-10-26T01:23:49.614604+00:00",
+    "end_time": "2026-10-26T01:23:54.776697+00:00",
+    "status_code": "UNSET",
+    "status_message": "",
+    "attributes": {
+      "llm.model_name": "gpt-4o-mini",
+      "llm.token_count.prompt": 763,
+      "llm.token_count.completion": 289,
+      "token_count": 1052,
+      "duration_ms": 5161.877877000052,
+      "agent_name": "coder",
+      "tool_calls": 0
+    },
+    "events": []
+  },
+  {
+    "id": "U3BhbjozNw==",
+    "name": "tool.read_file",
+    "context": {
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "f7f4bc8e34807477"
+    },
+    "span_kind": "TOOL",
+    "parent_id": "01dba7caccaae75b",
+    "start_time": "2026-10-26T01:23:49.603161+00:00",
+    "end_time": "2026-10-26T01:23:49.603332+00:00",
+    "status_code": "UNSET",
+    "status_message": "",
+    "attributes": {
+      "token_count": 0,
+      "duration_ms": 0.1524999998991916,
+      "agent_name": "pipeline",
+      "tool_calls": 1
+    },
+    "events": []
+  },
+  {
+    "id": "U3BhbjozNg==",
+    "name": "tool.read_file",
+    "context": {
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "f2ff0fafb80ed9af"
+    },
+    "span_kind": "TOOL",
+    "parent_id": "01dba7caccaae75b",
+    "start_time": "2026-10-26T01:23:49.583112+00:00",
+    "end_time": "2026-10-26T01:23:49.583885+00:00",
+    "status_code": "UNSET",
+    "status_message": "",
+    "attributes": {
+      "token_count": 0,
+      "duration_ms": 0.7010829999671842,
+      "agent_name": "pipeline",
+      "tool_calls": 1
+    },
+    "events": []
+  },
+  {
+    "id": "U3BhbjozNQ==",
+    "name": "coder.CoderGraph.run",
+    "context": {
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "e9d6cedc48a4e280"
+    },
+    "span_kind": "AGENT",
+    "parent_id": "01dba7caccaae75b",
+    "start_time": "2026-10-26T01:23:31.743582+00:00",
+    "end_time": "2026-10-26T01:23:49.566830+00:00",
+    "status_code": "UNSET",
+    "status_message": "",
+    "attributes": {
+      "token_count": 21228,
+      "duration_ms": 17822.116008000023,
+      "agent_name": "coder",
+      "tool_calls": 7
+    },
+    "events": []
+  },
+  {
+    "id": "U3BhbjozNA==",
+    "name": "llm.gpt-4o-mini",
+    "context": {
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "38ffcf6d53371365"
+    },
+    "span_kind": "LLM",
+    "parent_id": "e9d6cedc48a4e280",
+    "start_time": "2026-10-26T01:23:42.362975+00:00",
+    "end_time": "2026-10-26T01:23:49.486418+00:00",
+    "status_code": "UNSET",
+    "status_message": "",
+    "attributes": {
+      "llm.model_name": "gpt-4o-mini",
+      "llm.token_count.prompt": 7536,
+      "llm.token_count.completion": 456,
+      "token_count": 7992,
+      "duration_ms": 7119.895878000023,
+      "agent_name": "coder",
+      "tool_calls": 0
+    },
+    "events": []
+  },
+  {
+    "id": "U3BhbjozMw==",
+    "name": "tool.memory.retrieve",
+    "context": {
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "dafc367f1f3d0a7a"
+    },
+    "span_kind": "TOOL",
+    "parent_id": "e9d6cedc48a4e280",
+    "start_time": "2026-10-26T01:23:42.097686+00:00",
+    "end_time": "2026-10-26T01:23:42.357794+00:00",
+    "status_code": "UNSET",
+    "status_message": "",
+    "attributes": {
+      "token_count": 0,
+      "duration_ms": 260.0257080000006,
+      "agent_name": "coder",
+      "tool_calls": 1
+    },
+    "events": []
+  },
+  {
+    "id": "U3BhbjozMg==",
+    "name": "tool.memory.store",
+    "context": {
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "07d1498f8bbe85d8"
+    },
+    "span_kind": "TOOL",
+    "parent_id": "e9d6cedc48a4e280",
+    "start_time": "2026-10-26T01:23:41.601079+00:00",
+    "end_time": "2026-10-26T01:23:42.092127+00:00",
+    "status_code": "UNSET",
+    "status_message": "",
+    "attributes": {
+      "token_count": 0,
+      "duration_ms": 491.01770900000474,
+      "agent_name": "coder",
+      "tool_calls": 1
+    },
+    "events": []
+  },
+  {
+    "id": "U3BhbjozMQ==",
+    "name": "tool.run_code",
+    "context": {
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "1971b094a587d62c"
+    },
+    "span_kind": "TOOL",
+    "parent_id": "e9d6cedc48a4e280",
+    "start_time": "2026-10-26T01:23:40.618722+00:00",
+    "end_time": "2026-10-26T01:23:41.593601+00:00",
+    "status_code": "UNSET",
+    "status_message": "",
+    "attributes": {
+      "token_count": 0,
+      "duration_ms": 974.8391260000062,
+      "agent_name": "coder",
+      "tool_calls": 1
+    },
+    "events": []
+  },
+  {
+    "id": "U3BhbjozMA==",
+    "name": "tool.read_file",
+    "context": {
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "eb4f38fbb4372753"
+    },
+    "span_kind": "TOOL",
+    "parent_id": "1971b094a587d62c",
+    "start_time": "2026-10-26T01:23:40.622414+00:00",
+    "end_time": "2026-10-26T01:23:40.622571+00:00",
+    "status_code": "UNSET",
+    "status_message": "",
+    "attributes": {
+      "token_count": 0,
+      "duration_ms": 0.14016699998364857,
+      "agent_name": "coder",
+      "tool_calls": 1
+    },
+    "events": []
+  },
+  {
+    "id": "U3BhbjoyOQ==",
+    "name": "tool.read_file",
+    "context": {
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "42382c6dcaf77160"
+    },
+    "span_kind": "TOOL",
+    "parent_id": "1971b094a587d62c",
+    "start_time": "2026-10-26T01:23:40.619246+00:00",
+    "end_time": "2026-10-26T01:23:40.619402+00:00",
+    "status_code": "UNSET",
+    "status_message": "",
+    "attributes": {
+      "token_count": 0,
+      "duration_ms": 0.14358299995365087,
+      "agent_name": "coder",
+      "tool_calls": 1
+    },
+    "events": []
+  },
+  {
+    "id": "U3BhbjoyOA==",
+    "name": "llm.gpt-4o-mini",
+    "context": {
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "76e2c9d633540f73"
+    },
+    "span_kind": "LLM",
+    "parent_id": "e9d6cedc48a4e280",
+    "start_time": "2026-10-26T01:23:38.892511+00:00",
+    "end_time": "2026-10-26T01:23:40.609498+00:00",
+    "status_code": "UNSET",
+    "status_message": "",
+    "attributes": {
+      "llm.model_name": "gpt-4o-mini",
+      "llm.token_count.prompt": 6619,
+      "llm.token_count.completion": 50,
+      "token_count": 6669,
+      "duration_ms": 1716.8863750000014,
+      "agent_name": "coder",
+      "tool_calls": 0
+    },
+    "events": []
+  },
+  {
+    "id": "U3BhbjoyNw==",
+    "name": "tool.memory.retrieve",
+    "context": {
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "e2873237e8b510ee"
+    },
+    "span_kind": "TOOL",
+    "parent_id": "e9d6cedc48a4e280",
+    "start_time": "2026-10-26T01:23:38.493590+00:00",
+    "end_time": "2026-10-26T01:23:38.879728+00:00",
+    "status_code": "UNSET",
+    "status_message": "",
+    "attributes": {
+      "token_count": 0,
+      "duration_ms": 386.0911250000072,
+      "agent_name": "coder",
+      "tool_calls": 1
+    },
+    "events": []
+  },
+  {
+    "id": "U3BhbjoyNg==",
+    "name": "llm.gpt-4o-mini",
+    "context": {
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "d8a9d40c9df295e4"
+    },
+    "span_kind": "LLM",
+    "parent_id": "e9d6cedc48a4e280",
+    "start_time": "2026-10-26T01:23:32.240080+00:00",
+    "end_time": "2026-10-26T01:23:38.446295+00:00",
+    "status_code": "UNSET",
+    "status_message": "",
+    "attributes": {
+      "llm.model_name": "gpt-4o-mini",
+      "llm.token_count.prompt": 6121,
+      "llm.token_count.completion": 446,
+      "token_count": 6567,
+      "duration_ms": 6205.91921099998,
+      "agent_name": "coder",
+      "tool_calls": 0
+    },
+    "events": []
+  },
+  {
+    "id": "U3BhbjoyNQ==",
+    "name": "tool.memory.retrieve",
+    "context": {
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "5bd7f78c5f30ca1b"
+    },
+    "span_kind": "TOOL",
+    "parent_id": "e9d6cedc48a4e280",
+    "start_time": "2026-10-26T01:23:31.745677+00:00",
+    "end_time": "2026-10-26T01:23:32.236599+00:00",
+    "status_code": "UNSET",
+    "status_message": "",
+    "attributes": {
+      "token_count": 0,
+      "duration_ms": 490.89579200000344,
+      "agent_name": "coder",
+      "tool_calls": 1
+    },
+    "events": []
+  },
+  {
+    "id": "U3BhbjoyNA==",
+    "name": "tool.read_file",
+    "context": {
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "3e4377cafaf57b49"
+    },
+    "span_kind": "TOOL",
+    "parent_id": "01dba7caccaae75b",
+    "start_time": "2026-10-26T01:23:31.735251+00:00",
+    "end_time": "2026-10-26T01:23:31.735467+00:00",
+    "status_code": "UNSET",
+    "status_message": "",
+    "attributes": {
+      "token_count": 0,
+      "duration_ms": 0.19058399999494213,
+      "agent_name": "pipeline",
+      "tool_calls": 1
+    },
+    "events": []
+  },
+  {
+    "id": "U3BhbjoyMw==",
+    "name": "tool.read_file",
+    "context": {
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "4194e9121fb2d035"
+    },
+    "span_kind": "TOOL",
+    "parent_id": "01dba7caccaae75b",
+    "start_time": "2026-10-26T01:23:31.717839+00:00",
+    "end_time": "2026-10-26T01:23:31.718091+00:00",
+    "status_code": "UNSET",
+    "status_message": "",
+    "attributes": {
+      "token_count": 0,
+      "duration_ms": 0.2247919999831538,
+      "agent_name": "pipeline",
+      "tool_calls": 1
+    },
+    "events": []
+  },
+  {
+    "id": "U3BhbjoyMg==",
+    "name": "coder.CoderGraph.run",
+    "context": {
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "83957d2cb2351ceb"
+    },
+    "span_kind": "AGENT",
+    "parent_id": "01dba7caccaae75b",
+    "start_time": "2026-10-26T01:23:03.734368+00:00",
+    "end_time": "2026-10-26T01:23:31.711198+00:00",
+    "status_code": "UNSET",
+    "status_message": "",
+    "attributes": {
+      "token_count": 14584,
+      "duration_ms": 27980.40855400001,
+      "agent_name": "coder",
+      "tool_calls": 14
+    },
+    "events": []
+  },
+  {
+    "id": "U3BhbjoyMQ==",
+    "name": "tool.read_file",
+    "context": {
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "4c2ff627313eaace"
+    },
+    "span_kind": "TOOL",
+    "parent_id": "83957d2cb2351ceb",
+    "start_time": "2026-10-26T01:23:31.705024+00:00",
+    "end_time": "2026-10-26T01:23:31.705378+00:00",
+    "status_code": "UNSET",
+    "status_message": "",
+    "attributes": {
+      "token_count": 0,
+      "duration_ms": 0.326500000028318,
+      "agent_name": "coder",
+      "tool_calls": 1
+    },
+    "events": []
+  },
+  {
+    "id": "U3BhbjoyMA==",
+    "name": "tool.read_file",
+    "context": {
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "6f09ac88ec6d6e51"
+    },
+    "span_kind": "TOOL",
+    "parent_id": "83957d2cb2351ceb",
+    "start_time": "2026-10-26T01:23:31.699606+00:00",
+    "end_time": "2026-10-26T01:23:31.700386+00:00",
+    "status_code": "UNSET",
+    "status_message": "",
+    "attributes": {
+      "token_count": 0,
+      "duration_ms": 0.7340419999763981,
+      "agent_name": "coder",
+      "tool_calls": 1
+    },
+    "events": []
+  },
+  {
+    "id": "U3BhbjoxOQ==",
+    "name": "llm.gpt-4o-mini",
+    "context": {
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "43f3a65ef282fba0"
+    },
+    "span_kind": "LLM",
+    "parent_id": "83957d2cb2351ceb",
+    "start_time": "2026-10-26T01:23:25.729577+00:00",
+    "end_time": "2026-10-26T01:23:31.670161+00:00",
+    "status_code": "UNSET",
+    "status_message": "",
+    "attributes": {
+      "llm.model_name": "gpt-4o-mini",
+      "llm.token_count.prompt": 4658,
+      "llm.token_count.completion": 433,
+      "token_count": 5091,
+      "duration_ms": 5940.225919999989,
+      "agent_name": "coder",
+      "tool_calls": 0
+    },
+    "events": []
+  },
+  {
+    "id": "U3BhbjoxOA==",
+    "name": "tool.memory.retrieve",
+    "context": {
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "b760b4fc2fb4a0b5"
+    },
+    "span_kind": "TOOL",
+    "parent_id": "83957d2cb2351ceb",
+    "start_time": "2026-10-26T01:23:25.433068+00:00",
+    "end_time": "2026-10-26T01:23:25.721744+00:00",
+    "status_code": "UNSET",
+    "status_message": "",
+    "attributes": {
+      "token_count": 0,
+      "duration_ms": 288.65304100003186,
+      "agent_name": "coder",
+      "tool_calls": 1
+    },
+    "events": []
+  },
+  {
+    "id": "U3BhbjoxNw==",
+    "name": "tool.memory.store",
+    "context": {
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "3e4853eeb9ebd40e"
+    },
+    "span_kind": "TOOL",
+    "parent_id": "83957d2cb2351ceb",
+    "start_time": "2026-10-26T01:23:24.886124+00:00",
+    "end_time": "2026-10-26T01:23:25.427758+00:00",
+    "status_code": "UNSET",
+    "status_message": "",
+    "attributes": {
+      "token_count": 0,
+      "duration_ms": 541.6027090000171,
+      "agent_name": "coder",
+      "tool_calls": 1
+    },
+    "events": []
+  },
+  {
+    "id": "U3BhbjoxNg==",
+    "name": "tool.run_code",
+    "context": {
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "384faa304ffbfc34"
+    },
+    "span_kind": "TOOL",
+    "parent_id": "83957d2cb2351ceb",
+    "start_time": "2026-10-26T01:23:21.740811+00:00",
+    "end_time": "2026-10-26T01:23:24.862647+00:00",
+    "status_code": "UNSET",
+    "status_message": "",
+    "attributes": {
+      "token_count": 0,
+      "duration_ms": 3121.5588349999734,
+      "agent_name": "coder",
+      "tool_calls": 1
+    },
+    "events": []
+  },
+  {
+    "id": "U3BhbjoxNQ==",
+    "name": "tool.read_file",
+    "context": {
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "db5e1b37b21a0627"
+    },
+    "span_kind": "TOOL",
+    "parent_id": "384faa304ffbfc34",
+    "start_time": "2026-10-26T01:23:21.749839+00:00",
+    "end_time": "2026-10-26T01:23:21.750370+00:00",
+    "status_code": "UNSET",
+    "status_message": "",
+    "attributes": {
+      "token_count": 0,
+      "duration_ms": 0.4728330000034475,
+      "agent_name": "coder",
+      "tool_calls": 1
+    },
+    "events": []
+  },
+  {
+    "id": "U3BhbjoxNA==",
+    "name": "tool.read_file",
+    "context": {
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "1f581238814a4ca7"
+    },
+    "span_kind": "TOOL",
+    "parent_id": "384faa304ffbfc34",
+    "start_time": "2026-10-26T01:23:21.742167+00:00",
+    "end_time": "2026-10-26T01:23:21.742425+00:00",
+    "status_code": "UNSET",
+    "status_message": "",
+    "attributes": {
+      "token_count": 0,
+      "duration_ms": 0.23412500001995795,
+      "agent_name": "coder",
+      "tool_calls": 1
+    },
+    "events": []
+  },
+  {
+    "id": "U3BhbjoxMw==",
+    "name": "llm.gpt-4o-mini",
+    "context": {
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "539052f5be164675"
+    },
+    "span_kind": "LLM",
+    "parent_id": "83957d2cb2351ceb",
+    "start_time": "2026-10-26T01:23:20.192350+00:00",
+    "end_time": "2026-10-26T01:23:21.696477+00:00",
+    "status_code": "UNSET",
+    "status_message": "",
+    "attributes": {
+      "llm.model_name": "gpt-4o-mini",
+      "llm.token_count.prompt": 3942,
+      "llm.token_count.completion": 39,
+      "token_count": 3981,
+      "duration_ms": 1503.7902089999875,
+      "agent_name": "coder",
+      "tool_calls": 0
+    },
+    "events": []
+  },
+  {
+    "id": "U3BhbjoxMg==",
+    "name": "tool.memory.retrieve",
+    "context": {
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "545b686ac884697b"
+    },
+    "span_kind": "TOOL",
+    "parent_id": "83957d2cb2351ceb",
+    "start_time": "2026-10-26T01:23:19.586836+00:00",
+    "end_time": "2026-10-26T01:23:20.180041+00:00",
+    "status_code": "UNSET",
+    "status_message": "",
+    "attributes": {
+      "token_count": 0,
+      "duration_ms": 593.1232920000298,
+      "agent_name": "coder",
+      "tool_calls": 1
+    },
+    "events": []
+  },
+  {
+    "id": "U3BhbjoxMQ==",
+    "name": "tool.memory.store",
+    "context": {
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "11a928c3e3af6e72"
+    },
+    "span_kind": "TOOL",
+    "parent_id": "83957d2cb2351ceb",
+    "start_time": "2026-10-26T01:23:18.665363+00:00",
+    "end_time": "2026-10-26T01:23:19.541569+00:00",
+    "status_code": "UNSET",
+    "status_message": "",
+    "attributes": {
+      "token_count": 0,
+      "duration_ms": 875.9699579999847,
+      "agent_name": "coder",
+      "tool_calls": 1
+    },
+    "events": []
+  },
+  {
+    "id": "U3BhbjoxMA==",
+    "name": "tool.write_file",
+    "context": {
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "a3ac7b4ebdf2a75f"
+    },
+    "span_kind": "TOOL",
+    "parent_id": "83957d2cb2351ceb",
+    "start_time": "2026-10-26T01:23:18.660005+00:00",
+    "end_time": "2026-10-26T01:23:18.661372+00:00",
+    "status_code": "UNSET",
+    "status_message": "",
+    "attributes": {
+      "token_count": 0,
+      "duration_ms": 1.3356250000242653,
+      "agent_name": "coder",
+      "tool_calls": 1
+    },
+    "events": []
+  },
+  {
+    "id": "U3Bhbjo5",
+    "name": "llm.gpt-4o-mini",
+    "context": {
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "27e0e95a756242c4"
+    },
+    "span_kind": "LLM",
+    "parent_id": "83957d2cb2351ceb",
+    "start_time": "2026-10-26T01:23:11.783879+00:00",
+    "end_time": "2026-10-26T01:23:18.560306+00:00",
+    "status_code": "UNSET",
+    "status_message": "",
+    "attributes": {
+      "llm.model_name": "gpt-4o-mini",
+      "llm.token_count.prompt": 2874,
+      "llm.token_count.completion": 414,
+      "token_count": 3288,
+      "duration_ms": 6752.377377000016,
+      "agent_name": "coder",
+      "tool_calls": 0
+    },
+    "events": []
+  },
+  {
+    "id": "U3Bhbjo4",
+    "name": "tool.memory.retrieve",
+    "context": {
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "0c141dcda08953f3"
+    },
+    "span_kind": "TOOL",
+    "parent_id": "83957d2cb2351ceb",
+    "start_time": "2026-10-26T01:23:11.401751+00:00",
+    "end_time": "2026-10-26T01:23:11.779138+00:00",
+    "status_code": "UNSET",
+    "status_message": "",
+    "attributes": {
+      "token_count": 0,
+      "duration_ms": 377.3483759999863,
+      "agent_name": "coder",
+      "tool_calls": 1
+    },
+    "events": []
+  },
+  {
+    "id": "U3Bhbjo3",
+    "name": "tool.memory.store",
+    "context": {
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "6e61b68eb1541023"
+    },
+    "span_kind": "TOOL",
+    "parent_id": "83957d2cb2351ceb",
+    "start_time": "2026-10-26T01:23:09.378881+00:00",
+    "end_time": "2026-10-26T01:23:11.383425+00:00",
+    "status_code": "UNSET",
+    "status_message": "",
+    "attributes": {
+      "token_count": 0,
+      "duration_ms": 2004.3982500000084,
+      "agent_name": "coder",
+      "tool_calls": 1
+    },
+    "events": []
+  },
+  {
+    "id": "U3Bhbjo2",
+    "name": "tool.write_file",
+    "context": {
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "1b02ee40a415e00d"
+    },
+    "span_kind": "TOOL",
+    "parent_id": "83957d2cb2351ceb",
+    "start_time": "2026-10-26T01:23:09.372397+00:00",
+    "end_time": "2026-10-26T01:23:09.373801+00:00",
+    "status_code": "UNSET",
+    "status_message": "",
+    "attributes": {
+      "token_count": 0,
+      "duration_ms": 1.3691660000176853,
+      "agent_name": "coder",
+      "tool_calls": 1
+    },
+    "events": []
+  },
+  {
+    "id": "U3Bhbjo1",
+    "name": "llm.gpt-4o-mini",
+    "context": {
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "fa689c2e666daa2f"
+    },
+    "span_kind": "LLM",
+    "parent_id": "83957d2cb2351ceb",
+    "start_time": "2026-10-26T01:23:03.762581+00:00",
+    "end_time": "2026-10-26T01:23:09.340817+00:00",
+    "status_code": "UNSET",
+    "status_message": "",
+    "attributes": {
+      "llm.model_name": "gpt-4o-mini",
+      "llm.token_count.prompt": 1819,
+      "llm.token_count.completion": 405,
+      "token_count": 2224,
+      "duration_ms": 5577.820169999995,
+      "agent_name": "coder",
+      "tool_calls": 0
+    },
+    "events": []
+  },
+  {
+    "id": "U3Bhbjo0",
+    "name": "tool.memory.retrieve",
+    "context": {
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "0ee3ea7b06b8357b"
+    },
+    "span_kind": "TOOL",
+    "parent_id": "83957d2cb2351ceb",
+    "start_time": "2026-10-26T01:23:03.743054+00:00",
+    "end_time": "2026-10-26T01:23:03.757174+00:00",
+    "status_code": "UNSET",
+    "status_message": "",
+    "attributes": {
+      "token_count": 0,
+      "duration_ms": 14.080792000015663,
+      "agent_name": "coder",
+      "tool_calls": 1
+    },
+    "events": []
+  },
+  {
+    "id": "U3Bhbjoz",
+    "name": "pm.ProductManager.__call__",
+    "context": {
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "ded709e97c4e7e66"
+    },
+    "span_kind": "AGENT",
+    "parent_id": "01dba7caccaae75b",
+    "start_time": "2026-10-26T01:23:00.658453+00:00",
+    "end_time": "2026-10-26T01:23:03.720830+00:00",
+    "status_code": "UNSET",
+    "status_message": "",
+    "attributes": {
+      "token_count": 1018,
+      "duration_ms": 3062.3122509999803,
+      "agent_name": "pm",
+      "tool_calls": 0
+    },
+    "events": []
+  },
+  {
+    "id": "U3Bhbjoy",
+    "name": "llm.gpt-4o",
+    "context": {
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "44ce027ba4bed3ef"
+    },
+    "span_kind": "LLM",
+    "parent_id": "ded709e97c4e7e66",
+    "start_time": "2026-10-26T01:23:00.659499+00:00",
+    "end_time": "2026-10-26T01:23:03.702528+00:00",
+    "status_code": "UNSET",
+    "status_message": "",
+    "attributes": {
+      "llm.model_name": "gpt-4o",
+      "llm.token_count.prompt": 695,
+      "llm.token_count.completion": 323,
+      "token_count": 1018,
+      "duration_ms": 3042.945667999959,
+      "agent_name": "pm",
+      "tool_calls": 0
+    },
+    "events": []
+  },
+  {
+    "id": "U3Bhbjox",
+    "name": "tool.chroma.heartbeat",
+    "context": {
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "10bd26ec0da22a1f"
+    },
+    "span_kind": "TOOL",
+    "parent_id": "01dba7caccaae75b",
+    "start_time": "2026-10-26T01:23:00.554281+00:00",
+    "end_time": "2026-10-26T01:23:00.554968+00:00",
+    "status_code": "UNSET",
+    "status_message": "",
+    "attributes": {
+      "token_count": 0,
+      "duration_ms": 0.6599999999821193,
+      "agent_name": "pipeline",
+      "tool_calls": 1
+    },
+    "events": []
+  }
+]

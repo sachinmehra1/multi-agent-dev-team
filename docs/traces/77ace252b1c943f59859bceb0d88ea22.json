@@ -1,0 +1,865 @@
+{
+  "run_id": "77ace252b1c943f59859bceb0d88ea22",
+  "spans": [
+    {
+      "name": "tool.chroma.heartbeat",
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "10bd26ec0da22a1f",
+      "parent_id": "01dba7caccaae75b",
+      "attributes": {
+        "openinference.span.kind": "TOOL",
+        "agent_name": "pipeline",
+        "tool_calls": 1,
+        "token_count": 0,
+        "duration_ms": 0.6599999999821193
+      },
+      "status": "UNSET"
+    },
+    {
+      "name": "llm.gpt-4o",
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "44ce027ba4bed3ef",
+      "parent_id": "ded709e97c4e7e66",
+      "attributes": {
+        "openinference.span.kind": "LLM",
+        "agent_name": "pm",
+        "llm.model_name": "gpt-4o",
+        "token_count": 1018,
+        "llm.token_count.prompt": 695,
+        "llm.token_count.completion": 323,
+        "tool_calls": 0,
+        "duration_ms": 3042.945667999959
+      },
+      "status": "UNSET"
+    },
+    {
+      "name": "pm.ProductManager.__call__",
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "ded709e97c4e7e66",
+      "parent_id": "01dba7caccaae75b",
+      "attributes": {
+        "openinference.span.kind": "AGENT",
+        "agent_name": "pm",
+        "token_count": 1018,
+        "tool_calls": 0,
+        "duration_ms": 3062.3122509999803
+      },
+      "status": "UNSET"
+    },
+    {
+      "name": "tool.memory.retrieve",
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "0ee3ea7b06b8357b",
+      "parent_id": "83957d2cb2351ceb",
+      "attributes": {
+        "openinference.span.kind": "TOOL",
+        "agent_name": "coder",
+        "tool_calls": 1,
+        "token_count": 0,
+        "duration_ms": 14.080792000015663
+      },
+      "status": "UNSET"
+    },
+    {
+      "name": "llm.gpt-4o-mini",
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "fa689c2e666daa2f",
+      "parent_id": "83957d2cb2351ceb",
+      "attributes": {
+        "openinference.span.kind": "LLM",
+        "agent_name": "coder",
+        "llm.model_name": "gpt-4o-mini",
+        "token_count": 2224,
+        "llm.token_count.prompt": 1819,
+        "llm.token_count.completion": 405,
+        "tool_calls": 0,
+        "duration_ms": 5577.820169999995
+      },
+      "status": "UNSET"
+    },
+    {
+      "name": "tool.write_file",
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "1b02ee40a415e00d",
+      "parent_id": "83957d2cb2351ceb",
+      "attributes": {
+        "openinference.span.kind": "TOOL",
+        "agent_name": "coder",
+        "tool_calls": 1,
+        "token_count": 0,
+        "duration_ms": 1.3691660000176853
+      },
+      "status": "UNSET"
+    },
+    {
+      "name": "tool.memory.store",
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "6e61b68eb1541023",
+      "parent_id": "83957d2cb2351ceb",
+      "attributes": {
+        "openinference.span.kind": "TOOL",
+        "agent_name": "coder",
+        "tool_calls": 1,
+        "token_count": 0,
+        "duration_ms": 2004.3982500000084
+      },
+      "status": "UNSET"
+    },
+    {
+      "name": "tool.memory.retrieve",
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "0c141dcda08953f3",
+      "parent_id": "83957d2cb2351ceb",
+      "attributes": {
+        "openinference.span.kind": "TOOL",
+        "agent_name": "coder",
+        "tool_calls": 1,
+        "token_count": 0,
+        "duration_ms": 377.3483759999863
+      },
+      "status": "UNSET"
+    },
+    {
+      "name": "llm.gpt-4o-mini",
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "27e0e95a756242c4",
+      "parent_id": "83957d2cb2351ceb",
+      "attributes": {
+        "openinference.span.kind": "LLM",
+        "agent_name": "coder",
+        "llm.model_name": "gpt-4o-mini",
+        "token_count": 3288,
+        "llm.token_count.prompt": 2874,
+        "llm.token_count.completion": 414,
+        "tool_calls": 0,
+        "duration_ms": 6752.377377000016
+      },
+      "status": "UNSET"
+    },
+    {
+      "name": "tool.write_file",
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "a3ac7b4ebdf2a75f",
+      "parent_id": "83957d2cb2351ceb",
+      "attributes": {
+        "openinference.span.kind": "TOOL",
+        "agent_name": "coder",
+        "tool_calls": 1,
+        "token_count": 0,
+        "duration_ms": 1.3356250000242653
+      },
+      "status": "UNSET"
+    },
+    {
+      "name": "tool.memory.store",
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "11a928c3e3af6e72",
+      "parent_id": "83957d2cb2351ceb",
+      "attributes": {
+        "openinference.span.kind": "TOOL",
+        "agent_name": "coder",
+        "tool_calls": 1,
+        "token_count": 0,
+        "duration_ms": 875.9699579999847
+      },
+      "status": "UNSET"
+    },
+    {
+      "name": "tool.memory.retrieve",
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "545b686ac884697b",
+      "parent_id": "83957d2cb2351ceb",
+      "attributes": {
+        "openinference.span.kind": "TOOL",
+        "agent_name": "coder",
+        "tool_calls": 1,
+        "token_count": 0,
+        "duration_ms": 593.1232920000298
+      },
+      "status": "UNSET"
+    },
+    {
+      "name": "llm.gpt-4o-mini",
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "539052f5be164675",
+      "parent_id": "83957d2cb2351ceb",
+      "attributes": {
+        "openinference.span.kind": "LLM",
+        "agent_name": "coder",
+        "llm.model_name": "gpt-4o-mini",
+        "token_count": 3981,
+        "llm.token_count.prompt": 3942,
+        "llm.token_count.completion": 39,
+        "tool_calls": 0,
+        "duration_ms": 1503.7902089999875
+      },
+      "status": "UNSET"
+    },
+    {
+      "name": "tool.read_file",
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "1f581238814a4ca7",
+      "parent_id": "384faa304ffbfc34",
+      "attributes": {
+        "openinference.span.kind": "TOOL",
+        "agent_name": "coder",
+        "tool_calls": 1,
+        "token_count": 0,
+        "duration_ms": 0.23412500001995795
+      },
+      "status": "UNSET"
+    },
+    {
+      "name": "tool.read_file",
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "db5e1b37b21a0627",
+      "parent_id": "384faa304ffbfc34",
+      "attributes": {
+        "openinference.span.kind": "TOOL",
+        "agent_name": "coder",
+        "tool_calls": 1,
+        "token_count": 0,
+        "duration_ms": 0.4728330000034475
+      },
+      "status": "UNSET"
+    },
+    {
+      "name": "tool.run_code",
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "384faa304ffbfc34",
+      "parent_id": "83957d2cb2351ceb",
+      "attributes": {
+        "openinference.span.kind": "TOOL",
+        "agent_name": "coder",
+        "tool_calls": 1,
+        "token_count": 0,
+        "duration_ms": 3121.5588349999734
+      },
+      "status": "UNSET"
+    },
+    {
+      "name": "tool.memory.store",
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "3e4853eeb9ebd40e",
+      "parent_id": "83957d2cb2351ceb",
+      "attributes": {
+        "openinference.span.kind": "TOOL",
+        "agent_name": "coder",
+        "tool_calls": 1,
+        "token_count": 0,
+        "duration_ms": 541.6027090000171
+      },
+      "status": "UNSET"
+    },
+    {
+      "name": "tool.memory.retrieve",
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "b760b4fc2fb4a0b5",
+      "parent_id": "83957d2cb2351ceb",
+      "attributes": {
+        "openinference.span.kind": "TOOL",
+        "agent_name": "coder",
+        "tool_calls": 1,
+        "token_count": 0,
+        "duration_ms": 288.65304100003186
+      },
+      "status": "UNSET"
+    },
+    {
+      "name": "llm.gpt-4o-mini",
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "43f3a65ef282fba0",
+      "parent_id": "83957d2cb2351ceb",
+      "attributes": {
+        "openinference.span.kind": "LLM",
+        "agent_name": "coder",
+        "llm.model_name": "gpt-4o-mini",
+        "token_count": 5091,
+        "llm.token_count.prompt": 4658,
+        "llm.token_count.completion": 433,
+        "tool_calls": 0,
+        "duration_ms": 5940.225919999989
+      },
+      "status": "UNSET"
+    },
+    {
+      "name": "tool.read_file",
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "6f09ac88ec6d6e51",
+      "parent_id": "83957d2cb2351ceb",
+      "attributes": {
+        "openinference.span.kind": "TOOL",
+        "agent_name": "coder",
+        "tool_calls": 1,
+        "token_count": 0,
+        "duration_ms": 0.7340419999763981
+      },
+      "status": "UNSET"
+    },
+    {
+      "name": "tool.read_file",
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "4c2ff627313eaace",
+      "parent_id": "83957d2cb2351ceb",
+      "attributes": {
+        "openinference.span.kind": "TOOL",
+        "agent_name": "coder",
+        "tool_calls": 1,
+        "token_count": 0,
+        "duration_ms": 0.326500000028318
+      },
+      "status": "UNSET"
+    },
+    {
+      "name": "coder.CoderGraph.run",
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "83957d2cb2351ceb",
+      "parent_id": "01dba7caccaae75b",
+      "attributes": {
+        "openinference.span.kind": "AGENT",
+        "agent_name": "coder",
+        "token_count": 14584,
+        "tool_calls": 14,
+        "duration_ms": 27980.40855400001
+      },
+      "status": "UNSET"
+    },
+    {
+      "name": "tool.read_file",
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "4194e9121fb2d035",
+      "parent_id": "01dba7caccaae75b",
+      "attributes": {
+        "openinference.span.kind": "TOOL",
+        "agent_name": "pipeline",
+        "tool_calls": 1,
+        "token_count": 0,
+        "duration_ms": 0.2247919999831538
+      },
+      "status": "UNSET"
+    },
+    {
+      "name": "tool.read_file",
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "3e4377cafaf57b49",
+      "parent_id": "01dba7caccaae75b",
+      "attributes": {
+        "openinference.span.kind": "TOOL",
+        "agent_name": "pipeline",
+        "tool_calls": 1,
+        "token_count": 0,
+        "duration_ms": 0.19058399999494213
+      },
+      "status": "UNSET"
+    },
+    {
+      "name": "tool.memory.retrieve",
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "5bd7f78c5f30ca1b",
+      "parent_id": "e9d6cedc48a4e280",
+      "attributes": {
+        "openinference.span.kind": "TOOL",
+        "agent_name": "coder",
+        "tool_calls": 1,
+        "token_count": 0,
+        "duration_ms": 490.89579200000344
+      },
+      "status": "UNSET"
+    },
+    {
+      "name": "llm.gpt-4o-mini",
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "d8a9d40c9df295e4",
+      "parent_id": "e9d6cedc48a4e280",
+      "attributes": {
+        "openinference.span.kind": "LLM",
+        "agent_name": "coder",
+        "llm.model_name": "gpt-4o-mini",
+        "token_count": 6567,
+        "llm.token_count.prompt": 6121,
+        "llm.token_count.completion": 446,
+        "tool_calls": 0,
+        "duration_ms": 6205.91921099998
+      },
+      "status": "UNSET"
+    },
+    {
+      "name": "tool.memory.retrieve",
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "e2873237e8b510ee",
+      "parent_id": "e9d6cedc48a4e280",
+      "attributes": {
+        "openinference.span.kind": "TOOL",
+        "agent_name": "coder",
+        "tool_calls": 1,
+        "token_count": 0,
+        "duration_ms": 386.0911250000072
+      },
+      "status": "UNSET"
+    },
+    {
+      "name": "llm.gpt-4o-mini",
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "76e2c9d633540f73",
+      "parent_id": "e9d6cedc48a4e280",
+      "attributes": {
+        "openinference.span.kind": "LLM",
+        "agent_name": "coder",
+        "llm.model_name": "gpt-4o-mini",
+        "token_count": 6669,
+        "llm.token_count.prompt": 6619,
+        "llm.token_count.completion": 50,
+        "tool_calls": 0,
+        "duration_ms": 1716.8863750000014
+      },
+      "status": "UNSET"
+    },
+    {
+      "name": "tool.read_file",
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "42382c6dcaf77160",
+      "parent_id": "1971b094a587d62c",
+      "attributes": {
+        "openinference.span.kind": "TOOL",
+        "agent_name": "coder",
+        "tool_calls": 1,
+        "token_count": 0,
+        "duration_ms": 0.14358299995365087
+      },
+      "status": "UNSET"
+    },
+    {
+      "name": "tool.read_file",
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "eb4f38fbb4372753",
+      "parent_id": "1971b094a587d62c",
+      "attributes": {
+        "openinference.span.kind": "TOOL",
+        "agent_name": "coder",
+        "tool_calls": 1,
+        "token_count": 0,
+        "duration_ms": 0.14016699998364857
+      },
+      "status": "UNSET"
+    },
+    {
+      "name": "tool.run_code",
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "1971b094a587d62c",
+      "parent_id": "e9d6cedc48a4e280",
+      "attributes": {
+        "openinference.span.kind": "TOOL",
+        "agent_name": "coder",
+        "tool_calls": 1,
+        "token_count": 0,
+        "duration_ms": 974.8391260000062
+      },
+      "status": "UNSET"
+    },
+    {
+      "name": "tool.memory.store",
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "07d1498f8bbe85d8",
+      "parent_id": "e9d6cedc48a4e280",
+      "attributes": {
+        "openinference.span.kind": "TOOL",
+        "agent_name": "coder",
+        "tool_calls": 1,
+        "token_count": 0,
+        "duration_ms": 491.01770900000474
+      },
+      "status": "UNSET"
+    },
+    {
+      "name": "tool.memory.retrieve",
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "dafc367f1f3d0a7a",
+      "parent_id": "e9d6cedc48a4e280",
+      "attributes": {
+        "openinference.span.kind": "TOOL",
+        "agent_name": "coder",
+        "tool_calls": 1,
+        "token_count": 0,
+        "duration_ms": 260.0257080000006
+      },
+      "status": "UNSET"
+    },
+    {
+      "name": "llm.gpt-4o-mini",
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "38ffcf6d53371365",
+      "parent_id": "e9d6cedc48a4e280",
+      "attributes": {
+        "openinference.span.kind": "LLM",
+        "agent_name": "coder",
+        "llm.model_name": "gpt-4o-mini",
+        "token_count": 7992,
+        "llm.token_count.prompt": 7536,
+        "llm.token_count.completion": 456,
+        "tool_calls": 0,
+        "duration_ms": 7119.895878000023
+      },
+      "status": "UNSET"
+    },
+    {
+      "name": "coder.CoderGraph.run",
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "e9d6cedc48a4e280",
+      "parent_id": "01dba7caccaae75b",
+      "attributes": {
+        "openinference.span.kind": "AGENT",
+        "agent_name": "coder",
+        "token_count": 21228,
+        "tool_calls": 7,
+        "duration_ms": 17822.116008000023
+      },
+      "status": "UNSET"
+    },
+    {
+      "name": "tool.read_file",
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "f2ff0fafb80ed9af",
+      "parent_id": "01dba7caccaae75b",
+      "attributes": {
+        "openinference.span.kind": "TOOL",
+        "agent_name": "pipeline",
+        "tool_calls": 1,
+        "token_count": 0,
+        "duration_ms": 0.7010829999671842
+      },
+      "status": "UNSET"
+    },
+    {
+      "name": "tool.read_file",
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "f7f4bc8e34807477",
+      "parent_id": "01dba7caccaae75b",
+      "attributes": {
+        "openinference.span.kind": "TOOL",
+        "agent_name": "pipeline",
+        "tool_calls": 1,
+        "token_count": 0,
+        "duration_ms": 0.1524999998991916
+      },
+      "status": "UNSET"
+    },
+    {
+      "name": "llm.gpt-4o-mini",
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "3985718ee85ab994",
+      "parent_id": "6acea97096eb76ac",
+      "attributes": {
+        "openinference.span.kind": "LLM",
+        "agent_name": "coder",
+        "llm.model_name": "gpt-4o-mini",
+        "token_count": 1052,
+        "llm.token_count.prompt": 763,
+        "llm.token_count.completion": 289,
+        "tool_calls": 0,
+        "duration_ms": 5161.877877000052
+      },
+      "status": "UNSET"
+    },
+    {
+      "name": "llm.gpt-4o-mini",
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "412bf31bf26fd5c0",
+      "parent_id": "6acea97096eb76ac",
+      "attributes": {
+        "openinference.span.kind": "LLM",
+        "agent_name": "coder",
+        "llm.model_name": "gpt-4o-mini",
+        "token_count": 1440,
+        "llm.token_count.prompt": 889,
+        "llm.token_count.completion": 551,
+        "tool_calls": 0,
+        "duration_ms": 9227.964796000037
+      },
+      "status": "UNSET"
+    },
+    {
+      "name": "tool.write_file",
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "ad1970103a3ed41e",
+      "parent_id": "6acea97096eb76ac",
+      "attributes": {
+        "openinference.span.kind": "TOOL",
+        "agent_name": "coder",
+        "tool_calls": 1,
+        "token_count": 0,
+        "duration_ms": 1.1212080000859714
+      },
+      "status": "UNSET"
+    },
+    {
+      "name": "coder.CoderReviser.reflect",
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "6acea97096eb76ac",
+      "parent_id": "01dba7caccaae75b",
+      "attributes": {
+        "openinference.span.kind": "AGENT",
+        "agent_name": "coder",
+        "token_count": 2492,
+        "tool_calls": 1,
+        "duration_ms": 14464.701798999955
+      },
+      "status": "UNSET"
+    },
+    {
+      "name": "llm.gpt-4o-mini",
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "7dc8d5391c606754",
+      "parent_id": "2a14b894dbbaadf1",
+      "attributes": {
+        "openinference.span.kind": "LLM",
+        "agent_name": "qa",
+        "llm.model_name": "gpt-4o-mini",
+        "token_count": 2294,
+        "llm.token_count.prompt": 1097,
+        "llm.token_count.completion": 1197,
+        "tool_calls": 0,
+        "duration_ms": 13787.103505999994
+      },
+      "status": "UNSET"
+    },
+    {
+      "name": "tool.write_file",
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "502b3c84728e4781",
+      "parent_id": "2a14b894dbbaadf1",
+      "attributes": {
+        "openinference.span.kind": "TOOL",
+        "agent_name": "qa",
+        "tool_calls": 1,
+        "token_count": 0,
+        "duration_ms": 0.5360000000109721
+      },
+      "status": "UNSET"
+    },
+    {
+      "name": "tool.write_file",
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "b8f89b666a162add",
+      "parent_id": "2a14b894dbbaadf1",
+      "attributes": {
+        "openinference.span.kind": "TOOL",
+        "agent_name": "qa",
+        "tool_calls": 1,
+        "token_count": 0,
+        "duration_ms": 0.49995899996702065
+      },
+      "status": "UNSET"
+    },
+    {
+      "name": "tool.write_file",
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "571801ef7cef124d",
+      "parent_id": "2a14b894dbbaadf1",
+      "attributes": {
+        "openinference.span.kind": "TOOL",
+        "agent_name": "qa",
+        "tool_calls": 1,
+        "token_count": 0,
+        "duration_ms": 0.3248749999329448
+      },
+      "status": "UNSET"
+    },
+    {
+      "name": "tool.read_file",
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "c6ec2f0fd892fa37",
+      "parent_id": "16c87168c8b9dcd9",
+      "attributes": {
+        "openinference.span.kind": "TOOL",
+        "agent_name": "qa",
+        "tool_calls": 1,
+        "token_count": 0,
+        "duration_ms": 0.16562500002237357
+      },
+      "status": "UNSET"
+    },
+    {
+      "name": "tool.read_file",
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "903037dd403e5996",
+      "parent_id": "16c87168c8b9dcd9",
+      "attributes": {
+        "openinference.span.kind": "TOOL",
+        "agent_name": "qa",
+        "tool_calls": 1,
+        "token_count": 0,
+        "duration_ms": 0.08216700007324107
+      },
+      "status": "UNSET"
+    },
+    {
+      "name": "tool.read_file",
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "16a44bcab8b809ba",
+      "parent_id": "16c87168c8b9dcd9",
+      "attributes": {
+        "openinference.span.kind": "TOOL",
+        "agent_name": "qa",
+        "tool_calls": 1,
+        "token_count": 0,
+        "duration_ms": 0.15854200000831042
+      },
+      "status": "UNSET"
+    },
+    {
+      "name": "tool.run_code",
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "16c87168c8b9dcd9",
+      "parent_id": "2a14b894dbbaadf1",
+      "attributes": {
+        "openinference.span.kind": "TOOL",
+        "agent_name": "qa",
+        "tool_calls": 1,
+        "token_count": 0,
+        "duration_ms": 1310.1405840000098
+      },
+      "status": "UNSET"
+    },
+    {
+      "name": "qa.QAAgent.review",
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "2a14b894dbbaadf1",
+      "parent_id": "01dba7caccaae75b",
+      "attributes": {
+        "openinference.span.kind": "AGENT",
+        "agent_name": "qa",
+        "token_count": 2294,
+        "tool_calls": 7,
+        "duration_ms": 15160.352674000023
+      },
+      "status": "UNSET"
+    },
+    {
+      "name": "tool.write_file",
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "a8f341689ed53508",
+      "parent_id": "e3480ce9f3a95550",
+      "attributes": {
+        "openinference.span.kind": "TOOL",
+        "agent_name": "qa",
+        "tool_calls": 1,
+        "token_count": 0,
+        "duration_ms": 0.1468339999064483
+      },
+      "status": "UNSET"
+    },
+    {
+      "name": "tool.write_file",
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "bb40b009c2372006",
+      "parent_id": "e3480ce9f3a95550",
+      "attributes": {
+        "openinference.span.kind": "TOOL",
+        "agent_name": "qa",
+        "tool_calls": 1,
+        "token_count": 0,
+        "duration_ms": 0.2101659999880212
+      },
+      "status": "UNSET"
+    },
+    {
+      "name": "tool.write_file",
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "0317ec623786e059",
+      "parent_id": "e3480ce9f3a95550",
+      "attributes": {
+        "openinference.span.kind": "TOOL",
+        "agent_name": "qa",
+        "tool_calls": 1,
+        "token_count": 0,
+        "duration_ms": 0.15833300005851925
+      },
+      "status": "UNSET"
+    },
+    {
+      "name": "tool.read_file",
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "32b3f352ebc03b33",
+      "parent_id": "725b3872bc3f6dba",
+      "attributes": {
+        "openinference.span.kind": "TOOL",
+        "agent_name": "qa",
+        "tool_calls": 1,
+        "token_count": 0,
+        "duration_ms": 0.0624580000021524
+      },
+      "status": "UNSET"
+    },
+    {
+      "name": "tool.read_file",
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "52d97427ff692055",
+      "parent_id": "725b3872bc3f6dba",
+      "attributes": {
+        "openinference.span.kind": "TOOL",
+        "agent_name": "qa",
+        "tool_calls": 1,
+        "token_count": 0,
+        "duration_ms": 0.07008399995811487
+      },
+      "status": "UNSET"
+    },
+    {
+      "name": "tool.read_file",
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "158f146741230ec5",
+      "parent_id": "725b3872bc3f6dba",
+      "attributes": {
+        "openinference.span.kind": "TOOL",
+        "agent_name": "qa",
+        "tool_calls": 1,
+        "token_count": 0,
+        "duration_ms": 0.0864169999204023
+      },
+      "status": "UNSET"
+    },
+    {
+      "name": "tool.run_code",
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "725b3872bc3f6dba",
+      "parent_id": "e3480ce9f3a95550",
+      "attributes": {
+        "openinference.span.kind": "TOOL",
+        "agent_name": "qa",
+        "tool_calls": 1,
+        "token_count": 0,
+        "duration_ms": 717.9309169999897
+      },
+      "status": "UNSET"
+    },
+    {
+      "name": "qa.verify_bst",
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "e3480ce9f3a95550",
+      "parent_id": "01dba7caccaae75b",
+      "attributes": {
+        "openinference.span.kind": "AGENT",
+        "agent_name": "qa",
+        "token_count": 0,
+        "tool_calls": 7,
+        "duration_ms": 732.4233329999288
+      },
+      "status": "UNSET"
+    },
+    {
+      "name": "pipeline",
+      "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+      "span_id": "01dba7caccaae75b",
+      "parent_id": null,
+      "attributes": {
+        "agent_name": "pipeline",
+        "openinference.span.kind": "CHAIN",
+        "run_id": "77ace252b1c943f59859bceb0d88ea22",
+        "duration_ms": 79985.22249499997,
+        "token_count": 41616,
+        "tool_calls": 41
+      },
+      "status": "UNSET"
+    }
+  ]
+}

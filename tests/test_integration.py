@@ -44,6 +44,8 @@ def test_real_semantic_retrieval(tmp_path):
 @pytest.mark.integration
 @pytest.mark.skipif(os.getenv("RUN_LIVE_LLM") != "1", reason="Set RUN_LIVE_LLM=1 with API configuration and Docker")
 def test_live_end_to_end(tmp_path):
+    from dotenv import load_dotenv
+    load_dotenv()
     from agents.coder_agent import build_agent
     from orchestration.llm import ChatModel
     model = ChatModel(os.getenv("LLM_MODEL", "gpt-4o"), os.environ["LLM_API_KEY"],

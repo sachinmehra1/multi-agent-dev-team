@@ -1,4 +1,5 @@
 """PM plans once, validates its specification and consolidates without dropping work."""
+from orchestration.observability import agent_span
 import json
 import math
 from orchestration.project_state import CodingTask, TechnicalSpec, Handoff, Progress
@@ -25,6 +26,7 @@ class ProductManager:
     def __init__(self, model):
         self.model = model
 
+    @agent_span("pm")
     def __call__(self, state):
         prompt = (
             'You are the Product Manager. Convert the original requirement into a technical '

@@ -1,0 +1,602 @@
+{
+  "id": "VHJhY2U6MQ==",
+  "trace_id": "dbf3921857d50943d4d5dae40ed2781a",
+  "project_id": "UHJvamVjdDoy",
+  "start_time": "2026-10-26T01:23:00.049092+00:00",
+  "end_time": "2026-10-26T01:24:19.991935+00:00",
+  "token_count_prompt": 37013,
+  "token_count_completion": 4603,
+  "token_count_total": 41616,
+  "spans": [
+    {
+      "id": "U3Bhbjo1OQ==",
+      "span_id": "01dba7caccaae75b",
+      "parent_id": null,
+      "name": "pipeline",
+      "span_kind": "CHAIN",
+      "status_code": "UNSET",
+      "start_time": "2026-10-26T01:23:00.049092+00:00",
+      "end_time": "2026-10-26T01:24:19.991935+00:00"
+    },
+    {
+      "id": "U3Bhbjox",
+      "span_id": "10bd26ec0da22a1f",
+      "parent_id": "01dba7caccaae75b",
+      "name": "tool.chroma.heartbeat",
+      "span_kind": "TOOL",
+      "status_code": "UNSET",
+      "start_time": "2026-10-26T01:23:00.554281+00:00",
+      "end_time": "2026-10-26T01:23:00.554968+00:00"
+    },
+    {
+      "id": "U3Bhbjoz",
+      "span_id": "ded709e97c4e7e66",
+      "parent_id": "01dba7caccaae75b",
+      "name": "pm.ProductManager.__call__",
+      "span_kind": "AGENT",
+      "status_code": "UNSET",
+      "start_time": "2026-10-26T01:23:00.658453+00:00",
+      "end_time": "2026-10-26T01:23:03.720830+00:00"
+    },
+    {
+      "id": "U3Bhbjoy",
+      "span_id": "44ce027ba4bed3ef",
+      "parent_id": "ded709e97c4e7e66",
+      "name": "llm.gpt-4o",
+      "span_kind": "LLM",
+      "status_code": "UNSET",
+      "start_time": "2026-10-26T01:23:00.659499+00:00",
+      "end_time": "2026-10-26T01:23:03.702528+00:00"
+    },
+    {
+      "id": "U3BhbjoyMg==",
+      "span_id": "83957d2cb2351ceb",
+      "parent_id": "01dba7caccaae75b",
+      "name": "coder.CoderGraph.run",
+      "span_kind": "AGENT",
+      "status_code": "UNSET",
+      "start_time": "2026-10-26T01:23:03.734368+00:00",
+      "end_time": "2026-10-26T01:23:31.711198+00:00"
+    },
+    {
+      "id": "U3Bhbjo0",
+      "span_id": "0ee3ea7b06b8357b",
+      "parent_id": "83957d2cb2351ceb",
+      "name": "tool.memory.retrieve",
+      "span_kind": "TOOL",
+      "status_code": "UNSET",
+      "start_time": "2026-10-26T01:23:03.743054+00:00",
+      "end_time": "2026-10-26T01:23:03.757174+00:00"
+    },
+    {
+      "id": "U3Bhbjo1",
+      "span_id": "fa689c2e666daa2f",
+      "parent_id": "83957d2cb2351ceb",
+      "name": "llm.gpt-4o-mini",
+      "span_kind": "LLM",
+      "status_code": "UNSET",
+      "start_time": "2026-10-26T01:23:03.762581+00:00",
+      "end_time": "2026-10-26T01:23:09.340817+00:00"
+    },
+    {
+      "id": "U3Bhbjo2",
+      "span_id": "1b02ee40a415e00d",
+      "parent_id": "83957d2cb2351ceb",
+      "name": "tool.write_file",
+      "span_kind": "TOOL",
+      "status_code": "UNSET",
+      "start_time": "2026-10-26T01:23:09.372397+00:00",
+      "end_time": "2026-10-26T01:23:09.373801+00:00"
+    },
+    {
+      "id": "U3Bhbjo3",
+      "span_id": "6e61b68eb1541023",
+      "parent_id": "83957d2cb2351ceb",
+      "name": "tool.memory.store",
+      "span_kind": "TOOL",
+      "status_code": "UNSET",
+      "start_time": "2026-10-26T01:23:09.378881+00:00",
+      "end_time": "2026-10-26T01:23:11.383425+00:00"
+    },
+    {
+      "id": "U3Bhbjo4",
+      "span_id": "0c141dcda08953f3",
+      "parent_id": "83957d2cb2351ceb",
+      "name": "tool.memory.retrieve",
+      "span_kind": "TOOL",
+      "status_code": "UNSET",
+      "start_time": "2026-10-26T01:23:11.401751+00:00",
+      "end_time": "2026-10-26T01:23:11.779138+00:00"
+    },
+    {
+      "id": "U3Bhbjo5",
+      "span_id": "27e0e95a756242c4",
+      "parent_id": "83957d2cb2351ceb",
+      "name": "llm.gpt-4o-mini",
+      "span_kind": "LLM",
+      "status_code": "UNSET",
+      "start_time": "2026-10-26T01:23:11.783879+00:00",
+      "end_time": "2026-10-26T01:23:18.560306+00:00"
+    },
+    {
+      "id": "U3BhbjoxMA==",
+      "span_id": "a3ac7b4ebdf2a75f",
+      "parent_id": "83957d2cb2351ceb",
+      "name": "tool.write_file",
+      "span_kind": "TOOL",
+      "status_code": "UNSET",
+      "start_time": "2026-10-26T01:23:18.660005+00:00",
+      "end_time": "2026-10-26T01:23:18.661372+00:00"
+    },
+    {
+      "id": "U3BhbjoxMQ==",
+      "span_id": "11a928c3e3af6e72",
+      "parent_id": "83957d2cb2351ceb",
+      "name": "tool.memory.store",
+      "span_kind": "TOOL",
+      "status_code": "UNSET",
+      "start_time": "2026-10-26T01:23:18.665363+00:00",
+      "end_time": "2026-10-26T01:23:19.541569+00:00"
+    },
+    {
+      "id": "U3BhbjoxMg==",
+      "span_id": "545b686ac884697b",
+      "parent_id": "83957d2cb2351ceb",
+      "name": "tool.memory.retrieve",
+      "span_kind": "TOOL",
+      "status_code": "UNSET",
+      "start_time": "2026-10-26T01:23:19.586836+00:00",
+      "end_time": "2026-10-26T01:23:20.180041+00:00"
+    },
+    {
+      "id": "U3BhbjoxMw==",
+      "span_id": "539052f5be164675",
+      "parent_id": "83957d2cb2351ceb",
+      "name": "llm.gpt-4o-mini",
+      "span_kind": "LLM",
+      "status_code": "UNSET",
+      "start_time": "2026-10-26T01:23:20.192350+00:00",
+      "end_time": "2026-10-26T01:23:21.696477+00:00"
+    },
+    {
+      "id": "U3BhbjoxNg==",
+      "span_id": "384faa304ffbfc34",
+      "parent_id": "83957d2cb2351ceb",
+      "name": "tool.run_code",
+      "span_kind": "TOOL",
+      "status_code": "UNSET",
+      "start_time": "2026-10-26T01:23:21.740811+00:00",
+      "end_time": "2026-10-26T01:23:24.862647+00:00"
+    },
+    {
+      "id": "U3BhbjoxNA==",
+      "span_id": "1f581238814a4ca7",
+      "parent_id": "384faa304ffbfc34",
+      "name": "tool.read_file",
+      "span_kind": "TOOL",
+      "status_code": "UNSET",
+      "start_time": "2026-10-26T01:23:21.742167+00:00",
+      "end_time": "2026-10-26T01:23:21.742425+00:00"
+    },
+    {
+      "id": "U3BhbjoxNQ==",
+      "span_id": "db5e1b37b21a0627",
+      "parent_id": "384faa304ffbfc34",
+      "name": "tool.read_file",
+      "span_kind": "TOOL",
+      "status_code": "UNSET",
+      "start_time": "2026-10-26T01:23:21.749839+00:00",
+      "end_time": "2026-10-26T01:23:21.750370+00:00"
+    },
+    {
+      "id": "U3BhbjoxNw==",
+      "span_id": "3e4853eeb9ebd40e",
+      "parent_id": "83957d2cb2351ceb",
+      "name": "tool.memory.store",
+      "span_kind": "TOOL",
+      "status_code": "UNSET",
+      "start_time": "2026-10-26T01:23:24.886124+00:00",
+      "end_time": "2026-10-26T01:23:25.427758+00:00"
+    },
+    {
+      "id": "U3BhbjoxOA==",
+      "span_id": "b760b4fc2fb4a0b5",
+      "parent_id": "83957d2cb2351ceb",
+      "name": "tool.memory.retrieve",
+      "span_kind": "TOOL",
+      "status_code": "UNSET",
+      "start_time": "2026-10-26T01:23:25.433068+00:00",
+      "end_time": "2026-10-26T01:23:25.721744+00:00"
+    },
+    {
+      "id": "U3BhbjoxOQ==",
+      "span_id": "43f3a65ef282fba0",
+      "parent_id": "83957d2cb2351ceb",
+      "name": "llm.gpt-4o-mini",
+      "span_kind": "LLM",
+      "status_code": "UNSET",
+      "start_time": "2026-10-26T01:23:25.729577+00:00",
+      "end_time": "2026-10-26T01:23:31.670161+00:00"
+    },
+    {
+      "id": "U3BhbjoyMA==",
+      "span_id": "6f09ac88ec6d6e51",
+      "parent_id": "83957d2cb2351ceb",
+      "name": "tool.read_file",
+      "span_kind": "TOOL",
+      "status_code": "UNSET",
+      "start_time": "2026-10-26T01:23:31.699606+00:00",
+      "end_time": "2026-10-26T01:23:31.700386+00:00"
+    },
+    {
+      "id": "U3BhbjoyMQ==",
+      "span_id": "4c2ff627313eaace",
+      "parent_id": "83957d2cb2351ceb",
+      "name": "tool.read_file",
+      "span_kind": "TOOL",
+      "status_code": "UNSET",
+      "start_time": "2026-10-26T01:23:31.705024+00:00",
+      "end_time": "2026-10-26T01:23:31.705378+00:00"
+    },
+    {
+      "id": "U3BhbjoyMw==",
+      "span_id": "4194e9121fb2d035",
+      "parent_id": "01dba7caccaae75b",
+      "name": "tool.read_file",
+      "span_kind": "TOOL",
+      "status_code": "UNSET",
+      "start_time": "2026-10-26T01:23:31.717839+00:00",
+      "end_time": "2026-10-26T01:23:31.718091+00:00"
+    },
+    {
+      "id": "U3BhbjoyNA==",
+      "span_id": "3e4377cafaf57b49",
+      "parent_id": "01dba7caccaae75b",
+      "name": "tool.read_file",
+      "span_kind": "TOOL",
+      "status_code": "UNSET",
+      "start_time": "2026-10-26T01:23:31.735251+00:00",
+      "end_time": "2026-10-26T01:23:31.735467+00:00"
+    },
+    {
+      "id": "U3BhbjozNQ==",
+      "span_id": "e9d6cedc48a4e280",
+      "parent_id": "01dba7caccaae75b",
+      "name": "coder.CoderGraph.run",
+      "span_kind": "AGENT",
+      "status_code": "UNSET",
+      "start_time": "2026-10-26T01:23:31.743582+00:00",
+      "end_time": "2026-10-26T01:23:49.566830+00:00"
+    },
+    {
+      "id": "U3BhbjoyNQ==",
+      "span_id": "5bd7f78c5f30ca1b",
+      "parent_id": "e9d6cedc48a4e280",
+      "name": "tool.memory.retrieve",
+      "span_kind": "TOOL",
+      "status_code": "UNSET",
+      "start_time": "2026-10-26T01:23:31.745677+00:00",
+      "end_time": "2026-10-26T01:23:32.236599+00:00"
+    },
+    {
+      "id": "U3BhbjoyNg==",
+      "span_id": "d8a9d40c9df295e4",
+      "parent_id": "e9d6cedc48a4e280",
+      "name": "llm.gpt-4o-mini",
+      "span_kind": "LLM",
+      "status_code": "UNSET",
+      "start_time": "2026-10-26T01:23:32.240080+00:00",
+      "end_time": "2026-10-26T01:23:38.446295+00:00"
+    },
+    {
+      "id": "U3BhbjoyNw==",
+      "span_id": "e2873237e8b510ee",
+      "parent_id": "e9d6cedc48a4e280",
+      "name": "tool.memory.retrieve",
+      "span_kind": "TOOL",
+      "status_code": "UNSET",
+      "start_time": "2026-10-26T01:23:38.493590+00:00",
+      "end_time": "2026-10-26T01:23:38.879728+00:00"
+    },
+    {
+      "id": "U3BhbjoyOA==",
+      "span_id": "76e2c9d633540f73",
+      "parent_id": "e9d6cedc48a4e280",
+      "name": "llm.gpt-4o-mini",
+      "span_kind": "LLM",
+      "status_code": "UNSET",
+      "start_time": "2026-10-26T01:23:38.892511+00:00",
+      "end_time": "2026-10-26T01:23:40.609498+00:00"
+    },
+    {
+      "id": "U3BhbjozMQ==",
+      "span_id": "1971b094a587d62c",
+      "parent_id": "e9d6cedc48a4e280",
+      "name": "tool.run_code",
+      "span_kind": "TOOL",
+      "status_code": "UNSET",
+      "start_time": "2026-10-26T01:23:40.618722+00:00",
+      "end_time": "2026-10-26T01:23:41.593601+00:00"
+    },
+    {
+      "id": "U3BhbjoyOQ==",
+      "span_id": "42382c6dcaf77160",
+      "parent_id": "1971b094a587d62c",
+      "name": "tool.read_file",
+      "span_kind": "TOOL",
+      "status_code": "UNSET",
+      "start_time": "2026-10-26T01:23:40.619246+00:00",
+      "end_time": "2026-10-26T01:23:40.619402+00:00"
+    },
+    {
+      "id": "U3BhbjozMA==",
+      "span_id": "eb4f38fbb4372753",
+      "parent_id": "1971b094a587d62c",
+      "name": "tool.read_file",
+      "span_kind": "TOOL",
+      "status_code": "UNSET",
+      "start_time": "2026-10-26T01:23:40.622414+00:00",
+      "end_time": "2026-10-26T01:23:40.622571+00:00"
+    },
+    {
+      "id": "U3BhbjozMg==",
+      "span_id": "07d1498f8bbe85d8",
+      "parent_id": "e9d6cedc48a4e280",
+      "name": "tool.memory.store",
+      "span_kind": "TOOL",
+      "status_code": "UNSET",
+      "start_time": "2026-10-26T01:23:41.601079+00:00",
+      "end_time": "2026-10-26T01:23:42.092127+00:00"
+    },
+    {
+      "id": "U3BhbjozMw==",
+      "span_id": "dafc367f1f3d0a7a",
+      "parent_id": "e9d6cedc48a4e280",
+      "name": "tool.memory.retrieve",
+      "span_kind": "TOOL",
+      "status_code": "UNSET",
+      "start_time": "2026-10-26T01:23:42.097686+00:00",
+      "end_time": "2026-10-26T01:23:42.357794+00:00"
+    },
+    {
+      "id": "U3BhbjozNA==",
+      "span_id": "38ffcf6d53371365",
+      "parent_id": "e9d6cedc48a4e280",
+      "name": "llm.gpt-4o-mini",
+      "span_kind": "LLM",
+      "status_code": "UNSET",
+      "start_time": "2026-10-26T01:23:42.362975+00:00",
+      "end_time": "2026-10-26T01:23:49.486418+00:00"
+    },
+    {
+      "id": "U3BhbjozNg==",
+      "span_id": "f2ff0fafb80ed9af",
+      "parent_id": "01dba7caccaae75b",
+      "name": "tool.read_file",
+      "span_kind": "TOOL",
+      "status_code": "UNSET",
+      "start_time": "2026-10-26T01:23:49.583112+00:00",
+      "end_time": "2026-10-26T01:23:49.583885+00:00"
+    },
+    {
+      "id": "U3BhbjozNw==",
+      "span_id": "f7f4bc8e34807477",
+      "parent_id": "01dba7caccaae75b",
+      "name": "tool.read_file",
+      "span_kind": "TOOL",
+      "status_code": "UNSET",
+      "start_time": "2026-10-26T01:23:49.603161+00:00",
+      "end_time": "2026-10-26T01:23:49.603332+00:00"
+    },
+    {
+      "id": "U3Bhbjo0MQ==",
+      "span_id": "6acea97096eb76ac",
+      "parent_id": "01dba7caccaae75b",
+      "name": "coder.CoderReviser.reflect",
+      "span_kind": "AGENT",
+      "status_code": "UNSET",
+      "start_time": "2026-10-26T01:23:49.611919+00:00",
+      "end_time": "2026-10-26T01:24:04.076692+00:00"
+    },
+    {
+      "id": "U3BhbjozOA==",
+      "span_id": "3985718ee85ab994",
+      "parent_id": "6acea97096eb76ac",
+      "name": "llm.gpt-4o-mini",
+      "span_kind": "LLM",
+      "status_code": "UNSET",
+      "start_time": "2026-10-26T01:23:49.614604+00:00",
+      "end_time": "2026-10-26T01:23:54.776697+00:00"
+    },
+    {
+      "id": "U3BhbjozOQ==",
+      "span_id": "412bf31bf26fd5c0",
+      "parent_id": "6acea97096eb76ac",
+      "name": "llm.gpt-4o-mini",
+      "span_kind": "LLM",
+      "status_code": "UNSET",
+      "start_time": "2026-10-26T01:23:54.795558+00:00",
+      "end_time": "2026-10-26T01:24:04.023932+00:00"
+    },
+    {
+      "id": "U3Bhbjo0MA==",
+      "span_id": "ad1970103a3ed41e",
+      "parent_id": "6acea97096eb76ac",
+      "name": "tool.write_file",
+      "span_kind": "TOOL",
+      "status_code": "UNSET",
+      "start_time": "2026-10-26T01:24:04.068682+00:00",
+      "end_time": "2026-10-26T01:24:04.069854+00:00"
+    },
+    {
+      "id": "U3Bhbjo1MA==",
+      "span_id": "2a14b894dbbaadf1",
+      "parent_id": "01dba7caccaae75b",
+      "name": "qa.QAAgent.review",
+      "span_kind": "AGENT",
+      "status_code": "UNSET",
+      "start_time": "2026-10-26T01:24:04.087713+00:00",
+      "end_time": "2026-10-26T01:24:19.248412+00:00"
+    },
+    {
+      "id": "U3Bhbjo0Mg==",
+      "span_id": "7dc8d5391c606754",
+      "parent_id": "2a14b894dbbaadf1",
+      "name": "llm.gpt-4o-mini",
+      "span_kind": "LLM",
+      "status_code": "UNSET",
+      "start_time": "2026-10-26T01:24:04.089247+00:00",
+      "end_time": "2026-10-26T01:24:17.877000+00:00"
+    },
+    {
+      "id": "U3Bhbjo0Mw==",
+      "span_id": "502b3c84728e4781",
+      "parent_id": "2a14b894dbbaadf1",
+      "name": "tool.write_file",
+      "span_kind": "TOOL",
+      "status_code": "UNSET",
+      "start_time": "2026-10-26T01:24:17.917932+00:00",
+      "end_time": "2026-10-26T01:24:17.918514+00:00"
+    },
+    {
+      "id": "U3Bhbjo0NA==",
+      "span_id": "b8f89b666a162add",
+      "parent_id": "2a14b894dbbaadf1",
+      "name": "tool.write_file",
+      "span_kind": "TOOL",
+      "status_code": "UNSET",
+      "start_time": "2026-10-26T01:24:17.923144+00:00",
+      "end_time": "2026-10-26T01:24:17.923673+00:00"
+    },
+    {
+      "id": "U3Bhbjo0NQ==",
+      "span_id": "571801ef7cef124d",
+      "parent_id": "2a14b894dbbaadf1",
+      "name": "tool.write_file",
+      "span_kind": "TOOL",
+      "status_code": "UNSET",
+      "start_time": "2026-10-26T01:24:17.927962+00:00",
+      "end_time": "2026-10-26T01:24:17.928308+00:00"
+    },
+    {
+      "id": "U3Bhbjo0OQ==",
+      "span_id": "16c87168c8b9dcd9",
+      "parent_id": "2a14b894dbbaadf1",
+      "name": "tool.run_code",
+      "span_kind": "TOOL",
+      "status_code": "UNSET",
+      "start_time": "2026-10-26T01:24:17.930974+00:00",
+      "end_time": "2026-10-26T01:24:19.241178+00:00"
+    },
+    {
+      "id": "U3Bhbjo0Ng==",
+      "span_id": "c6ec2f0fd892fa37",
+      "parent_id": "16c87168c8b9dcd9",
+      "name": "tool.read_file",
+      "span_kind": "TOOL",
+      "status_code": "UNSET",
+      "start_time": "2026-10-26T01:24:17.931180+00:00",
+      "end_time": "2026-10-26T01:24:17.931360+00:00"
+    },
+    {
+      "id": "U3Bhbjo0Nw==",
+      "span_id": "903037dd403e5996",
+      "parent_id": "16c87168c8b9dcd9",
+      "name": "tool.read_file",
+      "span_kind": "TOOL",
+      "status_code": "UNSET",
+      "start_time": "2026-10-26T01:24:17.933711+00:00",
+      "end_time": "2026-10-26T01:24:17.933806+00:00"
+    },
+    {
+      "id": "U3Bhbjo0OA==",
+      "span_id": "16a44bcab8b809ba",
+      "parent_id": "16c87168c8b9dcd9",
+      "name": "tool.read_file",
+      "span_kind": "TOOL",
+      "status_code": "UNSET",
+      "start_time": "2026-10-26T01:24:17.936573+00:00",
+      "end_time": "2026-10-26T01:24:17.936755+00:00"
+    },
+    {
+      "id": "U3Bhbjo1OA==",
+      "span_id": "e3480ce9f3a95550",
+      "parent_id": "01dba7caccaae75b",
+      "name": "qa.verify_bst",
+      "span_kind": "AGENT",
+      "status_code": "UNSET",
+      "start_time": "2026-10-26T01:24:19.256579+00:00",
+      "end_time": "2026-10-26T01:24:19.989121+00:00"
+    },
+    {
+      "id": "U3Bhbjo1MQ==",
+      "span_id": "a8f341689ed53508",
+      "parent_id": "e3480ce9f3a95550",
+      "name": "tool.write_file",
+      "span_kind": "TOOL",
+      "status_code": "UNSET",
+      "start_time": "2026-10-26T01:24:19.256983+00:00",
+      "end_time": "2026-10-26T01:24:19.257143+00:00"
+    },
+    {
+      "id": "U3Bhbjo1Mg==",
+      "span_id": "bb40b009c2372006",
+      "parent_id": "e3480ce9f3a95550",
+      "name": "tool.write_file",
+      "span_kind": "TOOL",
+      "status_code": "UNSET",
+      "start_time": "2026-10-26T01:24:19.260403+00:00",
+      "end_time": "2026-10-26T01:24:19.260629+00:00"
+    },
+    {
+      "id": "U3Bhbjo1Mw==",
+      "span_id": "0317ec623786e059",
+      "parent_id": "e3480ce9f3a95550",
+      "name": "tool.write_file",
+      "span_kind": "TOOL",
+      "status_code": "UNSET",
+      "start_time": "2026-10-26T01:24:19.262464+00:00",
+      "end_time": "2026-10-26T01:24:19.262635+00:00"
+    },
+    {
+      "id": "U3Bhbjo1Nw==",
+      "span_id": "725b3872bc3f6dba",
+      "parent_id": "e3480ce9f3a95550",
+      "name": "tool.run_code",
+      "span_kind": "TOOL",
+      "status_code": "UNSET",
+      "start_time": "2026-10-26T01:24:19.264412+00:00",
+      "end_time": "2026-10-26T01:24:19.982429+00:00"
+    },
+    {
+      "id": "U3Bhbjo1NA==",
+      "span_id": "32b3f352ebc03b33",
+      "parent_id": "725b3872bc3f6dba",
+      "name": "tool.read_file",
+      "span_kind": "TOOL",
+      "status_code": "UNSET",
+      "start_time": "2026-10-26T01:24:19.264546+00:00",
+      "end_time": "2026-10-26T01:24:19.264618+00:00"
+    },
+    {
+      "id": "U3Bhbjo1NQ==",
+      "span_id": "52d97427ff692055",
+      "parent_id": "725b3872bc3f6dba",
+      "name": "tool.read_file",
+      "span_kind": "TOOL",
+      "status_code": "UNSET",
+      "start_time": "2026-10-26T01:24:19.266551+00:00",
+      "end_time": "2026-10-26T01:24:19.266632+00:00"
+    },
+    {
+      "id": "U3Bhbjo1Ng==",
+      "span_id": "158f146741230ec5",
+      "parent_id": "725b3872bc3f6dba",
+      "name": "tool.read_file",
+      "span_kind": "TOOL",
+      "status_code": "UNSET",
+      "start_time": "2026-10-26T01:24:19.268271+00:00",
+      "end_time": "2026-10-26T01:24:19.268369+00:00"
+    }
+  ]
+}
