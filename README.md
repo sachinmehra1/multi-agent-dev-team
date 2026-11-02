@@ -199,3 +199,16 @@ Path checks assume no hostile concurrent host process replacing workspace entrie
 Memory and generated code can contain user-provided sensitive text: use non-sensitive
 tasks, keep runtime directories private, and never commit them. No project/course PDFs
 are bundled in this public-ready source distribution.
+
+
+## Module 5 preparation status (2 November 2026)
+
+**Important:** This public repository currently implements the Module 1 Coder Agent, not the complete Module 5 PM–Coder–QA pipeline. The Module 5 project guide requires all three agents, integrated E2E tests, retries/circuit breaker, cost optimization evidence, generated API reference and demo. Do not interpret the previous 37-test record as proof of these missing elements.
+
+- [Current architecture and missing roles](docs/ARCHITECTURE.md)
+- [Module 5 test status and three proposed E2E scenarios](docs/test_results.md)
+- [Performance audit and missing before/after metrics](docs/PERFORMANCE_AUDIT.md)
+- [600–1000-word reflection draft](docs/REFLECTION.md)
+- [Rubric-by-rubric readiness and gaps](docs/MODULE5_GAP_REPORT.md)
+
+**Final-submission blockers:** implement PM/QA and their handoffs, verify integrated pipeline and all tests from clean Compose startup, record performance before/after, generate pdoc HTML to docs/api/, record a 3–5 minute demo and add its URL, verify secrets history, and submit the final commit SHA. A defense preparation PDF is supplied separately in the conversation; no recording has been made here.
